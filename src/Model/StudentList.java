@@ -43,6 +43,7 @@ public class StudentList
 
     for (int i = 0; i < students.size(); i++) {
       returnString += students.get(i);
+      returnString += "\n";
     }
 
     return returnString;
