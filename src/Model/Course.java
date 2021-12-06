@@ -17,8 +17,8 @@ public class Course {
     private int semester;
 
     /**
-     * Returns the students from the student list
-     * @param studentList all the students from the student list
+     * 1 argugment constructor initializing Course
+     * @param studentList the student that are part of the course
      */
 
     public Course(StudentList studentList)
