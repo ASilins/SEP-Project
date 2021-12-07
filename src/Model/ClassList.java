@@ -25,11 +25,28 @@ public class ClassList {
     }
 
     /**
+     * Get the class object from class list with index.
+     * @param index the index of the class object in list
+     * @return the class object
+     */
+    public Class get(int index) {
+        return classes.get(index);
+    }
+
+    /**
      * Removes a class from the class list
      * @param classObject a class that needs to be removed from the class list
      */
     public void removeClass(Class classObject) {
         classes.remove(classObject);
+    }
+
+    /**
+     * Get the size of the class list.
+     * @return the size of the class list
+     */
+    public int size() {
+        return classes.size();
     }
 
     /**

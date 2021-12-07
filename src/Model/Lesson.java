@@ -37,6 +37,10 @@ public class Lesson {
         this.room=null;
     }
 
+    public Course getCourse() {
+        return course;
+    }
+
 
 
 

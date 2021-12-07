@@ -13,7 +13,7 @@ public class Course {
     private String courseName;
     private int ectsPoints;
     private StudentList students;
-    private TeacherList teachers;
+    private Teacher teacher;
     private int semester;
     private String className;
 
@@ -59,9 +59,8 @@ public class Course {
      * Adds the teacher from the list to the course
      * @return a teacher going to be added to the course
      */
-
-    public TeacherList getTeachers() {
-        return teachers;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
     /**
@@ -126,7 +125,7 @@ public class Course {
      */
     public String toString()
     {
-        return courseName + "\n" + teachers + "\n" +ectsPoints + "\n" + students  ;
+        return courseName + "\n" + teacher + "\n" +ectsPoints + "\n" + students  ;
     }
 
 

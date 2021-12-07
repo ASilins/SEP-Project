@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * A class containing teacher objects
  * @author Ondrej Klimek
- * @version 1.0
+ * @version 1.1
  */
 public class TeacherList
 {
@@ -28,6 +28,14 @@ public class TeacherList
     teachers.add(teacher);
   }
 
+  /**
+   * Get teacher object from teacher list with index.
+   * @param index the index of the teacher in list
+   * @return the teacher object from teacher list
+   */
+  public Teacher get(int index) {
+    return teachers.get(index);
+  }
   /**
    * A method to remove a teacher from the teacher list
    * @param teacher teacher to be removed

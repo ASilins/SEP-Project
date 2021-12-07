@@ -28,17 +28,29 @@ public class CourseList {
     }
 
     /**
+     * Get the course object with index from course list
+     * @param index the index of the course object in list
+     * @return the course object from list
+     */
+    public Course get(int index) {
+        return courses.get(index);
+    }
+
+    /**
      * Remove the course  form the list.
      * @param course the course to remove from the list
      */
     public void removeCourse(Course course) {
         courses.remove(course);
     }
+
+    public int size() {
+        return courses.size();
+    }
+
     /**
      * Returns a string representation of the course list.
      */
-
-
     public String toString() {
         String returnString = "";
 
