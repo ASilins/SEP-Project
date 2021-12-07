@@ -42,9 +42,7 @@ public class ClassList {
         for (int i=0; i<classes.size(); i++) {
             returnString += classes.get(i);
         }
-        
+
         return returnString;
     }
-
-
 }

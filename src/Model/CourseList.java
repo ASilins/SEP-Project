@@ -31,7 +31,7 @@ public class CourseList {
      * Remove the course  form the list.
      * @param course the course to remove from the list
      */
-    public void removeCurse(Course course) {
+    public void removeCourse(Course course) {
         courses.remove(course);
     }
     /**

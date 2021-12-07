@@ -27,6 +27,18 @@ public class StudentList
   }
 
   /**
+   * Gets student object from list of students at index
+   * @param index the index of student in array
+   * @return the student object from list
+   */
+  public Student getByIndex(int index) {
+    if (index <= students.size()) {
+      return students.get(index);
+    }
+    return null;
+  }
+
+  /**
    * Remove the student form the list.
    * @param student the student to remove from the list
    */
@@ -34,6 +46,13 @@ public class StudentList
     students.remove(student);
   }
 
+  /**
+   * Gets the lists size
+   * @return the size of the list
+   */
+  public int size() {
+    return students.size();
+  }
   /**
    * Returns a string representation of the student list.
    * @return a string representation of the student list in format: "Student"

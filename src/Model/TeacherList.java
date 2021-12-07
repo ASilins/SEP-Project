@@ -7,7 +7,6 @@ import java.util.ArrayList;
  * @author Ondrej Klimek
  * @version 1.0
  */
-
 public class TeacherList
 {
   private ArrayList<Teacher> teachers;
@@ -15,7 +14,6 @@ public class TeacherList
   /**
    * A constructor to initialize the teacher list
    */
-
   public TeacherList()
   {
     teachers = new ArrayList<>();
@@ -25,7 +23,6 @@ public class TeacherList
    * A method to add a teacher to the list
    * @param teacher teacher to be added
    */
-
   public void addTeacher(Teacher teacher)
   {
     teachers.add(teacher);
@@ -35,17 +32,18 @@ public class TeacherList
    * A method to remove a teacher from the teacher list
    * @param teacher teacher to be removed
    */
-
   public void removeTeacher(Teacher teacher)
   {
     teachers.remove(teacher);
   }
 
+  public int size() {
+    return teachers.size();
+  }
   /**
    * toString method
    * @return a string with all the teachers
    */
-
   public String toString()
   {
     String returnString = "";
