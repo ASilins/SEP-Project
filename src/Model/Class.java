@@ -4,26 +4,30 @@ import java.util.ArrayList;
 /**
  * A class containing class information.
  * @author Sid
- * @version 1.0
+ * @version 1.2
  */
 public class Class {
     private String className;
     private StudentList studentClassList;
     private CourseList courseClassList;
+    private int semester;
 
     /**
      * 3 argument constructor initializing class
      * @param name the name of the class
      * @param studentList the students that are part of the class
      * @param courseList the courses that are part of the class
+     * @param semester the semester the class takes place in
      */
-    public Class(String name, ArrayList<Student> studentList, ArrayList<Course> courseList) {
+    public Class(String name, ArrayList<Student> studentList, ArrayList<Course> courseList, int semester) {
         className=name;
+        this.semester=semester;
+
 
         for (int i =0; i< studentList.size();i++) {
             Student temp = studentList.get(i);
 
-            if (temp.getClassName().equals(className)) {
+            if (temp.getSemester()==semester && temp.getClassName().equals(className)) {
                 studentClassList.addStudent(temp);
             }
         }
@@ -31,7 +35,8 @@ public class Class {
         for (int i =0; i< courseList.size();i++) {
             Course temp = courseList.get(i);
 
-            if (temp.getCourseName().equals(courseName)) {
+            if (temp.getSemester()==semester && temp.getClassName().equals(className))
+            {
                 courseClassList.addCourse(temp);
             }
         }

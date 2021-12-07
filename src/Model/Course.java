@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * A class containing class information.
  * @author Bhupas
- * @version 1.0
+ * @version 1.1
  */
 
 public class Course {
@@ -15,6 +15,7 @@ public class Course {
     private StudentList students;
     private TeacherList teachers;
     private int semester;
+    private String className;
 
     /**
      * 1 argugment constructor initializing Course
@@ -81,10 +82,20 @@ public class Course {
 
     /**
      * Returns the Semester Name
-     * @return returns the samester name
+     * @return returns the semester name
      */
     public int getSemester(){
         return semester;
+    }
+
+    /**
+     * returns the class name
+     * @return returns the class name
+     */
+
+    public String getClassName()
+    {
+        return className;
     }
 
 

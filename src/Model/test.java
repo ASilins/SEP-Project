@@ -9,21 +9,15 @@ public class test
 {
   public static void main(String[] args)
   {
-    Student s1 = new Student("ABC", 123, 1, "ABC");
-    Student s2 = new Student("ABB", 123, 1, "ABC");
-    Student s3 = new Student("Bbb", 123, 1, "ABC");
-    Student s4 = new Student("Zzz", 123, 1, "ABC");
-    Student s5 = new Student("Ccc", 123, 1, "ABC");
-
-    StudentList sl1 = new StudentList();
-
-    sl1.addStudent(s1);
-    sl1.addStudent(s2);
-    sl1.addStudent(s3);
-    sl1.addStudent(s4);
-    sl1.addStudent(s5);
+    TimeSlot s1 = new TimeSlot(820 , 180, 'm');
+    TimeSlot s2 = new TimeSlot(840, 300,  'm');
+    TimeSlot s3 = new TimeSlot(820, 90, 'T');
+    TimeSlot s4 = new TimeSlot(1000, 90, 'm');
 
 
-    System.out.println(Sorter.sortStudents(sl1));
+
+    System.out.println(s1.overLap(s2));
+    System.out.println(s1.overLap(s3));
+    System.out.println(s1.overLap(s4));
   }
 }
