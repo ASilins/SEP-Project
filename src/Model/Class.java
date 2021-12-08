@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * A class containing class information.
  * @author Sid
- * @version 1.2
+ * @version 1.3
  */
 public class Class {
     private String className;
@@ -87,6 +87,30 @@ public class Class {
      */
     public void removeCourse(Course course) {
         courseClassList.removeCourse(course);
+    }
+
+    /**
+     * Sets the semester number.
+     * @param semester what the semester will be set to
+     */
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
+    /**
+     * Gets the semester number for class.
+     * @return the semester number
+     */
+    public int getSemester() {
+        return semester;
+    }
+
+    /**
+     * Get the list of student objects in class.
+     * @return the list of student objects in class
+     */
+    public StudentList getStudents() {
+        return studentClassList;
     }
 
     /**

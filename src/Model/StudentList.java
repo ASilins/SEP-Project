@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * A class containing list of student objects.
  * @author Arturs Silins
- * @version 1.0
+ * @version 1.1
  */
 public class StudentList
 {
@@ -27,11 +27,11 @@ public class StudentList
   }
 
   /**
-   * Gets student object from list of students at index
+   * Gets student object from list of students with index.
    * @param index the index of student in array
    * @return the student object from list
    */
-  public Student getByIndex(int index) {
+  public Student get(int index) {
     if (index <= students.size()) {
       return students.get(index);
     }

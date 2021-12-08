@@ -153,6 +153,10 @@ public class Lesson {
         }
     }
 
+    public Course getCourse() {
+        return course;
+    }
+
 
 
 
