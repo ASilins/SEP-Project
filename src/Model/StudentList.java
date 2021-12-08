@@ -1,7 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
-
+//WORKS
 /**
  * A class containing list of student objects.
  * @author Arturs Silins

@@ -1,5 +1,5 @@
 package Model;
-
+//WORKS
 /**
  * A class containing Lesson information
  * @author Sid and Bhupas
@@ -26,7 +26,11 @@ public class Lesson {
     {
         this.timeSlot=timeSlot;
         this.course=course;
+        if (room.isAvailable()){
         this.room=room;
+        room.bookRoom();}
+
+
         this.room1=null;
         this.room2=null;
     }
@@ -93,9 +97,14 @@ public class Lesson {
     public void bookRooms(Room room1, Room room2)
     {
         if (room1.getRoomNumber().charAt(1)==room2.getRoomNumber().charAt(1) && room1.getRoomNumber().charAt(0)==room2.getRoomNumber().charAt(0) && room1.getRoomNumber().charAt(2)!=room2.getRoomNumber().charAt(2)){
-            this.room1 = room1;
-            this.room2 = room2;
-            this.room = null;
+            if ((room1.isAvailable()||room1.equals(room)) && (room2.isAvailable()||room2.equals(room))) {
+                this.room1 = room1;
+                this.room2 = room2;
+                room = null;
+                room1.bookRoom();
+                room2.bookRoom();
+
+            }
         }
     }
 
@@ -153,9 +162,6 @@ public class Lesson {
         }
     }
 
-    public Course getCourse() {
-        return course;
-    }
 
 
 

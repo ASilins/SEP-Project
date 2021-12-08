@@ -1,5 +1,5 @@
 package Model;
-
+//WORKS
 /**
  * A class containing Student information.
  * @author Arturs Silins

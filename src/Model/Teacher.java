@@ -1,11 +1,11 @@
 package Model;
-
+//WORKS
 import java.util.ArrayList;
 
 /**
  * A class for Teacher objects
  * @author Ondrej Klimek
- * @version 1.0
+ * @version 1.1
  */
 public class Teacher
 {
@@ -16,9 +16,11 @@ public class Teacher
    * Constructor initializing the Teacher object
    * @param initials initials of the teacher
    */
-  public Teacher(String initials)
+  public Teacher(String initials, String course)
   {
+    courses = new ArrayList<String>();
     this.initials = initials;
+    courses.add(course);
   }
 
   /**
@@ -36,7 +38,7 @@ public class Teacher
    */
   public void addCourse(String course)
   {
-    this.courses.add(courses.size(), course);
+    this.courses.add(course);
   }
 
   /**
@@ -81,10 +83,6 @@ public class Teacher
    */
   public boolean equals(Object obj)
   {
-    if (this == obj)
-    {
-      return true;
-    }
     if (!(obj instanceof Teacher))
     {
       return false;

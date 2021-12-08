@@ -1,6 +1,6 @@
 package Model;
 import java.util.ArrayList;
-
+//WORKS
 /**
  * A class containing class information.
  * @author Sid
@@ -19,9 +19,11 @@ public class Class {
      * @param courseList the courses that are part of the class
      * @param semester the semester the class takes place in
      */
-    public Class(String name, ArrayList<Student> studentList, ArrayList<Course> courseList, int semester) {
+    public Class(String name, StudentList studentList, CourseList courseList, int semester) {
         className=name;
         this.semester=semester;
+        studentClassList = new StudentList();
+        courseClassList = new CourseList();
 
 
         for (int i =0; i< studentList.size();i++) {

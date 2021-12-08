@@ -1,5 +1,5 @@
 package Model;
-
+//WORKS
 /**
  * A class for the timeslot object
  * @author Sid and Bhupas
