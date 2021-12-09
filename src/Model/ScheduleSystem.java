@@ -18,7 +18,24 @@ public class ScheduleSystem
   }
 
   public void addLesson(Lesson lesson) {
-    lessons.add(lesson);
+    if (lessons.isEmpty())
+      lessons.add(lesson);
+    else
+    {
+      for (int i=0; i<lessons.size(); i++)
+      {
+        if (lessons.get(i).isavailable(lesson))
+        {
+          lessons.add(lesson);
+        }
+        else
+        {
+          System.out.println("no you cant");
+          break;
+        }
+
+      }
+    }
   }
 
   public Lesson getLesson(int index) {

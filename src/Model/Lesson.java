@@ -3,7 +3,7 @@ package Model;
 /**
  * A class containing Lesson information
  * @author Sid and Bhupas
- * @version 1.0
+ * @version 1.1
  */
 
 public class Lesson {
@@ -26,9 +26,9 @@ public class Lesson {
     {
         this.timeSlot=timeSlot;
         this.course=course;
-        if (room.isAvailable()){
+        /*if (room.isAvailable()){*/
         this.room=room;
-        room.bookRoom();}
+        /*room.bookRoom();}*/
 
 
         this.room1=null;
@@ -97,14 +97,14 @@ public class Lesson {
     public void bookRooms(Room room1, Room room2)
     {
         if (room1.getRoomNumber().charAt(1)==room2.getRoomNumber().charAt(1) && room1.getRoomNumber().charAt(0)==room2.getRoomNumber().charAt(0) && room1.getRoomNumber().charAt(2)!=room2.getRoomNumber().charAt(2)){
-            if ((room1.isAvailable()||room1.equals(room)) && (room2.isAvailable()||room2.equals(room))) {
+            /*if ((room1.isAvailable()||room1.equals(room)) && (room2.isAvailable()||room2.equals(room))) {*/
                 this.room1 = room1;
                 this.room2 = room2;
                 room = null;
-                room1.bookRoom();
-                room2.bookRoom();
+                /*room1.bookRoom();
+                room2.bookRoom();*/
 
-            }
+
         }
     }
 
@@ -125,9 +125,56 @@ public class Lesson {
      * @param lesson2 the second lesson that needs to be added
      * @return true if the lessons take place in a similar space and time and are thus incopatible
      */
-    public boolean isUnavailable(Lesson lesson2)
+    public boolean isavailable(Lesson lesson2)
     {
-        return this.room.equals(lesson2.room) && ((this.timeSlot.equals(lesson2.timeSlot) || (this.timeSlot.overLap(lesson2.timeSlot))));
+
+        if (room!=null && lesson2.room!=null) {
+            if (room.equals(lesson2.room) && ((timeSlot.equals(lesson2.timeSlot) || (timeSlot.overLap(lesson2.timeSlot))))) {
+                return false;
+            }
+            else
+             {
+                return true;
+            }
+
+        }
+        else if (room!=null && lesson2.room1!=null && lesson2.room2!=null)
+        {
+            if (((room.equals(lesson2.room1) || room.equals(lesson2.room2)) && ((timeSlot.equals(lesson2.timeSlot) || (timeSlot.overLap(lesson2.timeSlot))))))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else if (room1!=null&&room2!=null&&lesson2.room!=null)
+        {
+            if ((room1.equals(lesson2.room)||room2.equals(lesson2.room)) && ((timeSlot.equals(lesson2.timeSlot) || (timeSlot.overLap(lesson2.timeSlot)))))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else if (room1!=null&&room2!=null&&lesson2.room1!=null&&lesson2.room2!=null)
+        {
+            if (((room1.equals(lesson2.room1) || room2.equals(lesson2.room1)) || (room1.equals(lesson2.room2) || room1.equals(lesson2.room1)) && (timeSlot.equals(lesson2.timeSlot) || timeSlot.overLap(lesson2.timeSlot))))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
 
     }
 

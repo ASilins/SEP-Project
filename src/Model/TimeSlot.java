@@ -2,45 +2,79 @@ package Model;
 //WORKS
 /**
  * A class for the timeslot object
- * @author Sid and Bhupas
- * @version 1.0
+ * @author Sid
+ * @version 1.1
  */
 public class TimeSlot {
 
-    private int time;
-    private int length;
+    private int hourStart;
+    private int minuteStart;
+    private int hourEnd;
+    private int minuteEnd;
     private char day;
 
     /**
      * 3 argument constructor initializing the timeslot
-     * @param time the starting time in format 0000
-     * @param length the length of the time in minutes
+     * @param hourStart the starting hour
+     * @param minuteStart the starting minute
+     * @param hourEnd the ending hour
+     * @param minuteEnd the ending minute
      * @param day indicates the day of the week using 0, 1, 2, 3, 4, 5, 6 (0 is sunday)
      */
-    public TimeSlot(int time, int length, char day)
+    public TimeSlot(int hourStart, int minuteStart, int hourEnd, int minuteEnd, char day)
     {
-        this.time=time;
-        this.length=length;
+        this.hourStart=hourStart;
+        this.minuteStart=minuteStart;
+        this.hourEnd=hourEnd;
+        this.minuteEnd=minuteEnd;
         this.day=day;
 
     }
 
     /**
-     * returns the starting time in format 0000
-     * @return the starting time in format 0000
+     * returns the starting hour
+     * @return the starting hour
      */
-    public int getStart()
+    public int getHourStart()
     {
-        return time;
+        return hourStart;
     }
 
     /**
-     * returns the ending time in format 0000
-     * @return the starting time plus the length
+     * returns the starting minute
+     * @return the starting minute
      */
-    public int getEnd()
+    public int getMinutStarte()
     {
-        return time+length;
+        return minuteStart;
+    }
+
+    /**
+     * returns the ending hour
+     * @return the ending hour
+     */
+
+    public int getHourEnd()
+    {
+        return hourEnd;
+    }
+
+    /**
+     * returns the ending minute
+     * @return the ending minute
+     */
+    public int getMinuteEnd()
+    {
+        return hourEnd;
+    }
+
+    /**
+     * returns the day of the lesson
+     * @return the day of the lesson
+     */
+    public char getDay()
+    {
+        return day;
     }
 
     /**
@@ -50,20 +84,44 @@ public class TimeSlot {
      */
     public boolean overLap(TimeSlot newTimeSlot)
     {
-        if (this.day!= newTimeSlot.day)
+        if (day!= newTimeSlot.day)
         {
             return false;
         }
-        if (this.time >= newTimeSlot.getEnd())
+        else if (hourStart > newTimeSlot.hourEnd)
         {
             return false;
         }
-        if (this.getEnd() <= newTimeSlot.time)
+        else if (hourEnd < newTimeSlot.hourStart)
+        {
+            return false;
+        }
+        else if (hourStart==newTimeSlot.hourEnd && minuteStart>=newTimeSlot.minuteEnd)
+        {
+            return false;
+        }
+        else if (hourEnd==newTimeSlot.hourStart && minuteEnd >=newTimeSlot.minuteStart)
         {
             return false;
         }
         return true;
 
     }
+    /**
+     * equals() method to check if an object is the same as a teacher object
+     * @param obj object to be compared
+     * @return true if the two objects are equal and false otherwise
+     */
+    public boolean equals(Object obj)
+    {
+        if (!(obj instanceof TimeSlot))
+        {
+            return false;
+        }
+        TimeSlot other = (TimeSlot) obj;
+        return hourStart==other.hourStart && hourEnd==other.hourEnd && minuteStart==other.minuteEnd && day==other.day;
+
+    }
+
 
 }
