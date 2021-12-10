@@ -1,5 +1,4 @@
 package Model;
-//WORKS
 /**
  * A class containing Lesson information
  * @author Sid and Bhupas
@@ -26,9 +25,7 @@ public class Lesson {
     {
         this.timeSlot=timeSlot;
         this.course=course;
-        /*if (room.isAvailable()){*/
         this.room=room;
-        /*room.bookRoom();}*/
 
 
         this.room1=null;
@@ -96,13 +93,11 @@ public class Lesson {
      */
     public void bookRooms(Room room1, Room room2)
     {
-        if (room1.getRoomNumber().charAt(1)==room2.getRoomNumber().charAt(1) && room1.getRoomNumber().charAt(0)==room2.getRoomNumber().charAt(0) && room1.getRoomNumber().charAt(2)!=room2.getRoomNumber().charAt(2)){
-            /*if ((room1.isAvailable()||room1.equals(room)) && (room2.isAvailable()||room2.equals(room))) {*/
+        if (room1.getRoomNumber().charAt(1)==room2.getRoomNumber().charAt(1) && room1.getRoomNumber().charAt(0)==room2.getRoomNumber().charAt(0) && room1.getRoomNumber().charAt(2)!=room2.getRoomNumber().charAt(2))
+        {
                 this.room1 = room1;
                 this.room2 = room2;
                 room = null;
-                /*room1.bookRoom();
-                room2.bookRoom();*/
 
 
         }
@@ -125,7 +120,7 @@ public class Lesson {
      * @param lesson2 the second lesson that needs to be added
      * @return true if the lessons take place in a similar space and time and are thus incopatible
      */
-    public boolean isavailable(Lesson lesson2)
+    public boolean isAvailable(Lesson lesson2)
     {
 
         if (room!=null && lesson2.room!=null) {

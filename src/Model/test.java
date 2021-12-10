@@ -48,11 +48,14 @@ public class test
 
 
     Lesson s19 = new Lesson(s21, s5, s14);
+    Lesson test3 = new Lesson(s17, s5, s14);
     ScheduleSystem s20 = new ScheduleSystem();
     /*s19.bookRooms(s14, s15);*/
     s19.bookRooms(s15, s14);
     s20.addLesson(s18);
     s20.addLesson(s19);
+    s20.addLesson(test3);
+
 
     System.out.println(s20);
   }

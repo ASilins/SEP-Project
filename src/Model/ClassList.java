@@ -1,6 +1,5 @@
 package Model;
 import java.util.ArrayList;
-//WORKS
 /**
  * A class containing  list of class objects
  * @author Sid

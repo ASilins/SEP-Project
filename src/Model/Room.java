@@ -1,5 +1,4 @@
 package Model;
-//WORKS
 /**
  * A class containing room information.
  * @author Arturs Silins

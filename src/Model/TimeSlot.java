@@ -1,5 +1,4 @@
 package Model;
-//WORKS
 /**
  * A class for the timeslot object
  * @author Sid
@@ -121,6 +120,15 @@ public class TimeSlot {
         TimeSlot other = (TimeSlot) obj;
         return hourStart==other.hourStart && hourEnd==other.hourEnd && minuteStart==other.minuteEnd && day==other.day;
 
+    }
+
+    /**
+     * toString method to output all the data about a timeslot in a string
+     *    * @return string with starting time, ending time and day
+     */
+    public String toString()
+    {
+        return "time start: " + hourStart + ":"+minuteStart + "; time end: " + hourEnd + ":"+ minuteEnd + "; day: " + day;
     }
 
 

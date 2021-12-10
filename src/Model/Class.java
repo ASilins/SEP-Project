@@ -1,6 +1,5 @@
 package Model;
 import java.util.ArrayList;
-//WORKS
 /**
  * A class containing class information.
  * @author Sid
@@ -13,7 +12,7 @@ public class Class {
     private int semester;
 
     /**
-     * 3 argument constructor initializing class
+     * 4 argument constructor initializing class
      * @param name the name of the class
      * @param studentList the students that are part of the class
      * @param courseList the courses that are part of the class
