@@ -19,7 +19,7 @@ public class ScheduleModelManager
   private String lessonFileName;
 
   /**
-   * 6 argumen constructor that initializes files.
+   * 6 argument constructor setting file names.
    * @param studentFileName what the student file name will be
    * @param teacherFileName what the teacher file name will be
    * @param classFileName what the class file name will be
@@ -156,27 +156,261 @@ public class ScheduleModelManager
     return allLessons;
   }
 
-  public void saveStudent(Student student) {
+  /**
+   * Add student object to student object list and save it using saveStudents method.
+   * @param student an object that will be added to the list
+   */
+  public void addStudent(Student student) {
+    StudentList allStudents = getAllStudents();
+
+    if (!(allStudents.check(student))) {
+      allStudents.addStudent(student);
+      saveStudents(allStudents);
+    }
   }
 
-  public void saveTeacher(Teacher teacher) {
-
+  /**
+   * Replace object from student object list with a new object.
+   * @param oldStudent an object that will be removed
+   * @param newStudent an object that will be added
+   */
+  public void editStudent(Student oldStudent, Student newStudent) {
+    StudentList allStudents = getAllStudents();
+    allStudents.removeStudent(oldStudent);
+    allStudents.addStudent(newStudent);
+    saveStudents(allStudents);
   }
 
-  public void saveRoom(Room room) {
+  /**
+   * Remove student object from student object list.
+   * @param student an object that will be removed
+   */
+  public void removeStudent(Student student) {
+    StudentList allStudents = getAllStudents();
 
+    if (allStudents.check(student)) {
+      allStudents.removeStudent(student);
+      saveStudents(allStudents);
+    } else {
+      System.err.println("Student is not in the list");
+    }
   }
 
-  public void saveCourse(Course course) {
-
+  /**
+   * Save student object list to binary file.
+   * @param allStudents an object list that will be written to file
+   */
+  public void saveStudents(StudentList allStudents) {
+    try {
+      MyFileHandler.writeToBinaryFile(studentFileName, Sorter.sortStudents(allStudents));
+    } catch (FileNotFoundException e) {
+      System.err.println("File not found");
+    } catch (IOException e) {
+      System.err.println("IO Error writing file");
+    }
   }
 
-  public void saveLesson(Lesson lesson) {
+  /**
+   * Add teacher object to teacher object list and save it using saveTeacher method.
+   * @param teacher an object that will be added to the list
+   */
+  public void addTeacher(Teacher teacher) {
+    TeacherList allTeachers = getAllTeachers();
 
+    if (!(allTeachers.check(teacher))) {
+      allTeachers.addTeacher(teacher);
+      saveTeachers(allTeachers);
+    }
   }
 
-  public ScheduleSystem viewSchedule() {
-    return null;
+  /**
+   * Replace object from teacher object list with a new object and save it using saveTeacher method.
+   * @param oldTeacher an object that will be removed
+   * @param newTeacher and object that will be added
+   */
+  public void editTeacher(Teacher oldTeacher, Teacher newTeacher) {
+    TeacherList allTeachers = getAllTeachers();
+    allTeachers.removeTeacher(oldTeacher);
+    allTeachers.addTeacher(newTeacher);
+    saveTeachers(allTeachers);
+  }
+
+  /**
+   * Remove teacher object from teacher object list and save it using saveTeacher method.
+   * @param teacher an object that will be removed
+   */
+  public void removeTeacher(Teacher teacher) {
+    TeacherList allTeachers = getAllTeachers();
+
+    if (allTeachers.check(teacher)) {
+      allTeachers.removeTeacher(teacher);
+      saveTeachers(allTeachers);
+    } else {
+      System.err.println("Teacher is not in the list");
+    }
+  }
+
+  /**
+   * Save teacher object list to binary file using file handler class.
+   * @param allTeachers an object list that will be saved
+   */
+  public void saveTeachers(TeacherList allTeachers) {
+    try {
+      MyFileHandler.writeToBinaryFile(teacherFileName, Sorter.sortTeachers(allTeachers));
+    } catch (FileNotFoundException e) {
+      System.err.println("File not found");
+    } catch (IOException e) {
+      System.err.println("IO Error writing file");
+    }
+  }
+
+  /**
+   * Add room object to room object list and save it using saveRooms method.
+   * @param room an object that will be added to the list
+   */
+  public void addRoom(Room room) {
+    RoomList allRooms = getAllRooms();
+
+    if (!(allRooms.check(room))) {
+      allRooms.addRoom(room);
+      saveRooms(allRooms);
+    }
+  }
+
+  /**
+   * Replace room object from room object list with a new object and save it using saveRooms method.
+   * @param oldRoom an object that will be removed
+   * @param newRoom an object that will be added
+   */
+  public void editRoom(Room oldRoom, Room newRoom) {
+    RoomList allRooms = getAllRooms();
+    allRooms.removeRoom(oldRoom);
+    allRooms.addRoom(newRoom);
+    saveRooms(allRooms);
+  }
+
+  /**
+   * Remove room object from room object list and save it using saveRooms method.
+   * @param room an object that will be removed
+   */
+  public void removeRoom(Room room) {
+    RoomList allRooms = getAllRooms();
+
+    allRooms.removeRoom(room);
+    saveRooms(allRooms);
+  }
+
+  /**
+   * Save room object list to binary file using file handler class.
+   * @param allRooms an object list of that will be saved
+   */
+  public void saveRooms(RoomList allRooms) {
+    try {
+      MyFileHandler.writeToBinaryFile(roomFileName, allRooms);
+    } catch (FileNotFoundException e) {
+      System.err.println("File not found");
+    } catch (IOException e) {
+      System.err.println("IO Error writing file");
+    }
+  }
+
+  /**
+   * Add course object to course object list and save it using saveCourses method.
+   * @param course an object that will be added to the list
+   */
+  public void addCourse(Course course) {
+    CourseList allCourses = getAllCourses();
+
+    if (!(allCourses.check(course))) {
+      allCourses.addCourse(course);
+      saveCourses(allCourses);
+    }
+  }
+
+  /**
+   * Replace course object from course object list with a new object and save it using saveCourses method.
+   * @param oldCourse an object that will be removed
+   * @param newCourse and object that will be added
+   */
+  public void editCourse(Course oldCourse, Course newCourse) {
+    CourseList allCourses = getAllCourses();
+    allCourses.removeCourse(oldCourse);
+    allCourses.addCourse(newCourse);
+    saveCourses(allCourses);
+  }
+
+  /**
+   * Remove course object from course object list and save it using saveCourses method.
+   * @param course an object that will be removed
+   */
+  public void removeCourse(Course course) {
+    CourseList allCourses = getAllCourses();
+
+    allCourses.removeCourse(course);
+    saveCourses(allCourses);
+  }
+
+  /**
+   * Save course object list to binary file using file handler class/
+   * @param allCourses an object list that will be saved
+   */
+  public void saveCourses(CourseList allCourses) {
+    try {
+      MyFileHandler.writeToBinaryFile(courseFileName, allCourses);
+    } catch (FileNotFoundException e) {
+      System.err.println("File not found");
+    } catch (IOException e) {
+      System.err.println("IO Error writing file");
+    }
+  }
+
+  /**
+   * Add lesson object to course object list and save it using saveLessons method.
+   * @param lesson an object that will be added to the list
+   */
+  public void addLesson(Lesson lesson) {
+    ScheduleSystem allLessons = getAllLessons();
+
+    if (!(allLessons.check(lesson))) {
+      allLessons.addLesson(lesson);
+      saveLessons(allLessons);
+    }
+  }
+
+  /**
+   * Replace lesson object from lesson object list with a new object and save it using saveLessons method.
+   * @param oldLesson an object that will be removed
+   * @param newLesson an object that will be added
+   */
+  public void editLesson(Lesson oldLesson, Lesson newLesson) {
+    ScheduleSystem allLessons = getAllLessons();
+    allLessons.removeLesson(oldLesson);
+    allLessons.addLesson(newLesson);
+    saveLessons(allLessons);
+  }
+
+  /**
+   * Remove lessons object from lesson object list and save it using saveLessons method.
+   * @param lesson an object that will be removed
+   */
+  public void removeLesson(Lesson lesson) {
+    ScheduleSystem allLessons = getAllLessons();
+    allLessons.removeLesson(lesson);
+    saveLessons(allLessons);
+  }
+
+  /**
+   * Save lesson object list to binary file using file handler class.
+   * @param allLessons an object list that will be saved
+   */
+  public void saveLessons(ScheduleSystem allLessons) {
+    try {
+      MyFileHandler.writeToBinaryFile(lessonFileName, allLessons);
+    } catch (FileNotFoundException e) {
+      System.err.println("File not found");
+    } catch (IOException e) {
+      System.err.println("Io Error writing file");
+    }
   }
 
   /**
@@ -275,7 +509,7 @@ public class ScheduleModelManager
 
     for (int i = 0; i < allTeachers.size(); i++) {
       for (int j = 0; j < allTeachers.get(i).courseSize(); j++) {
-        if (allTeachers.get(i).getCourses().equals(course)) {
+        if (allTeachers.get(i).getCourses().get(j).equals(course)) {
           return allTeachers.get(i);
         }
       }
@@ -430,15 +664,15 @@ public class ScheduleModelManager
 
   /**
    * Get lesson object list by class object.
-   * @param className an object that will be compared
+   * @param classObject an object that will be compared
    * @return a lesson object list with equal class objects compared with parameter
    */
-  public ScheduleSystem getLessonsByClass(Class className) {
+  public ScheduleSystem getLessonsByClass(Class classObject) {
     ScheduleSystem lessonsByClass = new ScheduleSystem();
     ScheduleSystem allLessons = getAllLessons();
 
     for (int i = 0; i < allLessons.size(); i++) {
-      if (allLessons.getClasses().get(i).getName().equals(className)) {
+      if (allLessons.getLesson(i).getCourse().getClassName().equals(classObject.getName())) {
         lessonsByClass.addLesson(allLessons.getLesson(i));
       }
     }
@@ -503,7 +737,7 @@ public class ScheduleModelManager
   /**
    * Get a class object list by semester.
    * @param semester an int that will be compared
-   * @return a class object list with equal smester ints compared with parameter
+   * @return a class object list with equal semester ints compared with parameter
    */
   public ClassList getClassesBySemester(int semester) {
     ClassList classesBySemester = new ClassList();

@@ -1,11 +1,13 @@
 package Model;
+
+import java.io.Serializable;
+
 /**
  * A class containing room information.
  * @author Arturs Silins
  * @version 1.0
  */
-public class Room
-{
+public class Room implements Serializable {
   private String roomNumber;
   private int capacity;
   private char block;
@@ -119,8 +121,7 @@ public class Room
    * @return true if the given object is equal to this room
    */
   public boolean equals(Object obj) {
-    if (!(obj instanceof Room))
-    {
+    if (!(obj instanceof Room)) {
       return false;
     }
 

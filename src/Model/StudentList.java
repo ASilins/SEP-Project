@@ -1,12 +1,14 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+
 /**
  * A class containing list of student objects.
  * @author Arturs Silins
- * @version 1.1
+ * @version 1.2
  */
-public class StudentList
+public class StudentList implements Serializable
 {
   private ArrayList<Student> students;
 
@@ -52,6 +54,22 @@ public class StudentList
   public int size() {
     return students.size();
   }
+
+  /**
+   * Check if the object is in the obejct list.
+   * @param student an object that will be checked
+   * @return true if the object is in the list
+   */
+  public boolean check(Student student) {
+    for (int i = 0; i < students.size(); i++) {
+      if (students.get(i).equals(student)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   /**
    * Returns a string representation of the student list.
    * @return a string representation of the student list in format: "Student"

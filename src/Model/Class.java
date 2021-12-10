@@ -1,11 +1,15 @@
 package Model;
+
+import java.io.Serializable;
 import java.util.ArrayList;
+
 /**
  * A class containing class information.
  * @author Sid
  * @version 1.3
  */
-public class Class {
+public class Class implements Serializable
+{
     private String className;
     private StudentList studentClassList;
     private CourseList courseClassList;
@@ -82,6 +86,7 @@ public class Class {
     public void addCourse(Course course) {
         courseClassList.addCourse(course);
     }
+
     /**
      * Removes a course from the list of courses inside the class
      * @param course a course that is going to be removed from the course list
@@ -134,6 +139,6 @@ public class Class {
      * @return a string representation of the class in format. "className, courseClassList, studentClassList"
      */
     public String toString() {
-        return className + courseClassList.toString() + studentClassList.toString();
+        return semester + className + "\n" + "\n" +  courseClassList.toString() + studentClassList.toString();
     }
 }

@@ -1,13 +1,14 @@
 package Model;
-import java.util.ArrayList;
+
+import java.io.Serializable;
 
 /**
  * A class containing class information.
  * @author Bhupas and Sid
  * @version 1.2
  */
-
-public class Course {
+public class Course implements Serializable
+{
 
     private String courseName;
     private int ectsPoints;
@@ -26,9 +27,7 @@ public class Course {
      * @param semester the semester in which the course will take place
      * @param className the name of the class that has this course
      */
-
-    public Course(StudentList studentList, String courseName, int ectsPoints, Teacher teacher1, int semester, String className)
-    {
+    public Course(StudentList studentList, String courseName, int ectsPoints, Teacher teacher1, int semester, String className) {
         students = new StudentList();
         for (int i=0; i<studentList.size(); i++)
         {
@@ -46,13 +45,10 @@ public class Course {
         teacher2=null;
     }
 
-
     /**
      *Returns the students
      * @return returns the student.
      */
-
-
     public StudentList getStudents() {
         return students;
     }
@@ -61,7 +57,6 @@ public class Course {
      * adds the students to the list of student in the course
      * @param student adds the students to the course
      */
-
     public void addStudent(Student student){
         students.addStudent(student);
 
@@ -83,17 +78,16 @@ public class Course {
     {
         this.teacher1=teacher1;
     }
+
     /**
      * adds teacher2 to the course
      * @param teacher2 the teacher who needs to be added to the course
      */
-    public void addTeacher2(Teacher teacher2)
-    {
+    public void addTeacher2(Teacher teacher2) {
         this.teacher2=teacher2;
 
 
     }
-
 
     /**
      * Adds the teacher from the list to the course
@@ -107,13 +101,11 @@ public class Course {
      * adds the teachers from the course to the course teacher list and returns them
      * @return both teachers from the course
      */
-    public TeacherList getTeachers()
-    {
+    public TeacherList getTeachers() {
         TeacherList teachers = new TeacherList();
         teachers.addTeacher(teacher1);
         teachers.addTeacher(teacher2);
         return teachers;
-
     }
 
     /**
@@ -142,7 +134,6 @@ public class Course {
     {
         this.ectsPoints=ectsPoints;
     }
-
 
     /**
      * Adds ECTS points to the Course
@@ -201,22 +192,17 @@ public class Course {
      * returns the class name
      * @return returns the class name
      */
-
     public String getClassName()
     {
         return className;
     }
-
 
     /**
      * Compares the name, teacherList and studenList of the object of two cources.
      * @param obj object to be compared
      * @return true if the two objects are equal and false otherwise
      */
-
-
-    public boolean equals(Object obj)
-    {
+    public boolean equals(Object obj) {
 
         if (!(obj instanceof Course))
         {
@@ -231,16 +217,13 @@ public class Course {
      * Returns a string representation of the course
      * @return a string representation of the course in format: "Course name, Teacher, ectsPoints and students"
      */
-    public String toString()
-    {
+    public String toString() {
         if (teacher2==null) {
-            return courseName + "\n" + teacher1 + "\n" + ectsPoints + "\n" + students + "\n" + semester;
+            return courseName + "\n" + teacher1.getInitials() + "\n" + ectsPoints  + "\n" + semester + "\n" + className + "\n";
         }
         else
         {
-            return courseName + "\n" + teacher1 + "\n" + teacher2 + "\n" + ectsPoints + "\n" + students + "\n" + semester;
+            return courseName + "\n" + teacher1.getInitials() + "\n" + teacher2.getInitials() + "\n" + ectsPoints + "\n"  + semester + "\n" + className + "\n";
         }
     }
-
-
 }

@@ -1,11 +1,15 @@
 package Model;
+
+import java.io.Serializable;
 import java.util.ArrayList;
+
 /**
  * A class containing  list of class objects
  * @author Sid
  * @version 1.0
  */
-public class ClassList {
+public class ClassList implements Serializable
+{
     private ArrayList<Class> classes;
 
     /**
@@ -53,7 +57,7 @@ public class ClassList {
      * @return a string representation of the class list in format: "Class"
      */
     public String toString() {
-        String returnString ="";
+        String returnString = "";
 
         for (int i=0; i<classes.size(); i++) {
             returnString += classes.get(i);

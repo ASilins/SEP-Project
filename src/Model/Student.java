@@ -1,11 +1,13 @@
 package Model;
+
+import java.io.Serializable;
+
 /**
  * A class containing Student information.
  * @author Arturs Silins
  * @version 1.0
  */
-public class Student
-{
+public class Student implements Serializable {
   private String name;
   private int studentNumber;
   private int semester;

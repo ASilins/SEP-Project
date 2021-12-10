@@ -1,12 +1,14 @@
 package Model;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * A class containing list of room objects.
  * @author Arturs Silins
- * @version 1.1
+ * @version 1.2
  */
-public class RoomList
+public class RoomList implements Serializable
 {
   private ArrayList<Room> rooms;
 
@@ -33,6 +35,7 @@ public class RoomList
   public Room get(int index) {
     return rooms.get(index);
   }
+
   /**
    * Remove the room from the room list
    * @param room the room to remove from the list
@@ -50,6 +53,21 @@ public class RoomList
   }
 
   /**
+   * Check if the obejct is in the object list.
+   * @param room an object that will be checked in the list
+   * @return true if the object is in the list
+   */
+  public boolean check(Room room) {
+    for (int i = 0; i < rooms.size(); i++) {
+      if (rooms.get(i).equals(room)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /**
    * Returns a string representation of the room list.
    * @return a string representation of the room list in format: "Room"
    */
@@ -57,7 +75,7 @@ public class RoomList
     String returnString = "";
 
     for (int i = 0; i < rooms.size(); i++) {
-      returnString += rooms;
+      returnString += rooms.get(i);
     }
 
     return returnString;

@@ -1,4 +1,6 @@
 package Model;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -6,8 +8,7 @@ import java.util.ArrayList;
  * @author Ondrej Klimek
  * @version 1.1
  */
-public class Teacher
-{
+public class Teacher implements Serializable {
   private String initials;
   private ArrayList<String> courses;
 
@@ -15,8 +16,7 @@ public class Teacher
    * Constructor initializing the Teacher object
    * @param initials initials of the teacher
    */
-  public Teacher(String initials, String course)
-  {
+  public Teacher(String initials, String course) {
     courses = new ArrayList<String>();
     this.initials = initials;
     courses.add(course);
@@ -80,13 +80,12 @@ public class Teacher
    * @param obj object to be compared
    * @return true if the two objects are equal and false otherwise
    */
-  public boolean equals(Object obj)
-  {
-    if (!(obj instanceof Teacher))
-    {
+  public boolean equals(Object obj) {
+    if (!(obj instanceof Teacher)) {
       return false;
     }
     Teacher other = (Teacher) obj;
+
     return initials.equals(other.initials) && courses.equals(other.courses);
   }
 
