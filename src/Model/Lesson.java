@@ -160,10 +160,5 @@ public class Lesson {
         {
             return timeSlot+""+course+room;
         }
-    }
+    }}
 
-
-
-
-
-}
