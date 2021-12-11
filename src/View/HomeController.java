@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -15,11 +16,14 @@ import javafx.scene.control.Button;
 
 public class HomeController
 {
-//    private Stage stage;
-//    private Scene scene;
-//    private Parent root;
     @FXML
-    Button btnStudents, btnClasses, btnTeachers, btnRooms, btnCourses, btnLessons;
+    Button btnStudents, btnClasses, btnTeachers, btnRooms, btnCourses, btnLessons,
+        btnSchedule, btnHome;
+    @FXML
+    Hyperlink websiteLink;
+
+
+    //********** METHOD TO BE DELETED WHEN ITS TIME COMES **********\\
 
     public void switchToSceneHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(
@@ -33,7 +37,7 @@ public class HomeController
 
     }
 
-    public void switchToSceneStudent() throws IOException {
+    public void switchToSceneStudents() throws IOException {
         Parent root = FXMLLoader.load(
             Objects.requireNonNull(getClass().getResource("Students.fxml"))
         );
@@ -44,7 +48,7 @@ public class HomeController
 
     }
 
-    public void switchToSceneClass() throws IOException {
+    public void switchToSceneClasses() throws IOException {
         Parent root = FXMLLoader.load(
             Objects.requireNonNull(getClass().getResource("Classes.fxml"))
         );
@@ -55,7 +59,7 @@ public class HomeController
 
     }
 
-    public void switchToSceneTeacher() throws IOException {
+    public void switchToSceneTeachers() throws IOException {
         Parent root = FXMLLoader.load(
             Objects.requireNonNull(getClass().getResource("Teachers.fxml"))
         );
@@ -66,7 +70,7 @@ public class HomeController
 
     }
 
-    public void switchToSceneRoom() throws IOException {
+    public void switchToSceneRooms() throws IOException {
         Parent root = FXMLLoader.load(
             Objects.requireNonNull(getClass().getResource("Rooms.fxml"))
         );
@@ -98,5 +102,19 @@ public class HomeController
         window.show();
 
     }
+
+    public void switchToSceneSchedule() throws IOException {
+        Parent root = FXMLLoader.load(
+            Objects.requireNonNull(getClass().getResource("Schedule.fxml"))
+        );
+        Stage window = (Stage) btnSchedule.getScene().getWindow();
+        window.setScene(new Scene(root, 645, 720));
+
+        window.show();
+
+    }
+
+    //******* Hyperlink method!!! *******\\
+
 
 }
