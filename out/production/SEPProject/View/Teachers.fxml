@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane layoutX="29.0" layoutY="24.0" prefHeight="75.0" prefWidth="863.0">
+            <children>
+                <Text fill="#ec5863" layoutX="21.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIA">
+                    <font>
+                        <Font name="System Bold" size="39.0" />
+                    </font>
+                </Text>
+                <Button layoutX="763.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #4285F4;" text="Schedule" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <Pane layoutX="328.0" layoutY="138.0" prefHeight="93.0" prefWidth="265.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ec5863" height="90.0" stroke="#ec5863" strokeType="INSIDE" width="263.0" />
+                <Text fill="WHITE" layoutX="57.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teachers">
+                    <font>
+                        <Font name="System Bold" size="36.0" />
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <AnchorPane layoutX="114.0" layoutY="283.0" prefHeight="541.0" prefWidth="705.0">
+            <children>
+                <TabPane fx:id="tabPane" layoutX="13.0" layoutY="5.0" prefHeight="532.0" prefWidth="679.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab fx:id="allStudentsTab" onSelectionChanged="#tabChanged" text="All Teachers">
+                            <content>
+                                <VBox alignment="CENTER" spacing="10.0">
+                                    <children>
+                                        <ListView prefHeight="441.0" prefWidth="543.0" />
+                                        <Button fx:id="removeButton" mnemonicParsing="false" onAction="#handleActions" text="Remove" />
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="editStudenTab" onSelectionChanged="#tabChanged" text="Edit Teacher">
+                            <content>
+                                <VBox prefWidth="100.0" spacing="20.0">
+                                    <children>
+                                        <HBox prefHeight="120.0" prefWidth="200.0" spacing="20.0">
+                                            <children>
+                                                <GridPane prefHeight="79.0" prefWidth="301.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="118.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.33331298828125" minWidth="10.0" prefWidth="102.5" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Initial:" />
+                                                        <TextField fx:id="NameField" editable="false" GridPane.columnIndex="1" />
+                                                    </children>
+                                                </GridPane>
+                                                <FlowPane alignment="BASELINE_RIGHT" prefHeight="46.0" prefWidth="200.0">
+                                                    <padding>
+                                                        <Insets top="2.0" />
+                                                    </padding>
+                                                    <children>
+                                          <Pane prefHeight="44.0" prefWidth="200.0" />
+                                                        <ComboBox fx:id="studentBox" onAction="#handleActions" />
+                                                    </children>
+                                                </FlowPane>
+                                            </children>
+                                        </HBox>
+                                        <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox layoutX="14.0" prefHeight="200.0" prefWidth="181.0">
+                                       <children>
+                                          <ListView prefHeight="200.0" prefWidth="201.0" />
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="removeButton1" layoutX="269.0" layoutY="58.0" mnemonicParsing="false" onAction="#handleActions" text="Add course to the teacher" />
+                                    <ListView layoutX="473.0" prefHeight="200.0" prefWidth="172.0" />
+                                    <Button fx:id="removeButton11" layoutX="252.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleActions" text="Remove course from the teacher" />
+                                 </children></Pane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="addStudentTab" onSelectionChanged="#tabChanged" text="Add Teacher">
+                            <content>
+                                <VBox prefWidth="100.0" spacing="20.0">
+                                    <children>
+                                        <Pane prefHeight="112.0" prefWidth="659.0">
+                                            <children>
+                                                <GridPane layoutX="116.0" layoutY="30.0" prefHeight="31.0" prefWidth="293.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.33331298828125" minWidth="10.0" prefWidth="102.5" />
+                                                        <ColumnConstraints />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Initial:" />
+                                                        <TextField fx:id="firstNameField1" editable="false" GridPane.columnIndex="1" />
+                                                    </children>
+                                                </GridPane>
+                                            </children>
+                                        </Pane>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox layoutX="14.0" prefHeight="200.0" prefWidth="181.0">
+                                       <children>
+                                          <ListView prefHeight="230.0" prefWidth="224.0" />
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="removeButton11" layoutX="269.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleActions" text="Add course to the teacher" />
+                                    <ListView layoutX="471.0" prefHeight="200.0" prefWidth="174.0" />
+                                    <Button fx:id="removeButton111" layoutX="252.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleActions" text="Remove course from the teacher" />
+                                 </children>
+                              </Pane>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="54.0" layoutY="824.0" prefHeight="75.0" prefWidth="823.0">
+            <children>
+                <Button layoutX="748.0" layoutY="21.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button layoutX="8.0" layoutY="21.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: # FAFBFD;" text="Back">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
