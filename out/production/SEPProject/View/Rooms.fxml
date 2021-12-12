@@ -50,17 +50,17 @@
             <children>
                 <TabPane fx:id="tabPane" layoutX="13.0" layoutY="5.0" prefHeight="532.0" prefWidth="679.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                        <Tab fx:id="allStudentsTab" onSelectionChanged="#tabChanged" text="All Rooms">
+                        <Tab fx:id="allRoomsTab" onSelectionChanged="#tabChanged" text="All Rooms">
                             <content>
                                 <VBox alignment="CENTER" spacing="10.0">
                                     <children>
-                                        <ListView prefHeight="441.0" prefWidth="543.0" />
-                                        <Button fx:id="removeButton" mnemonicParsing="false" onAction="#handleActions" text="Remove" />
+                                        <ListView fx:id="allRoomssArea" prefHeight="441.0" prefWidth="543.0" />
+                                        <Button fx:id="removeRoomButton" mnemonicParsing="false" onAction="#handleActions" text="Remove" />
                                     </children>
                                 </VBox>
                             </content>
                         </Tab>
-                        <Tab fx:id="editStudenTab" onSelectionChanged="#tabChanged" text="Edit Room">
+                        <Tab fx:id="editRoomTab" onSelectionChanged="#tabChanged" text="Edit Room">
                             <content>
                                 <VBox prefWidth="100.0" spacing="20.0">
                                     <children>
@@ -106,7 +106,7 @@
                                 </VBox>
                             </content>
                         </Tab>
-                        <Tab fx:id="addStudentTab" onSelectionChanged="#tabChanged" text="Add Room">
+                        <Tab fx:id="addRoomTab" onSelectionChanged="#tabChanged" text="Add Room">
                             <content>
                                 <VBox prefWidth="100.0" spacing="20.0">
                                     <children>
