@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomeController">
    <children>
       <AnchorPane layoutX="29.0" layoutY="24.0" prefHeight="75.0" prefWidth="863.0">
          <children>
@@ -40,7 +40,7 @@
          <children>
             <Pane layoutX="14.0" layoutY="9.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
                <children>
-                  <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;" />
+                  <Button fx:id="btnStudents" layoutX="8.0" layoutY="7.0" mnemonicParsing="false" onAction="#switchToSceneStudents" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;" />
                   <ImageView fitHeight="108.0" fitWidth="125.0" layoutX="40.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../Downloads/logo.png" />

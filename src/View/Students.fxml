@@ -20,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="allStudents" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StudentsController">
    <children>
       <AnchorPane layoutX="29.0" layoutY="24.0" prefHeight="75.0" prefWidth="863.0">
          <children>
@@ -50,17 +50,17 @@
          <children>
             <TabPane fx:id="tabPane" layoutX="13.0" layoutY="5.0" prefHeight="532.0" prefWidth="679.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
-                  <Tab fx:id="allStudentsTab" onSelectionChanged="#tabChanged" text="All Students">
+                  <Tab fx:id="allStudentsTab"  text="All Students">
                      <content>
                         <VBox alignment="CENTER" spacing="10.0">
                            <children>
-                              <ListView prefHeight="441.0" prefWidth="543.0" />
-                              <Button fx:id="removeButton" mnemonicParsing="false" onAction="#handleActions" text="Remove" />
+                              <ListView fx:id="allStudentsList" prefHeight="470.0" prefWidth="679.0" />
+                              <Button fx:id="removeButton" mnemonicParsing="false"  text="Remove" />
                            </children>
                         </VBox>
                      </content>
                   </Tab>
-                  <Tab fx:id="editStudenTab" onSelectionChanged="#tabChanged" text="Edit Student">
+                  <Tab fx:id="editStudentTab"  text="Edit Student">
                      <content>
                         <VBox prefWidth="100.0" spacing="20.0">
                            <children>
@@ -93,7 +93,7 @@
                                           <Insets top="2.0" />
                                        </padding>
                                        <children>
-                                          <ComboBox fx:id="studentBox" onAction="#handleActions" />
+                                          <ComboBox fx:id="studentBox"  />
                                        </children>
                                     </FlowPane>
                                  </children>
@@ -106,7 +106,7 @@
                         </VBox>
                      </content>
                   </Tab>
-                  <Tab fx:id="addStudentTab" onSelectionChanged="#tabChanged" text="Add Student">
+                  <Tab fx:id="addStudentTab"  text="Add Student">
                      <content>
                         <VBox prefWidth="100.0" spacing="20.0">
                            <children>
