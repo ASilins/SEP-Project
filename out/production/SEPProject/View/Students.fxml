@@ -20,7 +20,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<<<<<<< HEAD
 <AnchorPane fx:id="allStudents" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StudentsController">
+=======
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+>>>>>>> GUi
    <children>
       <AnchorPane layoutX="29.0" layoutY="24.0" prefHeight="75.0" prefWidth="863.0">
          <children>
@@ -50,7 +54,11 @@
          <children>
             <TabPane fx:id="tabPane" layoutX="13.0" layoutY="5.0" prefHeight="532.0" prefWidth="679.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
+<<<<<<< HEAD
                   <Tab fx:id="allStudentsTab"  text="All Students">
+=======
+                  <Tab fx:id="allStudentsTab" onSelectionChanged="#tabChanged" text="All Students">
+>>>>>>> GUi
                      <content>
                         <VBox alignment="CENTER" spacing="10.0">
                            <children>

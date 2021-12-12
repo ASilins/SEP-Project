@@ -61,7 +61,7 @@
                         <Image url="@../../../../../Downloads/logo.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="55.0" layoutY="130.0" text="Students">
+                  <Label layoutX="62.0" layoutY="130.0" text="Classes">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -76,7 +76,7 @@
                         <Image url="@../../../../../Downloads/logo.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="55.0" layoutY="130.0" text="Students">
+                  <Label layoutX="55.0" layoutY="130.0" text="Teachers">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -91,7 +91,7 @@
                         <Image url="@../../../../../Downloads/logo.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="55.0" layoutY="130.0" text="Students">
+                  <Label layoutX="63.0" layoutY="130.0" text="Rooms">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -106,7 +106,7 @@
                         <Image url="@../../../../../Downloads/logo.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="55.0" layoutY="130.0" text="Students">
+                  <Label layoutX="55.0" layoutY="130.0" text="Courses">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -121,7 +121,7 @@
                         <Image url="@../../../../../Downloads/logo.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="55.0" layoutY="130.0" text="Students">
+                  <Label layoutX="59.0" layoutY="130.0" text="Lessons">
                      <font>
                         <Font size="20.0" />
                      </font>
