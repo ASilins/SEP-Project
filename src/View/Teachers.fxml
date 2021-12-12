@@ -66,39 +66,41 @@
                                     <children>
                                         <HBox prefHeight="120.0" prefWidth="200.0" spacing="20.0">
                                             <children>
-                                                <GridPane prefHeight="120.0" prefWidth="295.0">
+                                                <GridPane prefHeight="79.0" prefWidth="301.0">
                                                     <columnConstraints>
                                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="118.0" />
                                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.33331298828125" minWidth="10.0" prefWidth="102.5" />
                                                     </columnConstraints>
                                                     <rowConstraints>
                                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     </rowConstraints>
                                                     <children>
                                                         <Label text="Initial:" />
-                                                        <Label prefHeight="17.0" prefWidth="94.0" text="Courses" GridPane.rowIndex="1" />
-                                                        <Label text="Add Course" GridPane.rowIndex="2" />
                                                         <TextField fx:id="NameField" editable="false" GridPane.columnIndex="1" />
-                                                        <TextField fx:id="studentNumberFild" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                        <TextField fx:id="semesterField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                        <Label text="Class:" GridPane.rowIndex="3" />
-                                                        <TextField fx:id="classField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                                     </children>
                                                 </GridPane>
-                                                <FlowPane alignment="BASELINE_RIGHT" prefHeight="200.0" prefWidth="200.0">
+                                                <FlowPane alignment="BASELINE_RIGHT" prefHeight="46.0" prefWidth="200.0">
                                                     <padding>
                                                         <Insets top="2.0" />
                                                     </padding>
                                                     <children>
+                                          <Pane prefHeight="44.0" prefWidth="200.0" />
                                                         <ComboBox fx:id="studentBox" onAction="#handleActions" />
                                                     </children>
                                                 </FlowPane>
                                             </children>
                                         </HBox>
-                                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                                        <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox layoutX="14.0" prefHeight="200.0" prefWidth="181.0">
+                                       <children>
+                                          <ListView prefHeight="200.0" prefWidth="201.0" />
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="removeButton1" layoutX="269.0" layoutY="58.0" mnemonicParsing="false" onAction="#handleActions" text="Add course to the teacher" />
+                                    <ListView layoutX="473.0" prefHeight="200.0" prefWidth="172.0" />
+                                    <Button fx:id="removeButton11" layoutX="252.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleActions" text="Remove course from the teacher" />
+                                 </children></Pane>
                                     </children>
                                     <padding>
                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -110,29 +112,35 @@
                             <content>
                                 <VBox prefWidth="100.0" spacing="20.0">
                                     <children>
-                                        <Pane prefHeight="200.0" prefWidth="200.0">
+                                        <Pane prefHeight="112.0" prefWidth="659.0">
                                             <children>
-                                                <GridPane layoutX="114.0" layoutY="30.0" prefHeight="120.0" prefWidth="295.0">
+                                                <GridPane layoutX="116.0" layoutY="30.0" prefHeight="31.0" prefWidth="293.0">
                                                     <columnConstraints>
                                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.33331298828125" minWidth="10.0" prefWidth="102.5" />
                                                         <ColumnConstraints />
                                                     </columnConstraints>
                                                     <rowConstraints>
                                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     </rowConstraints>
                                                     <children>
                                                         <Label text="Initial:" />
-                                                        <Label text="Courses:" GridPane.rowIndex="1" />
                                                         <TextField fx:id="firstNameField1" editable="false" GridPane.columnIndex="1" />
-                                                        <TextField fx:id="countryField1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                        <Label text="Class:" GridPane.rowIndex="2" />
-                                                        <TextField fx:id="countryField11" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                                     </children>
                                                 </GridPane>
                                             </children>
                                         </Pane>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox layoutX="14.0" prefHeight="200.0" prefWidth="181.0">
+                                       <children>
+                                          <ListView prefHeight="230.0" prefWidth="224.0" />
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="removeButton11" layoutX="269.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleActions" text="Add course to the teacher" />
+                                    <ListView layoutX="471.0" prefHeight="200.0" prefWidth="174.0" />
+                                    <Button fx:id="removeButton111" layoutX="252.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleActions" text="Remove course from the teacher" />
+                                 </children>
+                              </Pane>
                                     </children>
                                     <padding>
                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
