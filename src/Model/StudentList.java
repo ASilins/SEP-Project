@@ -19,6 +19,10 @@ public class StudentList implements Serializable
     students = new ArrayList<Student>();
   }
 
+  public ArrayList<Student> getStudents() {
+    return students;
+  }
+
   /**
    * Adds the student to the list.
    * @param student the student to add to the list
