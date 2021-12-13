@@ -41,6 +41,11 @@ public class StudentsController implements Initializable
   private ScheduleModelManager scheduleManager = new ScheduleModelManager("src/Files/students.bin",
       "src/Files/teachers.bin", "src/Files/classes.bin", "src/Files/courses.bin",
       "src/Files/rooms.bin", "src/Files/lessons.bin");
+  @FXML private TextField nameField;
+  @FXML private TextField studentNumberField;
+  @FXML private TextField semesterField;
+  @FXML private TextField classField;
+  @FXML private ComboBox studentBox;
 
 
 
@@ -60,14 +65,15 @@ public class StudentsController implements Initializable
   public void initialize(URL url, ResourceBundle rb)
   {
     studentList = new StudentList();
-    tempList = new StudentList();
+    removedStudents = new StudentList();
     studentList = scheduleManager.getAllStudents();
-    allStudents = FXCollections.observableArrayList();
+    /*allStudents = FXCollections.observableArrayList();
     for (int i = 0; i < studentList.size(); i++)
     {
       allStudents.add(i, studentList);
-    }
+    }*/
     initializeTable();
+    initializeComboBox();
 
   }
 
@@ -82,18 +88,27 @@ public class StudentsController implements Initializable
     for (int i = 0; i < studentList.size(); i++)
     {
       students.getItems().add(studentList.get(i));
-      tempList.addStudent(studentList.get(i));
+      removedStudents.addStudent(studentList.get(i));
     }
   }
 
   @FXML private void removeButton(ActionEvent event){
     Student selected = students.getSelectionModel().getSelectedItem();
     this.student = selected;
-    tempList.addStudent(selected);
+    removedStudents.addStudent(selected);
     studentList.removeStudent(selected);
     students.getItems().remove(selected);
     initializeTable();
     numberOfRemovedStudents++;
+  }
+
+  private void initializeComboBox()
+  {
+    for (int i = 0; i < studentList.size(); i++)
+    {
+     studentBox.getItems().add(studentList.get(i).toString());
+    }
+
   }
 
   @FXML private void btnSave(ActionEvent event)
@@ -107,13 +122,13 @@ public class StudentsController implements Initializable
 
     if (alert.getResult() == ButtonType.YES)
     {
-      for (int i = 0; i < tempList.size(); i++)
+      for (int i = 0; i < removedStudents.size(); i++)
       {
-        scheduleManager.removeStudent(tempList.get(i));
+        scheduleManager.removeStudent(removedStudents.get(i));
       }
       for (int i = 0; i < numberOfRemovedStudents; i++)
       {
-        tempList.removeStudent(tempList.get(i));
+        removedStudents.removeStudent(tempList.get(i));
       }
       this.numberOfRemovedStudents = 0;
     }

@@ -89,19 +89,19 @@
                                           <Label text="Name:" />
                                           <Label prefHeight="17.0" prefWidth="94.0" text="Student Number:" GridPane.rowIndex="1" />
                                           <Label text="Semester:" GridPane.rowIndex="2" />
-                                          <TextField fx:id="NameField" editable="false" GridPane.columnIndex="1" />
-                                          <TextField fx:id="studentNumberFild" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <TextField fx:id="semesterField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label text="Class:" GridPane.rowIndex="3" />
+                                          <TextField fx:id="nameField" GridPane.columnIndex="1" />
+                                          <TextField fx:id="studentNumberField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="semesterField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <TextField fx:id="classField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                        </children>
                                     </GridPane>
-                                    <FlowPane alignment="BASELINE_RIGHT" prefHeight="200.0" prefWidth="200.0">
+                                    <FlowPane alignment="BASELINE_RIGHT" prefHeight="120.0" prefWidth="346.0">
                                        <padding>
                                           <Insets top="2.0" />
                                        </padding>
                                        <children>
-                                          <ComboBox fx:id="studentBox" />
+                                          <ComboBox fx:id="studentBox" prefHeight="26.0" prefWidth="338.0" promptText="Select a student" />
                                        </children>
                                     </FlowPane>
                                  </children>
@@ -135,11 +135,11 @@
                                           <Label text="Name:" />
                                           <Label prefHeight="17.0" prefWidth="94.0" text="Student Number:" GridPane.rowIndex="1" />
                                           <Label text="Semester:" GridPane.rowIndex="2" />
-                                          <TextField fx:id="firstNameField1" editable="false" GridPane.columnIndex="1" />
-                                          <TextField fx:id="lastNameField1" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <TextField fx:id="countryField1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="firstNameField1" promptText="Name" GridPane.columnIndex="1" />
+                                          <TextField fx:id="lastNameField1" promptText="Student Number" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="countryField1" promptText="Semester" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label text="Class:" GridPane.rowIndex="3" />
-                                          <TextField fx:id="countryField11" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="countryField11" promptText="Class" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                        </children>
                                     </GridPane>
                                  </children>
@@ -157,12 +157,12 @@
       </AnchorPane>
       <AnchorPane layoutX="54.0" layoutY="824.0" prefHeight="75.0" prefWidth="823.0">
          <children>
-            <Button fx:id="stSave" layoutX="748.0" layoutY="21.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE">
+            <Button fx:id="btnSave" layoutX="748.0" layoutY="21.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="8.0" layoutY="21.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: # FAFBFD;" text="Back">
+            <Button fx:id="btnHome" layoutX="8.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchToSceneHome" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: # FAFBFD;" text="Back">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
