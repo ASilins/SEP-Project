@@ -17,12 +17,15 @@ public class TimeSlot {
     private int month;
 
     /**
-     * 3 argument constructor initializing the timeslot
+     * 8 argument constructor initializing the timeslot
      * @param hourStart the starting hour
      * @param minuteStart the starting minute
      * @param hourEnd the ending hour
      * @param minuteEnd the ending minute
      * @param dayOftheWeek indicates the day of the week using 0, 1, 2, 3, 4, 5, 6 (0 is sunday)
+     * @param day the day of the lesson
+     * @param month the month of the lesson
+     * @param year the year of the lesson
      */
     public TimeSlot(int hourStart, int minuteStart, int hourEnd, int minuteEnd, int dayOftheWeek, int year, int month, int day)
     {
@@ -35,6 +38,17 @@ public class TimeSlot {
 
 
     }
+
+    /**
+     * 8 argument constructor initializing the timeslot
+     * @param hourStart the starting hour
+     * @param minuteStart the starting minute
+     * @param hourEnd the ending hour
+     * @param minuteEnd the ending minute
+     * @param day the day of the lesson
+     * @param month the month of the lesson
+     * @param year the year of the lesson
+     */
 
     public TimeSlot(int hourStart, int minuteStart, int hourEnd, int minuteEnd, int year, int month, int day)
     {
