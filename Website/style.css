@@ -1,0 +1,632 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik:400,700");
+@import url("https://fonts.googleapis.com/css?family=Rubik+One:400");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700,800");
+
+/* Written by Arturs */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: Rubik;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body p {
+  color: #616161;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+body h1 {
+  line-height: 55px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 44px;
+}
+body a {
+  letter-spacing: 0.14em;
+}
+
+/**** Nav ****/
+
+nav {
+  padding: 0 4rem;
+}
+#NavBar {
+  justify-content: end;
+}
+.navbar-brand {
+  text-decoration: none;
+  font-family: Rubik One;
+  font-style: normal;
+  font-size: 65px;
+  font-weight: normal;
+  color: #ec5863 !important;
+  letter-spacing: 0;
+}
+.navbar-brand:hover {
+  color: #ec5863;
+}
+.nav-link:hover {
+  color: #000000;
+}
+.nav-items li {
+  list-style: none;
+  margin-right: 3rem;
+}
+.nav-items li a {
+  color: #000000;
+  text-decoration: none;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+}
+
+.nav-button {
+  text-align: center;
+}
+.nav-items #schedule {
+  text-align: center;
+}
+@media screen and (min-width: 992px) {
+  .nav-button {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+
+    transition: 200ms;
+  }
+  .nav-button:hover {
+    background-color: #d3d3d3;
+  }
+  .nav-items #schedule {
+    margin-right: 0;
+    margin-left: 7rem;
+  }
+}
+@media screen and (max-width: 991px) {
+  .nav-button {
+    display: inline;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    background-color: #d3d3d3;
+  }
+}
+
+@media screen and (max-width: 464px) {
+  nav {
+    padding: 0 1rem;
+  }
+}
+
+#schedule a {
+  margin-bottom: 0;
+  color: #fcfdfe;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  background: #4285f4;
+  display: inline-block;
+  padding: 13px 33px;
+  border-radius: 5px;
+
+  transition: 200ms;
+}
+#schedule a:hover {
+  background-color: #4285f4;
+  transform: scale(1.2);
+}
+
+/**** Nav end ****/
+
+/* Top */
+
+.top,
+.sep {
+  padding: 4rem 8rem;
+}
+
+/* Content in header */
+
+.content h1 {
+  margin-bottom: 5rem;
+}
+.content p {
+  /*margin-bottom: 5.5rem;*/
+  margin-left: 1rem;
+}
+.content a {
+  color: black;
+}
+.blue-index {
+  color: black;
+  margin-bottom: 20%;
+}
+
+/* Image without box */
+
+.no-box-sep {
+  margin-top: auto;
+  width: 50%;
+  padding-bottom: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .no-box-sep {
+    width: 80%;
+  }
+}
+
+.no-box-sep img {
+  /*padding: 1rem 0;*/
+  padding-bottom: 1.5rem;
+  width: 80%;
+  height: 100%;
+  /*margin: 0 10%;*/
+}
+
+@media screen and (max-width: 991px) {
+  .sep,
+  .top {
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+  }
+  .content {
+    text-align: center;
+  }
+  .content p {
+    margin-left: 0;
+  }
+  .no-box-sep img {
+    margin-top: 2rem;
+  }
+}
+
+/* Buttons */
+
+.content a,
+.card-text a,
+.carousel-learn-more {
+  color: #fcfdfe;
+  text-decoration: none;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+
+  padding: 13px 24px;
+  margin-left: 10px;
+  border-radius: 5px;
+  transition: 200ms;
+}
+
+/* Button with starting colour blue */
+
+.blue {
+  background-color: #4285f4;
+}
+
+.blue:hover {
+  background-color: #ec5863;
+}
+
+/* Button with starting colour red */
+.red {
+  background-color: #ec5863;
+}
+
+.red:hover {
+  background-color: #4285f4;
+}
+
+/* Courses headline */
+
+.courses {
+  height: 15rem;
+  text-align: center;
+}
+
+.courses p {
+  margin-top: 2rem;
+  padding: 0 15rem;
+}
+
+/* contact By Bhupas*/
+
+.card-text .mail a {
+  color: #616161;
+  font-family: Rubik;
+  font-style: normal;
+}
+.card-text a {
+  color: #fcfdfe;
+  text-decoration: none;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  padding: 13px 24px;
+  margin-left: 10px;
+  border-radius: 5px;
+  transition: 200ms;
+}
+
+.card {
+  width: 20rem;
+  height: 25rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px 5px rgba(1, 1, 1, 0.1);
+  margin-bottom: 80px;
+  align-items: center;
+  list-style: none;
+  padding: 0 1.5rem;
+}
+
+.card-image {
+  margin-top: 10px;
+}
+.card-image img {
+  height: 190px;
+  width: 175px;
+}
+
+.card-image {
+  margin-top: 3rem;
+}
+
+.card-image img {
+  max-height: 8rem;
+  width: auto;
+}
+.card-text h2 {
+  margin: 2rem 0;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* End of contact*/
+
+/* Start of Sep*/
+
+.headline-in-box-container {
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+.headline-box {
+  text-align: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px rgba(1, 1, 1, 0.1);
+}
+
+.headline-box h1 {
+  padding: 1.5rem 0;
+  font-size: 4vw;
+}
+
+.image-in-box-sep {
+  margin-top: 10%;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px rgba(1, 1, 1, 0.1);
+  background-color: #fff;
+  margin-bottom: 10%;
+  padding-bottom: 10px;
+}
+
+.image-in-box-sep img {
+  padding: 1rem 0;
+  width: 80%;
+  height: 100%;
+  margin: 0 10%;
+  margin-top: 5%;
+}
+.image-in-box-index {
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px rgba(1, 1, 1, 0.1);
+  background-color: #fff;
+  margin-bottom: 10%;
+  padding-bottom: 10px;
+}
+.image-in-box-index img {
+  padding: 1rem 0;
+  width: 80%;
+  height: 100%;
+  margin: 0 10%;
+  margin-top: 5%;
+}
+
+/* End of Sep*/
+
+/* Footer */
+
+footer {
+  width: auto;
+  min-height: 9rem;
+  background-color: #b3b3b3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo {
+  text-align: start;
+  padding-left: 2rem;
+
+  font-family: Rubik One;
+  font-style: normal;
+  font-size: 60px;
+  font-weight: normal;
+  color: #ec5863;
+  letter-spacing: 0;
+}
+.contact-via {
+  text-align: end;
+  padding-right: 2rem;
+}
+.contact-via h3 {
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 10px;
+  padding-left: 30px;
+
+  color: #ec5863;
+}
+.contact-via p {
+  margin-bottom: 5px;
+}
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 70px;
+  margin-top: 40px;
+  margin-bottom: 32px;
+}
+
+.social-icons div img {
+  height: 40px;
+  width: 40px;
+}
+.copyright {
+  position: relative;
+  font-size: 10px;
+  text-align: center;
+}
+
+@media screen and (max-width: 575px) {
+  .desktop {
+    display: none;
+  }
+  .footer-logo {
+    text-align: center;
+    padding: 0;
+  }
+  .contact-via {
+    text-align: center;
+    padding: 0;
+  }
+  .contact-via h3 {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .mobile {
+    display: none;
+  }
+}
+
+.courses-img {
+  /*min-width: 220px;*/
+  padding: 0;
+}
+
+/* Carousel */
+
+.carousel {
+  margin-bottom: 7.5rem;
+}
+.carousel-control-prev:hover {
+  border-radius: 20px 0 0 20px;
+  background-color: rgba(66, 133, 244, 0.5);
+  transition: 0.5s;
+}
+.carousel-control-prev {
+  border-radius: 20px 0 0 20px;
+  background-color: rgba(236, 88, 99, 0.5);
+}
+.carousel-control-next:hover {
+  border-radius: 0 20px 20px 0;
+  background-color: rgba(66, 133, 244, 0.5);
+  transition: 0.5s;
+}
+.carousel-control-next {
+  border-radius: 0 20px 20px 0;
+  background-color: rgba(236, 88, 99, 0.5);
+}
+
+.carousel-inner {
+  max-height: 45rem;
+  height: 45rem;
+  background: white url(Images/CoursesBackground.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+@media screen and (max-width: 680px) {
+  .carousel-inner {
+    max-height: 40rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .carousel-inner {
+    max-height: 30rem;
+  }
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+#carousel-caption {
+  margin-bottom: 10px !important;
+}
+
+.carousel-indicators button {
+  background-color: #4285f4;
+  /*border: 1px solid #ec5863;*/
+}
+
+.carousel-indicators .active {
+  background-color: #ec5863;
+}
+
+.carousel-h3 {
+  color: #000;
+}
+.carousel-par {
+  color: #000;
+}
+
+.carousel-dma-h3 {
+  color: #fff;
+}
+
+/* End of carousel */
+
+.head {
+  height: 140px;
+  text-align: center;
+  width: 50%;
+
+  margin-bottom: 70px;
+  margin-top: 79px;
+  margin-left: auto;
+  align-items: inherit;
+  margin-inline: auto;
+
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px rgba(1, 1, 1, 0.1);
+  padding-top: 48px;
+}
+@media screen and (min-width: 1001px) {
+  .schedule-table {
+    font-size: 20px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 1000px) {
+  .schedule-table {
+    font-size: 8px;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .sched {
+    font-size: 50px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 800px) {
+  .sched {
+    font-size: 25px;
+  }
+}
+#sched {
+  font-size: 4.5vw;
+}
+
+table tr:first-child th {
+  background-color: #ec5863;
+  color: white;
+}
+.time {
+  background-color: #4285f4;
+  font-weight: bold;
+  color: white;
+}
+.schedule-table th,
+td {
+  text-align: center;
+
+  border: 1px groove #ec5863 !important;
+}
+
+#logo2 {
+  background: white;
+  color: #ec5863;
+}
+table {
+  width: 100%;
+  table-layout: fixed;
+  height: 450px;
+  padding: 0;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fc-view-harness {
+  margin-bottom: 5rem;
+}
+
+.fc-col-header-cell-cushion,
+.fc-daygrid-day-number {
+  text-decoration: none;
+}
+
+.fc-col-header-cell-cushion,
+.fc-col-header-cell-cushion:hover {
+  color: #fff;
+  cursor: initial;
+}
+
+.fc-button-primary {
+  background-color: #ec5863;
+}
+
+#dma-pic {
+  width: 100%;
+  height: auto;
+  margin-top: 2px;
+}
+
+#rwd-pic {
+  width: 100%;
+  height: auto;
+  margin-top: 2px;
+}
+#sdj-pic {
+  width: 100%;
+  height: auto;
+  margin-top: 2px;
+}
