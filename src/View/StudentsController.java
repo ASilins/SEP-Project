@@ -28,7 +28,7 @@ public class StudentsController implements Initializable
   @FXML private Hyperlink websiteLink;
   @FXML private ListView<Student> allStudentsList;
   @FXML
-  private TableView<StudentList> students;
+  private TableView<Student> students;
   @FXML private TableColumn<Student,String> name;
   @FXML private TableColumn<Student,Integer> number;
   @FXML private TableColumn<Student,Integer> semester;
@@ -68,23 +68,20 @@ public class StudentsController implements Initializable
   }
 
   private void intitializeTable() {
-    name = new TableColumn<>("Name");
-    name.setCellValueFactory(new PropertyValueFactory<>("name"));
-    number = new TableColumn<>("Student Number");
-    number.setCellValueFactory(new PropertyValueFactory<>("studentNumber"));
-    semester = new TableColumn<>("Semester");
-    semester.setCellValueFactory(new PropertyValueFactory<>("semester"));
-    className = new TableColumn<>("Class");
-    className.setCellValueFactory(new PropertyValueFactory<>("class"));
-
-
-      students.setItems(allStudents);
-
+    name.setCellValueFactory(new PropertyValueFactory<Student,String>("name"));
+    number.setCellValueFactory(new PropertyValueFactory<Student,Integer>("studentNumber"));
+    semester.setCellValueFactory(new PropertyValueFactory<Student,Integer>("semester"));
+    className.setCellValueFactory(new PropertyValueFactory<Student,String>("className"));
+    System.out.println(studentList.size());
+      //students.setItems(allStudents);
+    for (int i = 0; i < studentList.size(); i++)
+    {
+      students.getItems().add(studentList.get(i));
+    }
   }
 
   //  FOR LOOP ADDING THE STUDENTS!!!!!
 
-  /* @FXML
   private void removeButton(ActionEvent event){
     Student selected =students.getSelectionModel().getSelectedItem();
     System.out.println(selected);
@@ -92,5 +89,5 @@ public class StudentsController implements Initializable
     allStudents.remove(selected);
     
 
-  }*/
+  }
 }
