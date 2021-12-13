@@ -6,7 +6,6 @@ import Model.StudentList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,8 +32,12 @@ public class StudentsController implements Initializable
   @FXML private TableColumn<Student,Integer> number;
   @FXML private TableColumn<Student,Integer> semester;
   @FXML private TableColumn<Student,String> className;
+  private Student student;
   private StudentList studentList;
+  private StudentList tempList;
   private ObservableList<StudentList> allStudents;
+  private StudentList removedStudents;
+  private int numberOfRemovedStudents = 0;
   private ScheduleModelManager scheduleManager = new ScheduleModelManager("src/Files/students.bin",
       "src/Files/teachers.bin", "src/Files/classes.bin", "src/Files/courses.bin",
       "src/Files/rooms.bin", "src/Files/lessons.bin");
@@ -57,37 +60,62 @@ public class StudentsController implements Initializable
   public void initialize(URL url, ResourceBundle rb)
   {
     studentList = new StudentList();
+    tempList = new StudentList();
     studentList = scheduleManager.getAllStudents();
     allStudents = FXCollections.observableArrayList();
     for (int i = 0; i < studentList.size(); i++)
     {
       allStudents.add(i, studentList);
     }
-    intitializeTable();
+    initializeTable();
 
   }
 
-  private void intitializeTable() {
+  private void initializeTable() {
+    TableSelectionModel<Student> selectionModel = students.getSelectionModel();
+    selectionModel.setSelectionMode(SelectionMode.MULTIPLE);
     name.setCellValueFactory(new PropertyValueFactory<Student,String>("name"));
     number.setCellValueFactory(new PropertyValueFactory<Student,Integer>("studentNumber"));
     semester.setCellValueFactory(new PropertyValueFactory<Student,Integer>("semester"));
     className.setCellValueFactory(new PropertyValueFactory<Student,String>("className"));
-    System.out.println(studentList.size());
-      //students.setItems(allStudents);
+//      students.getItems().addAll(allStudents);
     for (int i = 0; i < studentList.size(); i++)
     {
       students.getItems().add(studentList.get(i));
+      tempList.addStudent(studentList.get(i));
     }
   }
 
-  //  FOR LOOP ADDING THE STUDENTS!!!!!
-
-  private void removeButton(ActionEvent event){
-    Student selected =students.getSelectionModel().getSelectedItem();
-    System.out.println(selected);
+  @FXML private void removeButton(ActionEvent event){
+    Student selected = students.getSelectionModel().getSelectedItem();
+    this.student = selected;
+    tempList.addStudent(selected);
     studentList.removeStudent(selected);
-    allStudents.remove(selected);
-    
+    students.getItems().remove(selected);
+    initializeTable();
+    numberOfRemovedStudents++;
+  }
 
+  @FXML private void btnSave(ActionEvent event)
+  {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to remove " +
+        numberOfRemovedStudents + " students?", ButtonType.YES, ButtonType.CANCEL);
+    alert.setHeaderText("Are you sure you want to continue?");
+    alert.setTitle(null);
+
+    alert.showAndWait();
+
+    if (alert.getResult() == ButtonType.YES)
+    {
+      for (int i = 0; i < tempList.size(); i++)
+      {
+        scheduleManager.removeStudent(tempList.get(i));
+      }
+      for (int i = 0; i < numberOfRemovedStudents; i++)
+      {
+        tempList.removeStudent(tempList.get(i));
+      }
+      this.numberOfRemovedStudents = 0;
+    }
   }
 }

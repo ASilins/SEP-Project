@@ -63,7 +63,7 @@
                                     <TableColumn fx:id="className" prefWidth="75.0" text="Class" />
                                 </columns>
                               </TableView>
-                              <Button mnemonicParsing="false"  text="Remove" />
+                              <Button mnemonicParsing="false" onAction="#removeButton" text="Remove" />
                            </children>
                         </VBox>
                      </content>
