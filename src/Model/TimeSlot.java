@@ -1,10 +1,14 @@
 package Model;
+
+import java.io.Serializable;
+
 /**
  * A class for the timeslot object
  * @author Sid
  * @version 1.2
  */
-public class TimeSlot {
+public class TimeSlot implements Serializable
+{
 
     private int hourStart;
     private int minuteStart;
