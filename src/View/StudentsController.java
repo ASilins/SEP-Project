@@ -6,6 +6,7 @@ import Model.StudentList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,11 +28,16 @@ public class StudentsController implements Initializable
   @FXML private Hyperlink websiteLink;
   @FXML private ListView<Student> allStudentsList;
   @FXML
-  private TableView<Student> students;
-  @FXML private TableColumn<Student,Integer> number;
+  private TableView<StudentList> students;
   @FXML private TableColumn<Student,String> name;
+  @FXML private TableColumn<Student,Integer> number;
+  @FXML private TableColumn<Student,Integer> semester;
+  @FXML private TableColumn<Student,String> className;
   private StudentList studentList;
-  private ObservableList<Student> allStudents;
+  private ObservableList<StudentList> allStudents;
+  private ScheduleModelManager scheduleManager = new ScheduleModelManager("src/Files/students.bin",
+      "src/Files/teachers.bin", "src/Files/classes.bin", "src/Files/courses.bin",
+      "src/Files/rooms.bin", "src/Files/lessons.bin");
 
 
 
@@ -41,7 +47,7 @@ public class StudentsController implements Initializable
         Objects.requireNonNull(getClass().getResource("Home.fxml")));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Stage window = (Stage) btnHome.getScene().getWindow();
-    window.setScene(new Scene(root, 645, 720));
+    window.setScene(new Scene(root, 700, 800));
     window.show();
 
   }
@@ -51,23 +57,34 @@ public class StudentsController implements Initializable
   public void initialize(URL url, ResourceBundle rb)
   {
     studentList = new StudentList();
-    studentList.addStudent(new Student("Bhupas",11,2,"b02"));
-    studentList.addStudent(new Student("Bhupas1",11,2,"b02"));
-    studentList.addStudent(new Student("Bhupas2",11,2,"b02"));
-    studentList.addStudent(new Student("Bhupas3",11,2,"b02"));
-    allStudents = FXCollections.observableList(studentList.getStudents());
+    studentList = scheduleManager.getAllStudents();
+    allStudents = FXCollections.observableArrayList();
+    for (int i = 0; i < studentList.size(); i++)
+    {
+      allStudents.add(i, studentList);
+    }
     intitializeTable();
 
   }
 
   private void intitializeTable() {
-    name.setCellValueFactory(new PropertyValueFactory<Student,String>("name"));
-    number.setCellValueFactory(new PropertyValueFactory<Student,Integer>("studentNumber"));
+    name = new TableColumn<>("Name");
+    name.setCellValueFactory(new PropertyValueFactory<>("name"));
+    number = new TableColumn<>("Student Number");
+    number.setCellValueFactory(new PropertyValueFactory<>("studentNumber"));
+    semester = new TableColumn<>("Semester");
+    semester.setCellValueFactory(new PropertyValueFactory<>("semester"));
+    className = new TableColumn<>("Class");
+    className.setCellValueFactory(new PropertyValueFactory<>("class"));
 
-    students.setItems(allStudents);
+
+      students.setItems(allStudents);
+
   }
 
-  @FXML
+  //  FOR LOOP ADDING THE STUDENTS!!!!!
+
+  /* @FXML
   private void removeButton(ActionEvent event){
     Student selected =students.getSelectionModel().getSelectedItem();
     System.out.println(selected);
@@ -75,5 +92,5 @@ public class StudentsController implements Initializable
     allStudents.remove(selected);
     
 
-  }
+  }*/
 }

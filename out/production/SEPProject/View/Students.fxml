@@ -59,9 +59,11 @@
                                 <columns>
                                   <TableColumn fx:id="number" prefWidth="75.0" text="Number" />
                                   <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
+                                    <TableColumn fx:id="semester" prefWidth="75.0" text="Semester" />
+                                    <TableColumn fx:id="className" prefWidth="75.0" text="Class" />
                                 </columns>
                               </TableView>
-                              <Button mnemonicParsing="false" onAction="#removeButton" text="Remove" />
+                              <Button mnemonicParsing="false"  text="Remove" />
                            </children>
                         </VBox>
                      </content>

@@ -2,6 +2,8 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import Model.ScheduleModelManager;
 
 /**
  * A class containing list of student objects.
