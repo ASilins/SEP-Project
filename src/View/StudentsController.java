@@ -52,14 +52,11 @@ public class StudentsController implements Initializable
   {
     studentList = new StudentList();
     studentList.addStudent(new Student("Bhupas",11,2,"b02"));
-    studentList.addStudent(new Student("Bhupas",11,2,"b02"));
-    studentList.addStudent(new Student("Bhupas",11,2,"b02"));
-    studentList.addStudent(new Student("Bhupas",11,2,"b02"));
-
-
+    studentList.addStudent(new Student("Bhupas1",11,2,"b02"));
+    studentList.addStudent(new Student("Bhupas2",11,2,"b02"));
+    studentList.addStudent(new Student("Bhupas3",11,2,"b02"));
     allStudents = FXCollections.observableList(studentList.getStudents());
     intitializeTable();
-
 
   }
 
@@ -76,7 +73,7 @@ public class StudentsController implements Initializable
     System.out.println(selected);
     studentList.removeStudent(selected);
     allStudents.remove(selected);
+    
 
   }
-
 }
