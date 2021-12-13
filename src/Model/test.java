@@ -41,8 +41,8 @@ public class test
   s16.addRoom(s13);
   s16.addRoom(s14);
   s16.addRoom(s15);
-  TimeSlot s17 = new TimeSlot(8,  20, 11, 20, 'm');
-  TimeSlot s21 = new TimeSlot(8, 20, 11, 20, 't');
+  TimeSlot s17 = new TimeSlot(8,  20, 11, 20, 2, 2011, 8,2);
+  TimeSlot s21 = new TimeSlot(8, 20, 11, 20, 3, 2011, 8, 3);
   Lesson s18 = new Lesson(s21, s5, s13);
   /*lala*/
 
