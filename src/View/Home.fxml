@@ -6,36 +6,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomeController">
    <children>
-      <AnchorPane layoutX="29.0" layoutY="24.0" prefHeight="75.0" prefWidth="863.0">
-         <children>
-            <Text fill="#ec5863" layoutX="21.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIA">
-               <font>
-                  <Font name="System Bold" size="39.0" />
-               </font>
-            </Text>
-            <Button layoutX="763.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #4285F4;" text="Schedule" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <Pane layoutX="328.0" layoutY="138.0" prefHeight="93.0" prefWidth="265.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ec5863" height="90.0" stroke="#ec5863" strokeType="INSIDE" width="263.0" />
-            <Text fill="WHITE" layoutX="80.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
-               <font>
-                  <Font name="System Bold" size="36.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
       <AnchorPane layoutX="37.0" layoutY="397.0" prefHeight="432.0" prefWidth="863.0">
          <children>
             <Pane layoutX="14.0" layoutY="9.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
@@ -133,6 +110,142 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
+                  <Label layoutX="59.0" layoutY="130.0" text="Lessons">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="39.0" layoutY="34.0" prefHeight="75.0" prefWidth="863.0">
+         <children>
+            <Text fill="#ec5863" layoutX="21.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIA" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="13.7880859375">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Text>
+            <Button layoutX="763.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #4285F4;" text="Schedule" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <StackPane layoutX="331.0" layoutY="109.0" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ec5863" height="90.0" stroke="#ec5863" strokeType="INSIDE" width="263.0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </StackPane>
+      <AnchorPane layoutX="47.0" layoutY="407.0" prefHeight="432.0" prefWidth="863.0">
+         <children>
+            <Pane layoutX="14.0" layoutY="9.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
+               <children>
+                  <Button fx:id="btnStudents1" layoutX="8.0" layoutY="7.0" mnemonicParsing="false" onAction="#switchToSceneStudents" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;">
+                     <graphic>
+                        <ImageView fitHeight="108.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="55.0" layoutY="130.0" text="Students">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="328.0" layoutY="9.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
+               <children>
+                  <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;">
+                     <graphic>
+                        <ImageView fitHeight="108.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="62.0" layoutY="130.0" text="Classes">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="662.0" layoutY="14.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
+               <children>
+                  <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;">
+                     <graphic>
+                        <ImageView fitHeight="108.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="55.0" layoutY="130.0" text="Teachers">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="216.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
+               <children>
+                  <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;">
+                     <graphic>
+                        <ImageView fitHeight="108.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="63.0" layoutY="130.0" text="Rooms">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="328.0" layoutY="216.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
+               <children>
+                  <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;">
+                     <graphic>
+                        <ImageView fitHeight="108.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="55.0" layoutY="130.0" text="Courses">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="662.0" layoutY="216.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
+               <children>
+                  <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;">
+                     <graphic>
+                        <ImageView fitHeight="108.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   <Label layoutX="59.0" layoutY="130.0" text="Lessons">
                      <font>
                         <Font size="20.0" />
