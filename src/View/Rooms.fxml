@@ -41,7 +41,7 @@
                                     <TableColumn fx:id="capacity" prefWidth="75.0" text="Capacity" />
                                  </columns>
                               </TableView>
-                              <Button mnemonicParsing="false" onAction="#btnRoomSave" text="Remove" />
+                              <Button mnemonicParsing="false" text="Remove" />
                            </children>
                         </VBox>
                      </content>

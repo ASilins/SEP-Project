@@ -41,7 +41,7 @@
                                     <TableColumn fx:id="capacity" prefWidth="75.0" text="Capacity" />
                                  </columns>
                               </TableView>
-                              <Button mnemonicParsing="false" onAction="#btnRoomSave" text="Remove" />
+                              <Button mnemonicParsing="false" text="Remove" />
                            </children>
                         </VBox>
                      </content>
@@ -135,7 +135,7 @@
       </AnchorPane>
       <AnchorPane layoutX="75.0" layoutY="828.0" prefHeight="66.0" prefWidth="779.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="828.0">
          <children>
-            <Button fx:id="btnSaveRoom" layoutX="701.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSaveRoom" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="19.0">
+            <Button fx:id="btnSave" layoutX="701.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="19.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

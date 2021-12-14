@@ -93,7 +93,7 @@ public class Course implements Serializable
      * Adds the teacher from the list to the course
      * @return a teacher going to be added to the course
      */
-    public Teacher getTeacher() {
+    public Teacher getTeacher1() {
         return teacher1;
     }
 
@@ -106,6 +106,24 @@ public class Course implements Serializable
         teachers.addTeacher(teacher1);
         teachers.addTeacher(teacher2);
         return teachers;
+    }
+
+    /**
+     * necessary for the tableview in gui
+     * @return initials of teacher1
+     * @author Ondrej
+     */
+    public String getTeacher1Name(){
+        return teacher1.getInitials();
+    }
+
+    /**
+     * necessary for the tableview in gui
+     * @return initials of teacher2
+     * @author Ondrej
+     */
+    public String getTeacher2Name(){
+        return teacher2.getInitials();
     }
 
     /**

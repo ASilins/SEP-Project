@@ -42,7 +42,7 @@ public class StudentsController implements Initializable
   @FXML private TextField studentNumberField;
   @FXML private TextField semesterField;
   @FXML private TextField classField;
-  @FXML private ComboBox studentBox;
+  @FXML private ComboBox<String> studentBox;
   @FXML private TextField addStudentNameField;
   @FXML private TextField addStudentStudentNumberField;
   @FXML private TextField addStudentSemesterField;
@@ -65,18 +65,11 @@ public class StudentsController implements Initializable
 
   }
 
-
-
   public void initialize(URL url, ResourceBundle rb)
   {
     studentList = new StudentList();
     removedStudents = new StudentList();
 
-    /*allStudents = FXCollections.observableArrayList();
-    for (int i = 0; i < studentList.size(); i++)
-    {
-      allStudents.add(i, studentList);
-    }*/
     initializeList();
     initializeTable();
     initializeComboBox();
@@ -95,12 +88,12 @@ public class StudentsController implements Initializable
     number.setCellValueFactory(new PropertyValueFactory<Student,Integer>("studentNumber"));
     semester.setCellValueFactory(new PropertyValueFactory<Student,Integer>("semester"));
     className.setCellValueFactory(new PropertyValueFactory<Student,String>("className"));
-//      students.getItems().addAll(allStudents);
+
     students.getItems().clear();
     for (int i = 0; i < studentList.size(); i++)
     {
       students.getItems().add(studentList.get(i));
-//      removedStudents.addStudent(studentList.get(i));
+
     }
   }
 
