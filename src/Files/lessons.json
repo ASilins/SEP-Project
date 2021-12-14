@@ -1,0 +1,456 @@
+{
+  "lessons": [
+    {
+      "timeSlot": {
+        "hourStart": 8,
+        "minuteStart": 20,
+        "hourEnd": 9,
+        "minuteEnd": 20,
+        "dayOftheWeek": 2,
+        "date": "2021-12-14",
+        "day": 0,
+        "year": 0,
+        "month": 0
+      },
+      "course": {
+        "courseName": "SDJ",
+        "ectsPoints": 10,
+        "students": {
+          "students": [
+            {
+              "name": "Carl Carlson",
+              "studentNumber": 123457,
+              "semester": 1,
+              "className": "Z"
+            }
+          ]
+        },
+        "teacher1": {
+          "initials": "SVA",
+          "courses": [
+            "SDJ1Y",
+            "SDJ1Z",
+            "SEP1Y",
+            "SEP1Z"
+          ]
+        },
+        "teacher2": {
+          "initials": "KLAB",
+          "courses": [
+            "SDJ1Z"
+          ]
+        },
+        "semester": 1,
+        "className": "Z"
+      },
+      "room": {
+        "roomNumber": "16b",
+        "capacity": 45,
+        "block": "C",
+        "floor": 5,
+        "availability": true
+      }
+    },
+    {
+      "timeSlot": {
+        "hourStart": 9,
+        "minuteStart": 20,
+        "hourEnd": 10,
+        "minuteEnd": 20,
+        "dayOftheWeek": -1,
+        "date": "2021-12-14",
+        "day": 0,
+        "year": 0,
+        "month": 0
+      },
+      "course": {
+        "courseName": "RWD",
+        "ectsPoints": 5,
+        "students": {
+          "students": [
+            {
+              "name": "Agata Rudol",
+              "studentNumber": 315233,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Aiga Kalneja",
+              "studentNumber": 239096,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Alexandru Vasile Cimpan",
+              "studentNumber": 315213,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Alex-Septimius Iortoman",
+              "studentNumber": 315240,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "András Kovács",
+              "studentNumber": 315241,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Andrei Ghiriti",
+              "studentNumber": 315217,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Andrejs Davis Umbrovskis",
+              "studentNumber": 315210,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Anton Durcak",
+              "studentNumber": 315184,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Arturs Silins",
+              "studentNumber": 315226,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Beatricia Nagit",
+              "studentNumber": 315186,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Bhupas Gautam",
+              "studentNumber": 306411,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Catalin Filip",
+              "studentNumber": 315170,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Darius-Stefan Piros",
+              "studentNumber": 315166,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Darko Goluza",
+              "studentNumber": 315227,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "David Kocur",
+              "studentNumber": 315251,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Diana Antoniuc",
+              "studentNumber": 315163,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Filip Bartoszewski",
+              "studentNumber": 315280,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Gabriel Horzic",
+              "studentNumber": 315204,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Gergo Nador",
+              "studentNumber": 315279,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Jakub Nowak",
+              "studentNumber": 315252,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "James Robert Cullen",
+              "studentNumber": 315203,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Jan Rohweder",
+              "studentNumber": 315232,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Julia Papiernik",
+              "studentNumber": 315218,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Klaudia Fanni Balog",
+              "studentNumber": 315214,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Kristians Eglitis",
+              "studentNumber": 315245,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Marius Babin",
+              "studentNumber": 315198,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Mateusz Damian Zbyslaw",
+              "studentNumber": 315192,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Maximillian Marius Wallin",
+              "studentNumber": 315268,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Mikkel Bjørn Hansen",
+              "studentNumber": 315167,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Natalia Koziara",
+              "studentNumber": 315275,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Ondrej Klimek",
+              "studentNumber": 315255,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Ouafa Djamal Hammoun",
+              "studentNumber": 315211,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Roberts Zustars",
+              "studentNumber": 315230,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Siddhartha Jonathan Grasse",
+              "studentNumber": 315278,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Simon Mayer",
+              "studentNumber": 315183,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Sofia Augustínová",
+              "studentNumber": 315209,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Tamás Hegedus",
+              "studentNumber": 315165,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Viktor Vegh",
+              "studentNumber": 315271,
+              "semester": 1,
+              "className": "X"
+            },
+            {
+              "name": "Vladimir Prodan",
+              "studentNumber": 315195,
+              "semester": 1,
+              "className": "X"
+            }
+          ]
+        },
+        "teacher1": {
+          "initials": "KASR",
+          "courses": [
+            "RWD1X"
+          ]
+        },
+        "semester": 1,
+        "className": "X"
+      },
+      "room": {
+        "roomNumber": "15",
+        "capacity": 45,
+        "block": "C",
+        "floor": 5,
+        "availability": true
+      }
+    },
+    {
+      "timeSlot": {
+        "hourStart": 10,
+        "minuteStart": 20,
+        "hourEnd": 11,
+        "minuteEnd": 20,
+        "dayOftheWeek": -1,
+        "date": "2021-12-14",
+        "day": 0,
+        "year": 0,
+        "month": 0
+      },
+      "course": {
+        "courseName": "RWD",
+        "ectsPoints": 5,
+        "students": {
+          "students": [
+            {
+              "name": "Carl Carlson",
+              "studentNumber": 123457,
+              "semester": 1,
+              "className": "Z"
+            }
+          ]
+        },
+        "teacher1": {
+          "initials": "LILE",
+          "courses": [
+            "RWD1Y",
+            "RWD1Z"
+          ]
+        },
+        "semester": 1,
+        "className": "Z"
+      },
+      "room": {
+        "roomNumber": "13",
+        "capacity": 125,
+        "block": "C",
+        "floor": 3,
+        "availability": true
+      }
+    },
+    {
+      "timeSlot": {
+        "hourStart": 11,
+        "minuteStart": 20,
+        "hourEnd": 12,
+        "minuteEnd": 20,
+        "dayOftheWeek": -1,
+        "date": "2021-12-14",
+        "day": 0,
+        "year": 0,
+        "month": 0
+      },
+      "course": {
+        "courseName": "RWD",
+        "ectsPoints": 5,
+        "students": {
+          "students": [
+            {
+              "name": "Bob Bobson",
+              "studentNumber": 123456,
+              "semester": 1,
+              "className": "Y"
+            }
+          ]
+        },
+        "teacher1": {
+          "initials": "LILE",
+          "courses": [
+            "RWD1Y",
+            "RWD1Z"
+          ]
+        },
+        "semester": 1,
+        "className": "Y"
+      },
+      "room": {
+        "roomNumber": "16a",
+        "capacity": 45,
+        "block": "C",
+        "floor": 5,
+        "availability": true
+      }
+    },
+    {
+      "timeSlot": {
+        "hourStart": 12,
+        "minuteStart": 20,
+        "hourEnd": 13,
+        "minuteEnd": 20,
+        "dayOftheWeek": -1,
+        "date": "2021-12-14",
+        "day": 0,
+        "year": 0,
+        "month": 0
+      },
+      "course": {
+        "courseName": "SDJ",
+        "ectsPoints": 10,
+        "students": {
+          "students": [
+            {
+              "name": "Bob Bobson",
+              "studentNumber": 123456,
+              "semester": 1,
+              "className": "Y"
+            }
+          ]
+        },
+        "teacher1": {
+          "initials": "SVA",
+          "courses": [
+            "SDJ1Y",
+            "SDJ1Z",
+            "SEP1Y",
+            "SEP1Z"
+          ]
+        },
+        "semester": 1,
+        "className": "Y"
+      },
+      "room": {
+        "roomNumber": "16b",
+        "capacity": 45,
+        "block": "C",
+        "floor": 5,
+        "availability": true
+      }
+    }
+  ]
+}

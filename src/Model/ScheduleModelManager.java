@@ -1,6 +1,8 @@
 package Model;
 
 import Utils.*;
+import parser.ParserException;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -406,10 +408,13 @@ public class ScheduleModelManager
   public void saveLessons(ScheduleSystem allLessons) {
     try {
       MyFileHandler.writeToBinaryFile(lessonFileName, allLessons);
+      MyFileHandler.LessonsToJSON(allLessons);
     } catch (FileNotFoundException e) {
       System.err.println("File not found");
     } catch (IOException e) {
       System.err.println("Io Error writing file");
+    }catch (ParserException e) {
+      e.printStackTrace();
     }
   }
 
