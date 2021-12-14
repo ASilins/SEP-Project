@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -23,33 +24,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StudentsController">
    <children>
-      <AnchorPane layoutX="29.0" layoutY="24.0" prefHeight="75.0" prefWidth="863.0">
+      <AnchorPane layoutX="104.0" layoutY="268.0" prefHeight="549.0" prefWidth="705.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="115.0" AnchorPane.topAnchor="268.0">
          <children>
-            <Text fill="#ec5863" layoutX="21.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIA">
-               <font>
-                  <Font name="System Bold" size="39.0" />
-               </font>
-            </Text>
-            <Button layoutX="763.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #4285F4;" text="Schedule" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <Pane layoutX="328.0" layoutY="138.0" prefHeight="93.0" prefWidth="265.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ec5863" height="90.0" stroke="#ec5863" strokeType="INSIDE" width="263.0" />
-            <Text fill="WHITE" layoutX="57.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Students">
-               <font>
-                  <Font name="System Bold" size="36.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <AnchorPane layoutX="114.0" layoutY="283.0" prefHeight="541.0" prefWidth="705.0">
-         <children>
-            <TabPane fx:id="tabPane" layoutX="13.0" layoutY="5.0" prefHeight="532.0" prefWidth="679.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabPane" layoutX="13.0" layoutY="5.0" prefHeight="532.0" prefWidth="679.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="5.0">
                <tabs>
                   <Tab fx:id="allStudentsTab" text="All Students">
                      <content>
@@ -155,19 +132,43 @@
             </TabPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="54.0" layoutY="824.0" prefHeight="75.0" prefWidth="823.0">
+      <AnchorPane layoutX="75.0" layoutY="828.0" prefHeight="66.0" prefWidth="779.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="828.0">
          <children>
-            <Button fx:id="btnSave" layoutX="748.0" layoutY="21.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE">
+            <Button fx:id="btnSave" layoutX="701.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="19.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnHome" layoutX="8.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchToSceneHome" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: # FAFBFD;" text="Back">
+            <Button fx:id="btnHome" layoutX="17.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToSceneHome" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: # FAFBFD;" text="Back" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
+      <AnchorPane layoutX="-8.0" layoutY="7.0" prefHeight="77.0" prefWidth="924.0" AnchorPane.bottomAnchor="847.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="763.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #4285F4;" text="Schedule" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Text fill="#ec5863" layoutX="21.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIA" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="13.7880859375">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <StackPane layoutX="331.0" layoutY="102.0" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="330.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ec5863" height="90.0" stroke="#ec5863" strokeType="INSIDE" width="263.0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Students">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

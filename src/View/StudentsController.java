@@ -55,7 +55,7 @@ public class StudentsController implements Initializable
         Objects.requireNonNull(getClass().getResource("Home.fxml")));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Stage window = (Stage) btnHome.getScene().getWindow();
-    window.setScene(new Scene(root, 700, 800));
+    window.setScene(new Scene(root, 950, 950));
     window.show();
 
   }

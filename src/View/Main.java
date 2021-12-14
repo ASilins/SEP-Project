@@ -14,7 +14,7 @@ public class Main extends Application {
         try {
 
             Parent root = FXMLLoader.load(
-                Objects.requireNonNull(getClass().getResource("Students.fxml")));
+                Objects.requireNonNull(getClass().getResource("Rooms.fxml")));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

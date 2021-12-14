@@ -17,7 +17,7 @@ import javafx.scene.control.Button;
 public class HomeController
 {
     @FXML
-    Button btnStudents, btnClasses, btnTeachers, btnRooms, btnCourses, btnLessons,
+    Button btnStudents1, btnClasses, btnTeachers, btnRooms, btnCourses, btnLessons,
         btnSchedule, btnHome;
     @FXML
     Hyperlink websiteLink;
@@ -31,29 +31,31 @@ public class HomeController
         );
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Stage window = (Stage) btnHome.getScene().getWindow();
-        window.setScene(new Scene(root, 645, 720));
+        window.setScene(new Scene(root, 950, 950));
 
         window.show();
 
     }
 
-    public void switchToSceneStudents() throws IOException {
+    public void switchToSceneStudents(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(
             Objects.requireNonNull(getClass().getResource("Students.fxml"))
         );
-        Stage window = (Stage) btnStudents.getScene().getWindow();
-        window.setScene(new Scene(root, 645, 720));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = (Stage) btnStudents1.getScene().getWindow();
+        window.setScene(new Scene(root, 950, 950));
 
         window.show();
 
     }
+
 
     public void switchToSceneClasses() throws IOException {
         Parent root = FXMLLoader.load(
             Objects.requireNonNull(getClass().getResource("Classes.fxml"))
         );
         Stage window = (Stage) btnClasses.getScene().getWindow();
-        window.setScene(new Scene(root, 645, 720));
+        window.setScene(new Scene(root, 950, 950));
 
         window.show();
 
@@ -64,7 +66,7 @@ public class HomeController
             Objects.requireNonNull(getClass().getResource("Teachers.fxml"))
         );
         Stage window = (Stage) btnTeachers.getScene().getWindow();
-        window.setScene(new Scene(root, 645, 720));
+        window.setScene(new Scene(root, 950, 950));
 
         window.show();
 
@@ -75,7 +77,7 @@ public class HomeController
             Objects.requireNonNull(getClass().getResource("Rooms.fxml"))
         );
         Stage window = (Stage) btnRooms.getScene().getWindow();
-        window.setScene(new Scene(root, 645, 720));
+        window.setScene(new Scene(root, 950, 950));
 
         window.show();
 
@@ -86,7 +88,7 @@ public class HomeController
             Objects.requireNonNull(getClass().getResource("Courses.fxml"))
         );
         Stage window = (Stage) btnCourses.getScene().getWindow();
-        window.setScene(new Scene(root, 645, 720));
+        window.setScene(new Scene(root, 950, 950));
 
         window.show();
 
@@ -97,7 +99,7 @@ public class HomeController
             Objects.requireNonNull(getClass().getResource("Lessons.fxml"))
         );
         Stage window = (Stage) btnLessons.getScene().getWindow();
-        window.setScene(new Scene(root, 645, 720));
+        window.setScene(new Scene(root, 950, 950));
 
         window.show();
 
@@ -108,10 +110,8 @@ public class HomeController
             Objects.requireNonNull(getClass().getResource("Schedule.fxml"))
         );
         Stage window = (Stage) btnSchedule.getScene().getWindow();
-        window.setScene(new Scene(root, 645, 720));
-
+        window.setScene(new Scene(root, 950, 950));
         window.show();
-
     }
 
     //******* Hyperlink method!!! *******\\
