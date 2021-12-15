@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * A class containing list of student objects.
  * @author Bhupas
- * @version 1.1
+ * @version 1.2
  */
 public class CourseList implements Serializable {
     private ArrayList<Course> courses;
@@ -26,7 +26,11 @@ public class CourseList implements Serializable {
      */
     public void addCourse(Course course)
     {
-        courses.add(course);
+
+        if (!check(course))
+        {
+            courses.add(course);
+        }
     }
 
     /**

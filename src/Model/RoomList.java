@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * A class containing list of room objects.
  * @author Arturs Silins
- * @version 1.2
+ * @version 1.3
  */
 public class RoomList implements Serializable
 {
@@ -24,7 +24,11 @@ public class RoomList implements Serializable
    * @param room the room to add to room list
    */
   public void addRoom(Room room) {
-    rooms.add(room);
+
+    if (!check(room))
+    {
+      rooms.add(room);
+    }
   }
 
   /**
@@ -53,7 +57,7 @@ public class RoomList implements Serializable
   }
 
   /**
-   * Check if the obejct is in the object list.
+   * Check if the object is in the object list.
    * @param room an object that will be checked in the list
    * @return true if the object is in the list
    */

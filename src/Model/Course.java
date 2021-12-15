@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * A class containing class information.
  * @author Bhupas and Sid
- * @version 1.2
+ * @version 1.3
  */
 public class Course implements Serializable
 {

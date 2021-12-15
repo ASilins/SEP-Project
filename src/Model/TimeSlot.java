@@ -40,7 +40,7 @@ public class TimeSlot {
     }
 
     /**
-     * 8 argument constructor initializing the timeslot
+     * 7 argument constructor initializing the timeslot
      * @param hourStart the starting hour
      * @param minuteStart the starting minute
      * @param hourEnd the ending hour

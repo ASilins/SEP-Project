@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * A class containing Lesson information
  * @author Sid and Bhupas
- * @version 1.1
+ * @version 1.2
  */
 public class Lesson implements Serializable {
     private TimeSlot timeSlot;

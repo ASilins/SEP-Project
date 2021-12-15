@@ -28,7 +28,8 @@ public class ScheduleSystem implements Serializable
 
     if (lessons.isEmpty()) {
       lessons.add(lesson);
-    } else {
+    } else if (!check(lesson))
+    {
       for (int i=0; i<lessons.size(); i++) {
         if (lessons.get(i).isAvailable(lesson)) {
           lessons.add(lesson);

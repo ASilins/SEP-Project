@@ -6,13 +6,13 @@ import java.util.ArrayList;
 /**
  * A class containing teacher objects
  * @author Ondrej Klimek
- * @version 1.2
+ * @version 1.3
  */
 public class TeacherList implements Serializable {
   private ArrayList<Teacher> teachers;
 
   /**
-   * A constructor to initialize the teacher list
+   * A no argument constructor to initialize the teacher list
    */
   public TeacherList() {
     teachers = new ArrayList<>();
@@ -23,7 +23,12 @@ public class TeacherList implements Serializable {
    * @param teacher teacher to be added
    */
   public void addTeacher(Teacher teacher) {
-    teachers.add(teacher);
+
+    if (!check(teacher)) {
+
+
+      teachers.add(teacher);
+    }
   }
 
   /**
