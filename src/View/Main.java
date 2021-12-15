@@ -6,11 +6,15 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import java.util.Objects;
+
 public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+
+            Parent root = FXMLLoader.load(
+                Objects.requireNonNull(getClass().getResource("Courses.fxml")));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

@@ -22,30 +22,31 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StudentsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RoomController">
    <children>
       <AnchorPane layoutX="104.0" layoutY="268.0" prefHeight="549.0" prefWidth="705.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="115.0" AnchorPane.topAnchor="268.0">
          <children>
             <TabPane fx:id="tabPane" layoutX="13.0" layoutY="5.0" prefHeight="532.0" prefWidth="679.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="5.0">
                <tabs>
-                  <Tab fx:id="allStudentsTab" text="All Students">
+                  <Tab fx:id="allStudentsTab" text="All Rooms">
                      <content>
                         <VBox alignment="CENTER" spacing="10.0">
                            <children>
-                              <TableView fx:id="studentsTable" prefHeight="489.0" prefWidth="679.0">
-                                <columns>
-                                  <TableColumn fx:id="number" prefWidth="75.0" text="Number" />
-                                  <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
-                                    <TableColumn fx:id="semester" prefWidth="75.0" text="Semester" />
-                                    <TableColumn fx:id="className" prefWidth="75.0" text="Class" />
-                                </columns>
+                              <TableView fx:id="rooms" prefHeight="489.0" prefWidth="679.0">
+                                 <columns>
+                                    <TableColumn fx:id="roomNumber" prefWidth="150.0" text="Room Number" />
+                                    <TableColumn fx:id="name" minWidth="0.0" prefWidth="0.0" text="Name" />
+                                    <TableColumn fx:id="block" prefWidth="75.0" text="Block" />
+                                    <TableColumn fx:id="floor" prefWidth="75.0" text="Floor" />
+                                    <TableColumn fx:id="capacity" prefWidth="75.0" text="Capacity" />
+                                 </columns>
                               </TableView>
-                              <Button mnemonicParsing="false" onAction="#removeButton" text="Remove" />
+                              <Button mnemonicParsing="false" text="Remove" />
                            </children>
                         </VBox>
                      </content>
                   </Tab>
-                  <Tab fx:id="editStudentTab" text="Edit Student">
+                  <Tab fx:id="editStudentTab" text="Edit Room">
                      <content>
                         <VBox prefWidth="100.0" spacing="20.0">
                            <children>
@@ -63,14 +64,14 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label text="Name:" />
-                                          <Label prefHeight="17.0" prefWidth="94.0" text="Student Number:" GridPane.rowIndex="1" />
-                                          <Label text="Semester:" GridPane.rowIndex="2" />
-                                          <Label text="Class:" GridPane.rowIndex="3" />
-                                          <TextField fx:id="nameField" promptText="New name" GridPane.columnIndex="1" />
-                                          <TextField fx:id="studentNumberField" promptText="New student number" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <TextField fx:id="semesterField" promptText="New semester" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <TextField fx:id="classField" promptText="New class" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label text="Room Number:" />
+                                          <Label prefHeight="17.0" prefWidth="94.0" text="Block:" GridPane.rowIndex="1" />
+                                          <Label text="Floor:" GridPane.rowIndex="2" />
+                                          <Label text="Capacity:" GridPane.rowIndex="3" />
+                                          <TextField fx:id="roomNumberField" GridPane.columnIndex="1" />
+                                          <TextField fx:id="blockField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="floorField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="capacityField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                        </children>
                                     </GridPane>
                                     <FlowPane alignment="BASELINE_RIGHT" prefHeight="120.0" prefWidth="346.0">
@@ -78,7 +79,7 @@
                                           <Insets top="2.0" />
                                        </padding>
                                        <children>
-                                          <ComboBox fx:id="studentBox" prefHeight="26.0" prefWidth="338.0" promptText="Select a student" />
+                                          <ComboBox fx:id="roomBox" prefHeight="26.0" prefWidth="338.0" promptText="Select a Room" />
                                        </children>
                                     </FlowPane>
                                  </children>
@@ -91,7 +92,7 @@
                         </VBox>
                      </content>
                   </Tab>
-                  <Tab fx:id="addStudentTab" text="Add Student">
+                  <Tab fx:id="addStudentTab" text="Add Room">
                      <content>
                         <VBox prefWidth="100.0" spacing="20.0">
                            <children>
@@ -109,14 +110,14 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label text="Name:" />
-                                          <Label prefHeight="17.0" prefWidth="94.0" text="Student Number:" GridPane.rowIndex="1" />
-                                          <Label text="Semester:" GridPane.rowIndex="2" />
-                                          <TextField fx:id="addStudentNameField" promptText="Name" GridPane.columnIndex="1" />
-                                          <TextField fx:id="addStudentStudentNumberField" promptText="Student Number" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <TextField fx:id="addStudentSemesterField" promptText="Semester" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Label text="Class:" GridPane.rowIndex="3" />
-                                          <TextField fx:id="addStudentClassField" promptText="Class" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label text="Room Number:" />
+                                          <Label prefHeight="17.0" prefWidth="94.0" text="Block" GridPane.rowIndex="1" />
+                                          <Label text="Floor" GridPane.rowIndex="2" />
+                                          <TextField fx:id="firstNameField1" promptText="Name" GridPane.columnIndex="1" />
+                                          <TextField fx:id="lastNameField1" promptText="Student Number" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="countryField1" promptText="Semester" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label text="Capacity" GridPane.rowIndex="3" />
+                                          <TextField fx:id="capacityField1" promptText="Class" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                        </children>
                                     </GridPane>
                                  </children>
@@ -139,7 +140,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnHome" layoutX="17.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToSceneHome" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: #FAFBFD;" text="Back" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0">
+            <Button fx:id="btnHome" layoutX="17.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToSceneHome" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: # FAFBFD;" text="Back" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -163,7 +164,7 @@
       <StackPane layoutX="331.0" layoutY="102.0" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="330.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ec5863" height="90.0" stroke="#ec5863" strokeType="INSIDE" width="263.0" />
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Students">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
