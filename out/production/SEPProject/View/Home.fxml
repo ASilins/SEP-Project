@@ -84,7 +84,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="14.0" layoutY="216.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
+            <Pane layoutX="14.0" layoutY="260.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
                <children>
                   <Button fx:id="btnRooms" layoutX="8.0" layoutY="7.0" mnemonicParsing="false" onAction="#switchToSceneRooms" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;" />
                   <Label layoutX="63.0" layoutY="130.0" text="Rooms">
@@ -94,27 +94,27 @@
                   </Label>
                   <ImageView fitHeight="66.0" fitWidth="86.0" layoutX="61.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@rooms.gif" />
+                        <Image url="@Rooms.gif" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="367.0" layoutY="228.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
+            <Pane layoutX="361.0" layoutY="267.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
                <children>
                   <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;" />
-                  <Label layoutX="55.0" layoutY="130.0" text="Courses">
+                  <Label layoutX="65.0" layoutY="130.0" text="Courses">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="66.0" fitWidth="86.0" layoutX="57.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="66.0" fitWidth="86.0" layoutX="67.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Courses.gif" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="703.0" layoutY="216.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
+            <Pane layoutX="698.0" layoutY="260.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
                <children>
                   <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;" />
                   <Label layoutX="66.0" layoutY="130.0" text="Lessons">
@@ -124,11 +124,20 @@
                   </Label>
                   <ImageView fitHeight="66.0" fitWidth="86.0" layoutX="67.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@lessons.gif" />
+                        <Image url="@Lessons.gif" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="85.0" layoutY="838.0" prefHeight="66.0" prefWidth="779.0">
+         <children>
+            <Button fx:id="firstInitial" layoutX="312.0" layoutY="14.0" mnemonicParsing="false" onAction="#firstInitial" prefHeight="39.0" prefWidth="119.0" style="-fx-background-color: #4285F4;" text="Import Data" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

@@ -2,6 +2,7 @@ package Utils;
 
 import Model.*;
 import Model.Class;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -12,7 +13,7 @@ import java.io.IOException;
  * @version 1.0
  */
 public class ImportInitialData {
-  public static void main(String[] args) {
+  public static void importData() {
     StudentList students = new StudentList();
     TeacherList teachers = new TeacherList();
     RoomList rooms = new RoomList();
