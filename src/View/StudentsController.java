@@ -240,8 +240,8 @@ public class StudentsController implements Initializable
     }
 
     Alert alertError = new Alert(Alert.AlertType.ERROR, "One or more fields contain data in an incorrect format. \n"
-        + "Please check that all \"Student number\" field(s) contain(s) 6 \n"
-        + "numbers and \"Semester\" field(s) contain(s) 1 number",
+        + "Please check that \"Student number\" field(s) contain(s) 6 \n"
+        + "digits and \"Semester\" field(s) contain(s) 1 digit",
         ButtonType.OK);
     alertError.setHeaderText("Incorrect data entered");
     alertError.setTitle(null);

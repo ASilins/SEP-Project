@@ -71,13 +71,13 @@
                                           <Label prefHeight="17.0" prefWidth="94.0" text="ECTS Points:" GridPane.rowIndex="1" />
                                           <Label text="Semester:" GridPane.rowIndex="2" />
                                           <Label text="Class:" GridPane.rowIndex="3" />
-                                          <TextField fx:id="courseNameField" promptText="Select a course..." GridPane.columnIndex="1" />
-                                          <TextField fx:id="ectsPointsField" promptText="Select a course..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <TextField fx:id="semesterField" promptText="Select a course..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <TextField fx:id="classField" promptText="Select a course..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="courseNameFieldEdit" promptText="Select a course..." GridPane.columnIndex="1" />
+                                          <TextField fx:id="ectsPointsFieldEdit" promptText="Select a course..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="semesterFieldEdit" promptText="Select a course..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="classFieldEdit" promptText="Select a course..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                           <Label text="Teacher:" GridPane.rowIndex="4" />
-                                          <ComboBox fx:id="teacherCombo" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <ComboBox fx:id="teacherCombo1" prefHeight="25.0" prefWidth="176.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <ComboBox fx:id="teacher1BoxEdit" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <ComboBox fx:id="teacher2BoxEdit" prefHeight="25.0" prefWidth="176.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                           <Label text="Teacher2:" GridPane.rowIndex="5" />
                                        </children>
                                        <HBox.margin>
@@ -86,7 +86,7 @@
                                     </GridPane>
                                     <FlowPane alignment="BASELINE_RIGHT" prefHeight="157.0" prefWidth="270.0">
                                        <children>
-                                          <ComboBox fx:id="courseBox" prefHeight="26.0" prefWidth="273.0" promptText="Select a Course" />
+                                          <ComboBox fx:id="coursesBox" onAction="#onCourseSelection" prefHeight="26.0" prefWidth="273.0" promptText="Select a Course" />
                                        </children>
                                        <HBox.margin>
                                           <Insets left="50.0" />
@@ -96,22 +96,22 @@
                               </HBox>
                               <AnchorPane prefHeight="417.0" prefWidth="899.0">
                                  <children>
-                                    <Button fx:id="addStudentCourse" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Add students to the course" />
-                                    <Button fx:id="removeStudentCourse" layoutX="664.0" layoutY="12.0" mnemonicParsing="false" text="Remove students from the course" />
-                                    <TableView layoutX="10.0" layoutY="53.0" prefHeight="330.0" prefWidth="385.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="53.0">
+                                    <Button fx:id="addStudentEditButton" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Add students to the course" />
+                                    <Button fx:id="removeStudentEditButton" layoutX="664.0" layoutY="12.0" mnemonicParsing="false" text="Remove students from the course" />
+                                    <TableView fx:id="allStudentsTableEdit" layoutX="10.0" layoutY="53.0" prefHeight="330.0" prefWidth="385.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="53.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="Number" />
-                                        <TableColumn prefWidth="105.5" text="Name" />
-                                          <TableColumn prefWidth="104.0" text="Samester" />
-                                          <TableColumn prefWidth="53.2747802734375" text="Class" />
+                                        <TableColumn fx:id="studentNumberEdit1" prefWidth="75.0" text="Number" />
+                                        <TableColumn fx:id="studentNameEdit1" prefWidth="105.5" text="Name" />
+                                          <TableColumn fx:id="studentSemesterEdit1" prefWidth="104.0" text="Samester" />
+                                          <TableColumn fx:id="studentClassEdit1" prefWidth="53.2747802734375" text="Class" />
                                       </columns>
                                     </TableView>
-                                    <TableView layoutX="478.0" layoutY="53.0" prefHeight="330.0" prefWidth="385.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="478.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="53.0">
+                                    <TableView fx:id="courseStudentsTableEdit" layoutX="478.0" layoutY="53.0" prefHeight="330.0" prefWidth="385.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="478.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="53.0">
                                        <columns>
-                                          <TableColumn prefWidth="75.0" text="Number" />
-                                          <TableColumn prefWidth="75.0" text="Name" />
-                                          <TableColumn prefWidth="75.0" text="Samester" />
-                                          <TableColumn prefWidth="75.0" text="Class" />
+                                          <TableColumn fx:id="studentNumberEdit2" prefWidth="75.0" text="Number" />
+                                          <TableColumn fx:id="studentNameEdit2" prefWidth="75.0" text="Name" />
+                                          <TableColumn fx:id="studentSemesterEdit2" prefWidth="75.0" text="Samester" />
+                                          <TableColumn fx:id="studentClassEdit2" prefWidth="75.0" text="Class" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -155,8 +155,8 @@
                                           <TextField fx:id="classField11" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                           <Label text="Teacher2:" GridPane.rowIndex="5" />
                                           <TextField fx:id="classField111" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                          <ComboBox fx:id="addTeacher1Box" prefHeight="26.0" prefWidth="218.0" promptText="Select a teacher..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <ComboBox fx:id="addTeacher2Box" prefHeight="26.0" prefWidth="207.0" promptText="Select teacher2 (optional)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <ComboBox fx:id="teacher1BoxAdd" prefHeight="26.0" prefWidth="218.0" promptText="Select a teacher..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <ComboBox fx:id="teacher2BoxAdd" prefHeight="26.0" prefWidth="207.0" promptText="Select teacher2 (optional)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                        </children>
                                     </GridPane>
                                  </children>
@@ -165,20 +165,20 @@
                                  <children>
                                     <Button fx:id="addStudentsToCourse" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Add students to the course" />
                                     <Button fx:id="removeStudentsFromCourse" layoutX="664.0" layoutY="12.0" mnemonicParsing="false" text="Remove students from the course" />
-                                    <TableView fx:id="allStudentsTable" layoutX="10.0" layoutY="53.0" prefHeight="362.0" prefWidth="400.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="53.0">
+                                    <TableView fx:id="allStudentsTableAdd" layoutX="10.0" layoutY="53.0" prefHeight="362.0" prefWidth="400.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="53.0">
                                        <columns>
-                                          <TableColumn prefWidth="75.0" text="Number" />
-                                          <TableColumn prefWidth="134.6510009765625" text="Name" />
-                                          <TableColumn prefWidth="74.34898376464844" text="Samester" />
-                                          <TableColumn prefWidth="53.2747802734375" text="Class" />
+                                          <TableColumn fx:id="studentNumberAdd1" prefWidth="75.0" text="Number" />
+                                          <TableColumn fx:id="studentNameAdd1" prefWidth="134.6510009765625" text="Name" />
+                                          <TableColumn fx:id="studentSemesterAdd1" prefWidth="74.34898376464844" text="Samester" />
+                                          <TableColumn fx:id="studentClassAdd1" prefWidth="53.2747802734375" text="Class" />
                                        </columns>
                                     </TableView>
-                                    <TableView fx:id="courseStudentsTable" layoutX="467.0" layoutY="53.0" prefHeight="328.0" prefWidth="400.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="467.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="53.0">
+                                    <TableView fx:id="courseStudentsTableAdd" layoutX="467.0" layoutY="53.0" prefHeight="328.0" prefWidth="400.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="467.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="53.0">
                                        <columns>
-                                          <TableColumn prefWidth="75.0" text="Number" />
-                                          <TableColumn prefWidth="75.0" text="Name" />
-                                          <TableColumn prefWidth="75.0" text="Samester" />
-                                          <TableColumn prefWidth="75.0" text="Class" />
+                                          <TableColumn fx:id="studentNumberAdd2" prefWidth="75.0" text="Number" />
+                                          <TableColumn fx:id="studentNameAdd2" prefWidth="75.0" text="Name" />
+                                          <TableColumn fx:id="studentSemesterAdd2" prefWidth="75.0" text="Samester" />
+                                          <TableColumn fx:id="studentClassAdd2" prefWidth="75.0" text="Class" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -196,12 +196,12 @@
       </AnchorPane>
       <AnchorPane layoutX="75.0" layoutY="828.0" prefHeight="66.0" prefWidth="779.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="828.0">
          <children>
-            <Button fx:id="btnSave" layoutX="701.0" layoutY="20.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="19.0">
+            <Button layoutX="701.0" layoutY="20.0" mnemonicParsing="false" onAction="#saveCourses" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="19.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnHome" layoutX="17.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToSceneHome" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: # FAFBFD;" text="Back" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0">
+            <Button fx:id="btnHome" layoutX="17.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToSceneHome" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: #FAFBFD;" text="Back" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

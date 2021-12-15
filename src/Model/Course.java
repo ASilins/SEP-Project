@@ -123,7 +123,12 @@ public class Course implements Serializable
      * @author Ondrej
      */
     public String getTeacher2Name(){
-        return teacher2.getInitials();
+        if (teacher2 == null || teacher2.getInitials() == null || teacher2.getInitials().equals(""))
+        {
+            return "None assigned";
+        }
+        else
+            return teacher2.getInitials();
     }
 
     /**
@@ -274,15 +279,17 @@ public class Course implements Serializable
 
     /**
      * Returns a string representation of the course
-     * @return a string representation of the course in format: "Course name, Teacher, ectsPoints and students"
+     * @return a string representation of the course in format: "Course name, Teacher(s), ectsPoints"
      */
     public String toString() {
         if (teacher2==null) {
-            return courseName + "\n" + teacher1.getInitials() + "\n" + ectsPoints  + "\n" + semester + "\n" + className + "\n";
+            return courseName + semester + className + ", " + teacher1.getInitials()
+                + ", " + ectsPoints;
         }
         else
         {
-            return courseName + "\n" + teacher1.getInitials() + "\n" + teacher2.getInitials() + "\n" + ectsPoints + "\n"  + semester + "\n" + className + "\n";
+            return courseName + semester + className + ", " + teacher1.getInitials()
+                + " + " + teacher2.getInitials() + ", " + ectsPoints;
         }
     }
 }
