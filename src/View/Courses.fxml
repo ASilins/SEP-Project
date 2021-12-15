@@ -86,7 +86,13 @@
                                     </GridPane>
                                     <FlowPane alignment="BASELINE_RIGHT" prefHeight="157.0" prefWidth="270.0">
                                        <children>
-                                          <ComboBox fx:id="coursesBox" onAction="#onCourseSelection" prefHeight="26.0" prefWidth="273.0" promptText="Select a Course" />
+                                          <Pane prefHeight="189.0" prefWidth="200.0">
+                                             <children>
+                                                <ComboBox fx:id="courseBox" layoutX="-67.0" layoutY="-2.0" prefHeight="26.0" prefWidth="273.0" promptText="Select a Course" />
+                                             </children>
+                                          </Pane>
+                                          <Button fx:id="removeStudentCourse1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Remove Teacher2 from the course" />
+                                          <Pane prefHeight="0.0" prefWidth="63.0" />
                                        </children>
                                        <HBox.margin>
                                           <Insets left="50.0" />
@@ -159,6 +165,7 @@
                                           <ComboBox fx:id="teacher2BoxAdd" prefHeight="26.0" prefWidth="207.0" promptText="Select teacher2 (optional)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                        </children>
                                     </GridPane>
+                                    <Button fx:id="removeStudentCourse11" alignment="CENTER" contentDisplay="CENTER" layoutX="662.0" layoutY="136.0" mnemonicParsing="false" text="Remove Teacher2 from the course" />
                                  </children>
                               </Pane>
                               <AnchorPane prefHeight="417.0" prefWidth="899.0">
