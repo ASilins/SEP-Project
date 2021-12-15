@@ -4,6 +4,8 @@ import Model.Course;
 import Model.CourseList;
 import Model.ScheduleModelManager;
 import Model.Teacher;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,6 +29,7 @@ public class CoursesController implements Initializable
 {
   private CourseList courseList;
   private CourseList removedCourses;
+  private int numberOfRemovedCourses = 0;
   private ScheduleModelManager scheduleManager = new ScheduleModelManager("src/Files/students.bin",
       "src/Files/teachers.bin", "src/Files/classes.bin", "src/Files/courses.bin",
       "src/Files/rooms.bin", "src/Files/lessons.bin");
@@ -38,6 +42,17 @@ public class CoursesController implements Initializable
   @FXML private TableColumn<Course, String> teacher2Course;
   @FXML private TableColumn<Course, Integer> semesterCourse;
   @FXML private TableColumn<Course, String> classCourse;
+
+  public void switchToSceneHome(ActionEvent event) throws IOException
+  {
+    Parent root = FXMLLoader.load(
+        Objects.requireNonNull(getClass().getResource("Home.fxml")));
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    Stage window = (Stage) btnHome.getScene().getWindow();
+    window.setScene(new Scene(root, 950, 950));
+    window.show();
+
+  }
 
   public void initialize (URL url, ResourceBundle rb){
     courseList = new CourseList();
@@ -58,7 +73,15 @@ public class CoursesController implements Initializable
     teacher1Course.setCellValueFactory(new PropertyValueFactory<Course, String>("teacher1Name"));
     teacher2Course.setCellValueFactory(new PropertyValueFactory<Course, String>("teacher2Name"));
     classCourse.setCellValueFactory(new PropertyValueFactory<Course, String>("className"));
-    ectsPointsCourse.setCellValueFactory(new PropertyValueFactory<Course, Integer>("ECTSPoints"));
+    ectsPointsCourse.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Course, Integer>, ObservableValue<Integer>>()
+    {
+      @Override public ObservableValue<Integer> call(
+          TableColumn.CellDataFeatures<Course, Integer> course)
+      {
+        ObservableValue<Integer> observableECTS = new SimpleIntegerProperty(course.getValue().getECTSPoint()).asObject();
+        return observableECTS;
+      }
+    });
 
     coursesTable.getItems().clear();
     for (int i = 0; i < courseList.size(); i++)
@@ -67,14 +90,19 @@ public class CoursesController implements Initializable
     }
   }
 
-  public void switchToSceneHome(ActionEvent event) throws IOException
-  {
-    Parent root = FXMLLoader.load(
-        Objects.requireNonNull(getClass().getResource("Home.fxml")));
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    Stage window = (Stage) btnHome.getScene().getWindow();
-    window.setScene(new Scene(root, 950, 950));
-    window.show();
+  @FXML public void removeCoursesButton(ActionEvent event){
+    Course selected = coursesTable.getSelectionModel().getSelectedItem();
+
+    removedCourses.addCourse(selected);
+    courseList.removeCourse(selected);
+    coursesTable.getItems().remove(selected);
+    numberOfRemovedCourses++;
+
+//    initializeCoursesBox();
+
+  }
+
+  private void removeCourses(){
 
   }
 

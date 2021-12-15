@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 public class StudentsController implements Initializable
 {
   @FXML private Button btnHome;
-  @FXML private TableView<Student> students;
+  @FXML private TableView<Student> studentsTable;
   @FXML private TableColumn<Student,String> name;
   @FXML private TableColumn<Student,Integer> number;
   @FXML private TableColumn<Student,Integer> semester;
@@ -72,7 +72,7 @@ public class StudentsController implements Initializable
 
     initializeList();
     initializeTable();
-    initializeComboBox();
+    initializeStudentBox();
     initializeNumericTextFields();
 
   }
@@ -82,29 +82,30 @@ public class StudentsController implements Initializable
   }
 
   private void initializeTable() {
-    TableSelectionModel<Student> selectionModel = students.getSelectionModel();
+    TableSelectionModel<Student> selectionModel = studentsTable.getSelectionModel();
     selectionModel.setSelectionMode(SelectionMode.MULTIPLE);
     name.setCellValueFactory(new PropertyValueFactory<Student,String>("name"));
     number.setCellValueFactory(new PropertyValueFactory<Student,Integer>("studentNumber"));
     semester.setCellValueFactory(new PropertyValueFactory<Student,Integer>("semester"));
     className.setCellValueFactory(new PropertyValueFactory<Student,String>("className"));
 
-    students.getItems().clear();
+    studentsTable.getItems().clear();
     for (int i = 0; i < studentList.size(); i++)
     {
-      students.getItems().add(studentList.get(i));
+      studentsTable.getItems().add(studentList.get(i));
 
     }
   }
 
   @FXML private void removeButton(ActionEvent event){
-    Student selected = students.getSelectionModel().getSelectedItem();
+    Student selected = studentsTable.getSelectionModel().getSelectedItem();
 //    this.student = selected;
     removedStudents.addStudent(selected);
     studentList.removeStudent(selected);
-    students.getItems().remove(selected);
+    studentsTable.getItems().remove(selected);
 //    initializeTable();
     numberOfRemovedStudents++;
+    initializeStudentBox();
   }
 
   private void removeStudent()
@@ -122,7 +123,7 @@ public class StudentsController implements Initializable
 
   }
 
-  private void initializeComboBox()
+  private void initializeStudentBox()
   {
     studentBox.getItems().clear();
     for (int i = 0; i < studentList.size(); i++)
@@ -348,7 +349,7 @@ public class StudentsController implements Initializable
     {
       initializeList();
       initializeTable();
-      initializeComboBox();
+      initializeStudentBox();
       clearTextFields();
       initializeNumericTextFields();
     }

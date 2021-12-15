@@ -32,7 +32,7 @@
                      <content>
                         <VBox alignment="CENTER" spacing="10.0">
                            <children>
-                              <TableView fx:id="students" prefHeight="489.0" prefWidth="679.0">
+                              <TableView fx:id="studentsTable" prefHeight="489.0" prefWidth="679.0">
                                 <columns>
                                   <TableColumn fx:id="number" prefWidth="75.0" text="Number" />
                                   <TableColumn fx:id="name" prefWidth="75.0" text="Name" />

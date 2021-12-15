@@ -42,7 +42,7 @@
                                     <TableColumn fx:id="ectsPointsCourse" prefWidth="103.20001220703125" text="ECTS Point" />
                                  </columns>
                               </TableView>
-                              <Button fx:id="removeCourse" mnemonicParsing="false" text="Remove" />
+                              <Button mnemonicParsing="false" onAction="#removeCoursesButton" text="Remove" />
                            </children>
                         </VBox>
                      </content>
