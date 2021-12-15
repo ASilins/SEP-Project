@@ -256,7 +256,7 @@ public class Course implements Serializable
 
             } else if (teacher2 != null) {
                 if (courseName.equals(other.courseName) &&
-                        teacher2.equals(other.teacher1) &&
+                        teacher2.equals(other.teacher2) &&
                         students.equals(other.students) &&
                         ectsPoints == other.ectsPoints &&
                         semester == other.semester &&
