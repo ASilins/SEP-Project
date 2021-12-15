@@ -68,6 +68,25 @@ public class RoomList implements Serializable
   }
 
   /**
+   * returns a room from the room list that room1 can be combined with
+   * @param room1 room that needs to be combined with another room
+   * @return room that room1 can be combined with
+   */
+  public Room partnerRoom(Room room1)
+  { Room room2= null;
+    for (int i =0; i<rooms.size(); i++)
+    {
+      if (rooms.get(i).getRoomNumber().charAt(1)==room1.getRoomNumber().charAt(1) &&
+              rooms.get(i).getRoomNumber().charAt(0)==room1.getRoomNumber().charAt(0) &&
+              rooms.get(i).getRoomNumber().charAt(2)!=room1.getRoomNumber().charAt(2))
+      {
+         room2 =rooms.get(i);
+      }
+    }
+    return room2;
+  }
+
+  /**
    * Returns a string representation of the room list.
    * @return a string representation of the room list in format: "Room"
    */

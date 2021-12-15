@@ -203,14 +203,55 @@ public class Course implements Serializable
      * @return true if the two objects are equal and false otherwise
      */
     public boolean equals(Object obj) {
+        boolean equal = false;
 
-        if (!(obj instanceof Course))
-        {
-            return false;
+        if (!(obj instanceof Course)) {
+            return equal;
         }
-        Course other = (Course) obj;
-        return courseName.equals(other.courseName) && teacher1.equals(other.teacher1) && teacher2.equals(other.teacher2) && students.equals(other.students)
-                && ectsPoints==other.ectsPoints && semester==other.semester && className.equals(other.className);
+        else {
+
+
+            Course other = (Course) obj;
+            if (teacher2 != null && teacher1 != null) {
+                if (courseName.equals(other.courseName) &&
+                        teacher1.equals(other.teacher1) &&
+                        teacher2.equals(other.teacher2) &&
+                        students.equals(other.students) &&
+                        ectsPoints == other.ectsPoints &&
+                        semester == other.semester &&
+                        className.equals(other.className)) {
+                    equal = true;
+                } else {
+                    equal = false;
+                }
+            } else if (teacher1 != null) {
+                if (courseName.equals(other.courseName) &&
+                        teacher1.equals(other.teacher1) &&
+                        students.equals(other.students) &&
+                        ectsPoints == other.ectsPoints &&
+                        semester == other.semester &&
+                        className.equals(other.className)) {
+                    equal = true;
+                } else {
+                    equal = false;
+                }
+
+            } else if (teacher2 != null) {
+                if (courseName.equals(other.courseName) &&
+                        teacher2.equals(other.teacher1) &&
+                        students.equals(other.students) &&
+                        ectsPoints == other.ectsPoints &&
+                        semester == other.semester &&
+                        className.equals(other.className)) {
+                    equal = true;
+                } else {
+                    equal = false;
+
+                }
+
+            }
+        }
+        return equal;
     }
 
     /**
