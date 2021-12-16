@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StudentsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TeacherController">
    <children>
       <AnchorPane layoutX="2.0" layoutY="204.0" prefHeight="613.0" prefWidth="920.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="204.0">
          <children>
@@ -32,13 +32,13 @@
                      <content>
                         <VBox alignment="CENTER" spacing="10.0">
                            <children>
-                              <TableView fx:id="courses" prefHeight="542.0" prefWidth="735.0">
+                              <TableView fx:id="teachers" prefHeight="542.0" prefWidth="735.0">
                                  <columns>
-                                    <TableColumn fx:id="ectsPoints" prefWidth="78.0" text="Teacher " />
-                                    <TableColumn fx:id="courseName" prefWidth="133.5" text="Course Name" />
+                                    <TableColumn fx:id="initials" prefWidth="133.60000324249268" text="Teacher " />
+                                    <TableColumn fx:id="courses" prefWidth="118.40003967285156" text="Courses" />
                                  </columns>
                               </TableView>
-                              <Button mnemonicParsing="false" onAction="#removeButton" text="Remove" />
+                              <Button mnemonicParsing="false" onAction="#removeTeacher" text="Remove" />
                            </children>
                         </VBox>
                      </content>
@@ -75,8 +75,8 @@
                               </HBox>
                               <AnchorPane prefHeight="417.0" prefWidth="899.0">
                                  <children>
-                                    <Button fx:id="removeButton111" layoutX="74.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleActions" prefHeight="25.0" prefWidth="164.0" text="Add course to the teacher" />
-                                    <Button fx:id="removeButton1111" layoutX="576.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleActions" text="Remove course to the teacher" />
+                                    <Button fx:id="removeButton111" layoutX="74.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Add course to the teacher" />
+                                    <Button fx:id="removeButton1111" layoutX="576.0" layoutY="12.0" mnemonicParsing="false" text="Remove course to the teacher" />
                                     <TableView layoutX="10.0" layoutY="53.0" prefHeight="362.0" prefWidth="379.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="53.0">
                                        <columns>
                                           <TableColumn prefWidth="75.0" text="Number" />
@@ -102,7 +102,7 @@
                         </VBox>
                      </content>
                   </Tab>
-                  <Tab fx:id="addStudentTab" onSelectionChanged="#tabChanged" text="Add Teacher">
+                  <Tab fx:id="addStudentTab" text="Add Teacher">
                      <content>
                         <VBox prefWidth="100.0" spacing="20.0">
                            <children>
@@ -125,8 +125,8 @@
                               </Pane>
                               <AnchorPane prefHeight="417.0" prefWidth="899.0">
                                  <children>
-                                    <Button fx:id="removeButton1111" layoutX="74.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleActions" prefHeight="25.0" prefWidth="164.0" text="Add course to the teacher" />
-                                    <Button fx:id="removeButton11111" layoutX="576.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleActions" text="Remove course from the teacher" />
+                                    <Button fx:id="removeButton1111" layoutX="74.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Add course to the teacher" />
+                                    <Button fx:id="removeButton11111" layoutX="576.0" layoutY="12.0" mnemonicParsing="false" text="Remove course from the teacher" />
                                     <TableView layoutX="10.0" layoutY="53.0" prefHeight="362.0" prefWidth="379.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="53.0">
                                        <columns>
                                           <TableColumn prefWidth="75.0" text="Number" />
@@ -158,7 +158,7 @@
       </AnchorPane>
       <AnchorPane layoutX="75.0" layoutY="828.0" prefHeight="66.0" prefWidth="779.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="828.0">
          <children>
-            <Button fx:id="btnSave" layoutX="701.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="19.0">
+            <Button layoutX="701.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="19.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
