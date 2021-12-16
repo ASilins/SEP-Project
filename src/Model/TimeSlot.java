@@ -1,10 +1,14 @@
 package Model;
+
+import java.io.Serializable;
+
 /**
  * A class for the timeslot object
  * @author Sid
  * @version 1.2
  */
-public class TimeSlot {
+public class TimeSlot implements Serializable
+{
 
     private int hourStart;
     private int minuteStart;
@@ -29,14 +33,12 @@ public class TimeSlot {
      */
     public TimeSlot(int hourStart, int minuteStart, int hourEnd, int minuteEnd, int dayOftheWeek, int year, int month, int day)
     {
-        this.hourStart=hourStart;
-        this.minuteStart=minuteStart;
-        this.hourEnd=hourEnd;
-        this.minuteEnd=minuteEnd;
-        this.dayOftheWeek=dayOftheWeek;
-        this.date=year + "-"+ month +"-"+day;
-
-
+        this.hourStart = hourStart;
+        this.minuteStart = minuteStart;
+        this.hourEnd = hourEnd;
+        this.minuteEnd = minuteEnd;
+        this.dayOftheWeek = dayOftheWeek;
+        this.date = year + "-" + month + "-" + day;
     }
 
     /**
@@ -52,14 +54,12 @@ public class TimeSlot {
 
     public TimeSlot(int hourStart, int minuteStart, int hourEnd, int minuteEnd, int year, int month, int day)
     {
-        this.hourStart=hourStart;
-        this.minuteStart=minuteStart;
-        this.hourEnd=hourEnd;
-        this.minuteEnd=minuteEnd;
-        dayOftheWeek=-1;
-        this.date=year + "-"+ month +"-"+day;
-
-
+        this.hourStart = hourStart;
+        this.minuteStart = minuteStart;
+        this.hourEnd = hourEnd;
+        this.minuteEnd = minuteEnd;
+        dayOftheWeek = -1;
+        this.date = year + "-" + month + "-" + day;
     }
 
     /**
@@ -84,7 +84,6 @@ public class TimeSlot {
      * returns the ending hour
      * @return the ending hour
      */
-
     public int getHourEnd()
     {
         return hourEnd;
@@ -98,8 +97,6 @@ public class TimeSlot {
     {
         return hourEnd;
     }
-
-
 
     /**
      * returns the day of the week in format 0,1,2,3,4,5,6 (0=sunday)
@@ -276,6 +273,4 @@ public class TimeSlot {
     {
         return "time start: " + hourStart + ":"+minuteStart + "; time end: " + hourEnd + ":"+ minuteEnd + "; day: " + day + "date: " + date;
     }
-
-
 }

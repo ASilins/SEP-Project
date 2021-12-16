@@ -1,8 +1,16 @@
 package Utils;
 
+import Model.ScheduleSystem;
+import parser.ParserException;
+import parser.XmlJsonParser;
 import java.io.*;
 import java.util.*;
 
+/**
+ * A class responsible for reading and writing text files and binary files.
+ * @author Allan Henriksen
+ * @version 1.0
+ */
 public class MyFileHandler
 {
   public static void writeToTextFile(String fileName, String str) throws FileNotFoundException {
@@ -314,5 +322,10 @@ public class MyFileHandler
     }
 
     return objs.toArray();
+  }
+
+  public static void LessonsToJSON(ScheduleSystem allLessons) throws IOException, ParserException {
+    XmlJsonParser parser = new XmlJsonParser();
+    File file = parser.toJson(allLessons, "src/Files/lessons.json");
   }
 }

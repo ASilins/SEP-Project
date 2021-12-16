@@ -33,6 +33,7 @@ public class ScheduleSystem implements Serializable
       for (int i=0; i<lessons.size(); i++) {
         if (lessons.get(i).isAvailable(lesson)) {
           lessons.add(lesson);
+          break;
         }
       }
     }
