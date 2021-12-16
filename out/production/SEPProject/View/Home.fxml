@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="39.0" />
                </font>
             </Text>
-            <Button layoutX="763.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #4285F4;" text="Schedule" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
+            <Button fx:id="btWebsite" layoutX="763.0" layoutY="20.0" mnemonicParsing="false" onAction="#websiteLink" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #4285F4;" text="Schedule" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -49,7 +49,7 @@
                   </Label>
                   <ImageView fitHeight="66.0" fitWidth="86.0" layoutX="61.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@student.gif" />
+                        <Image url="@Assets/Student.gif" />
                      </image>
                   </ImageView>
                </children>
@@ -64,7 +64,7 @@
                   </Label>
                   <ImageView fitHeight="66.0" fitWidth="86.0" layoutX="61.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@class.gif" />
+                        <Image url="@Assets/Class.gif" />
                      </image>
                   </ImageView>
                </children>
@@ -79,7 +79,7 @@
                   </Label>
                   <ImageView fitHeight="66.0" fitWidth="86.0" layoutX="61.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@teacher.gif" />
+                        <Image url="@Assets/Teacher.gif" />
                      </image>
                   </ImageView>
                </children>
@@ -94,7 +94,7 @@
                   </Label>
                   <ImageView fitHeight="66.0" fitWidth="86.0" layoutX="61.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Rooms.gif" />
+                        <Image url="@Assets/Rooms.gif" />
                      </image>
                   </ImageView>
                </children>
@@ -109,7 +109,7 @@
                   </Label>
                   <ImageView fitHeight="66.0" fitWidth="86.0" layoutX="67.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Courses.gif" />
+                        <Image url="@Assets/Courses.gif" />
                      </image>
                   </ImageView>
                </children>
@@ -124,7 +124,7 @@
                   </Label>
                   <ImageView fitHeight="66.0" fitWidth="86.0" layoutX="67.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Lessons.gif" />
+                        <Image url="@Assets/Lessons.gif" />
                      </image>
                   </ImageView>
                </children>

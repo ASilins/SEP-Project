@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="39.0" />
                </font>
             </Text>
-            <Button layoutX="763.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #4285F4;" text="Schedule" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
+            <Button fx:id="btWebsite" layoutX="763.0" layoutY="20.0" mnemonicParsing="false" onAction="#websiteLink" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #4285F4;" text="Schedule" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

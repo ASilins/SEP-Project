@@ -1,6 +1,9 @@
 package View;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Objects;
 
 import Utils.ImportInitialData;
@@ -11,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -19,8 +23,7 @@ public class HomeController {
     @FXML
     Button btnStudents1, btnClasses, btnTeachers, btnRooms, btnCourses, btnLessons,
             btnSchedule, btnHome, firstInitial;
-    @FXML
-    Hyperlink websiteLink;
+
 
 
     //********** METHOD TO BE DELETED WHEN ITS TIME COMES **********\\
@@ -35,6 +38,11 @@ public class HomeController {
 
         window.show();
 
+    }
+
+    @FXML
+     void websiteLink (ActionEvent event) throws URISyntaxException,IOException{
+        Desktop.getDesktop().browse(new URI("https://google.com"));
     }
 
     public void switchToSceneStudents(ActionEvent event) throws IOException {

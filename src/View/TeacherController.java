@@ -79,7 +79,7 @@ public class TeacherController
   }
 
   private void initializeTeachersEdit(){
-    teacherBox.getItems().addAll()
+    teacherBox.getItems().addAll();
   }
 
   private void addCourseEdit(){
