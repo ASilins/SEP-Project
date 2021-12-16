@@ -83,7 +83,7 @@ public class StudentsController implements Initializable
 
   private void initializeTable() {
     TableSelectionModel<Student> selectionModel = studentsTable.getSelectionModel();
-    selectionModel.setSelectionMode(SelectionMode.MULTIPLE);
+    selectionModel.setSelectionMode(SelectionMode.SINGLE);
     name.setCellValueFactory(new PropertyValueFactory<Student,String>("name"));
     number.setCellValueFactory(new PropertyValueFactory<Student,Integer>("studentNumber"));
     semester.setCellValueFactory(new PropertyValueFactory<Student,Integer>("semester"));

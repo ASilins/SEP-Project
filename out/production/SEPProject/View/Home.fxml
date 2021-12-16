@@ -37,7 +37,7 @@
             </Text>
          </children>
       </StackPane>
-      <AnchorPane layoutY="360.0" prefHeight="455.0" prefWidth="924.0" AnchorPane.bottomAnchor="155.0" AnchorPane.topAnchor="360.0">
+      <AnchorPane layoutY="360.0" prefHeight="455.0" prefWidth="924.0" AnchorPane.bottomAnchor="155.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="360.0">
          <children>
             <Pane layoutX="14.0" layoutY="9.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;" AnchorPane.leftAnchor="14.0">
                <children>
@@ -131,9 +131,9 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="85.0" layoutY="838.0" prefHeight="66.0" prefWidth="779.0">
+      <AnchorPane layoutX="85.0" layoutY="838.0" prefHeight="66.0" prefWidth="779.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="838.0">
          <children>
-            <Button fx:id="firstInitial" layoutX="312.0" layoutY="14.0" mnemonicParsing="false" onAction="#firstInitial" prefHeight="39.0" prefWidth="119.0" style="-fx-background-color: #4285F4;" text="Import Data" textFill="WHITE">
+            <Button fx:id="firstInitial" layoutX="312.0" layoutY="14.0" mnemonicParsing="false" onAction="#firstInitial" prefHeight="39.0" prefWidth="119.0" style="-fx-background-color: #4285F4;" text="Import Data" textFill="WHITE" AnchorPane.bottomAnchor="13.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

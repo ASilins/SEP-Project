@@ -84,20 +84,25 @@
                                           <Insets left="120.0" />
                                        </HBox.margin>
                                     </GridPane>
-                                    <FlowPane alignment="BASELINE_RIGHT" prefHeight="157.0" prefWidth="270.0">
+                                    <FlowPane alignment="BASELINE_RIGHT" prefHeight="157.0" prefWidth="407.0">
                                        <children>
-                                          <ComboBox fx:id="coursesBox" onAction="#onCourseSelection" prefHeight="26.0" prefWidth="273.0" promptText="Select a Course" />
+                                          <Pane prefHeight="190.0" prefWidth="406.0">
+                                             <children>
+                                                <ComboBox fx:id="coursesBox" layoutX="92.0" layoutY="1.0" onAction="#onCourseSelection" prefHeight="26.0" prefWidth="273.0" promptText="Select a Course" />
+                                                <Button fx:id="removeTeacher2Edit" alignment="CENTER" contentDisplay="CENTER" layoutY="164.0" mnemonicParsing="false" text="Remove" />
+                                             </children>
+                                          </Pane>
                                        </children>
                                        <HBox.margin>
-                                          <Insets left="50.0" />
+                                          <Insets />
                                        </HBox.margin>
                                     </FlowPane>
                                  </children>
                               </HBox>
                               <AnchorPane prefHeight="417.0" prefWidth="899.0">
                                  <children>
-                                    <Button fx:id="addStudentEditButton" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Add students to the course" />
-                                    <Button fx:id="removeStudentEditButton" layoutX="664.0" layoutY="12.0" mnemonicParsing="false" text="Remove students from the course" />
+                                    <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#addStudentEdit" prefHeight="25.0" prefWidth="164.0" text="Add students to the course" />
+                                    <Button layoutX="664.0" layoutY="12.0" mnemonicParsing="false" onAction="#removeStudentEdit" text="Remove students from the course" />
                                     <TableView fx:id="allStudentsTableEdit" layoutX="10.0" layoutY="53.0" prefHeight="330.0" prefWidth="385.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="53.0">
                                       <columns>
                                         <TableColumn fx:id="studentNumberEdit1" prefWidth="75.0" text="Number" />
@@ -159,6 +164,7 @@
                                           <ComboBox fx:id="teacher2BoxAdd" prefHeight="26.0" prefWidth="207.0" promptText="Select teacher2 (optional)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                        </children>
                                     </GridPane>
+                                    <Button fx:id="removeStudentCourse11" alignment="CENTER" contentDisplay="CENTER" layoutX="662.0" layoutY="136.0" mnemonicParsing="false" text="Remove Teacher2 from the course" />
                                  </children>
                               </Pane>
                               <AnchorPane prefHeight="417.0" prefWidth="899.0">
