@@ -52,7 +52,7 @@ function removeAllLessons() {
 }
 
 function allEvents() {
-fetch('../../src/Files/lessons.json')
+fetch('../src/Files/lessons.json')
 .then(function(resp) {
   return resp.json();
 })
