@@ -73,7 +73,7 @@ public class ImportInitialData {
         students.addStudent(student); // For each iteration this takes 1.
       }
 
-      // We read threw the course array and create each teacher and course object and insert them in corresponding arrays.
+      // We read through the course array and create each teacher and course object and insert them in corresponding arrays.
       for (int i = 0; i < coursesArray.length; i++) { // This will loop n times.
         // We initialise a temporary string and set the information from the array
         String temp = coursesArray[i]; // For each iteration this takes 1.
@@ -153,7 +153,7 @@ public class ImportInitialData {
         }
       }
 
-      // We read threw room list and create room objects and add them to room object list.
+      // We read through room list and create room objects and add them to room object list.
       for (int i = 0; i < roomArray.length; i++) { // This will run n times
         // We initialise a temporary string and set the information from the array
         String temp = roomArray[i]; // For each iteration this takes 1.
@@ -180,7 +180,7 @@ public class ImportInitialData {
       System.err.println("File was not found, or could not be opened"); // This takes 1 if an exception was thrown.
     }
 
-    // We read threw student object list and make class object list with students in them.
+    // We read through student object list and make class object list with students in them.
     for (int i = 0; i < students.size(); i++) { // This runs n times.
       // We create class object and set it to null.
       Class c = null; // For each iteration this is 1.
@@ -197,7 +197,7 @@ public class ImportInitialData {
         // We add the class to the class object list.
         classes.addClass(c); // This is 1.
       } else {
-        // We search threw class object list.
+        // We search through class object list.
         for (int j = 0; j < classes.size(); j++) { // This runs n times.
           // We compare student object class name with class object name.
           if (students.get(i).getClassName().equals(classes.get(j).getName()) &&
