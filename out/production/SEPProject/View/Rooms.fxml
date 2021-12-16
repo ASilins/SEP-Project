@@ -41,7 +41,7 @@
                                     <TableColumn fx:id="capacity" prefWidth="75.0" text="Capacity" />
                                  </columns>
                               </TableView>
-                              <Button mnemonicParsing="false" text="Remove" />
+                              <Button mnemonicParsing="false" onAction="#removeButton" text="Remove" />
                            </children>
                         </VBox>
                      </content>
@@ -68,10 +68,10 @@
                                           <Label prefHeight="17.0" prefWidth="94.0" text="Block:" GridPane.rowIndex="1" />
                                           <Label text="Floor:" GridPane.rowIndex="2" />
                                           <Label text="Capacity:" GridPane.rowIndex="3" />
-                                          <TextField fx:id="roomNumberField" GridPane.columnIndex="1" />
-                                          <TextField fx:id="blockField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <TextField fx:id="floorField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <TextField fx:id="capacityField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="roomNumberFieldEdit" GridPane.columnIndex="1" />
+                                          <TextField fx:id="blockFieldEdit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="floorFieldEdit" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="capacityFieldEdit" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                        </children>
                                     </GridPane>
                                     <FlowPane alignment="BASELINE_RIGHT" prefHeight="120.0" prefWidth="346.0">
@@ -113,11 +113,11 @@
                                           <Label text="Room Number:" />
                                           <Label prefHeight="17.0" prefWidth="94.0" text="Block" GridPane.rowIndex="1" />
                                           <Label text="Floor" GridPane.rowIndex="2" />
-                                          <TextField fx:id="firstNameField1" promptText="Name" GridPane.columnIndex="1" />
-                                          <TextField fx:id="lastNameField1" promptText="Student Number" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <TextField fx:id="countryField1" promptText="Semester" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="roomNumberFieldAdd" GridPane.columnIndex="1" />
+                                          <TextField fx:id="blockFieldAdd" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="floorFieldAdd" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label text="Capacity" GridPane.rowIndex="3" />
-                                          <TextField fx:id="capacityField1" promptText="Class" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="capacityFieldAdd" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                        </children>
                                     </GridPane>
                                  </children>

@@ -19,16 +19,14 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class RoomController implements Initializable
+public class RoomController
 {
-    @FXML private Button btnHome, btnSave;
-    @FXML private ListView<Room> allRoomsList;
-    @FXML
-    private TableView<Room> rooms;
-    @FXML private TableColumn<Room,Integer> roomNumber;
-    @FXML private TableColumn<Room,String> block;
+    @FXML private Button btnHome;
+    @FXML private TableView<Room> rooms;
+    @FXML private TableColumn<Room,String> roomNumber;
+    @FXML private TableColumn<Room,Character> block;
     @FXML private TableColumn<Room,Integer> floor;
-    @FXML private TableColumn<Student,Integer> capacity;
+    @FXML private TableColumn<Room,Integer> capacity;
     private Room room;
     private RoomList roomList;
     private RoomList tempList;
@@ -38,12 +36,15 @@ public class RoomController implements Initializable
     private ScheduleModelManager scheduleManager = new ScheduleModelManager("src/Files/students.bin",
             "src/Files/teachers.bin", "src/Files/classes.bin", "src/Files/courses.bin",
             "src/Files/rooms.bin", "src/Files/lessons.bin");
-    @FXML private TextField roomNumberField;
-    @FXML private TextField blockField;
-    @FXML private TextField floorField;
-    @FXML private TextField capacityField;
-    @FXML private TextField capacityField1;
-    @FXML private ComboBox roomBox;
+    @FXML private TextField roomNumberFieldEdit;
+    @FXML private TextField blockFieldEdit;
+    @FXML private TextField floorFieldEdit;
+    @FXML private TextField capacityFieldEdit;
+    @FXML private TextField roomNumberFieldAdd;
+    @FXML private TextField blockFieldAdd;
+    @FXML private TextField floorFieldAdd;
+    @FXML private TextField capacityFieldAdd;
+    @FXML private ComboBox<String> roomBox;
 
 
 
@@ -58,46 +59,55 @@ public class RoomController implements Initializable
 
     }
 
-
-
-    public void initialize(URL url, ResourceBundle rb)
+    public void initialize()
     {
         roomList = new RoomList();
         removedRooms = new RoomList();
-        roomList = scheduleManager.getAllRooms();
 
-
+        initializeRoomList();
         initializeTable();
         initializeComboBox();
 
     }
 
-    private void initializeTable() {
-        TableSelectionModel<Room> selectionModel = rooms.getSelectionModel();
-        selectionModel.setSelectionMode(SelectionMode.MULTIPLE);
-        roomNumber.setCellValueFactory(new PropertyValueFactory<Room,Integer>("roomNumber"));
-        block.setCellValueFactory(new PropertyValueFactory<Room,String>("bock"));
-        floor.setCellValueFactory(new PropertyValueFactory<Room,Integer>("floor"));
-//      students.getItems().addAll(allStudents);
-        for (int i = 0; i < roomList.size(); i++)
+    private void initializeRoomList(){
+        roomList = scheduleManager.getAllRooms();
+        for (int i = removedRooms.size() - 1; i >= 0; i--)
         {
-            rooms.getItems().add(roomList.get(i));
-            removedRooms.addRoom(roomList.get(i));
+            removedRooms.removeRoom(removedRooms.get(i));
         }
     }
 
-    @FXML private void removeButton(ActionEvent event){
+    private void initializeTable() {
+        TableSelectionModel<Room> selectionModel = rooms.getSelectionModel();
+        selectionModel.setSelectionMode(SelectionMode.SINGLE);
+        roomNumber.setCellValueFactory(new PropertyValueFactory<Room,String>("roomNumber"));
+        block.setCellValueFactory(new PropertyValueFactory<Room,Character>("block"));
+        floor.setCellValueFactory(new PropertyValueFactory<Room,Integer>("floor"));
+        capacity.setCellValueFactory(new PropertyValueFactory<Room, Integer>("capacity"));
+
+        rooms.getItems().clear();
+        for (int i = 0; i < roomList.size(); i++)
+        {
+            rooms.getItems().add(roomList.get(i));
+        }
+    }
+
+    @FXML private void removeButton(){
         Room selected = rooms.getSelectionModel().getSelectedItem();
-        this.room = selected;
+
         removedRooms.addRoom(selected);
         roomList.removeRoom(selected);
         rooms.getItems().remove(selected);
-        initializeTable();
         numberOfRemovedRooms++;
+
+        initializeComboBox();
+
     }
 
     private void initializeComboBox()
     {
+        roomBox.getItems().clear();
         for (int i = 0; i < roomList.size(); i++)
         {
             roomBox.getItems().add(roomList.get(i).toString());
@@ -105,26 +115,109 @@ public class RoomController implements Initializable
 
     }
 
-    @FXML private void btnSave(ActionEvent event)
-    {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to remove " +
-                numberOfRemovedRooms + " Rooms?", ButtonType.YES, ButtonType.CANCEL);
-        alert.setHeaderText("Are you sure you want to continue?");
-        alert.setTitle(null);
-
-        alert.showAndWait();
-
-        if (alert.getResult() == ButtonType.YES)
+    private Room getRoom(ComboBox<String> combo){
+        Room room = null;
+        for (int i = 0; i < roomList.size(); i++)
         {
-            for (int i = 0; i < removedRooms.size(); i++)
+            if (combo.getSelectionModel().getSelectedItem().equals(roomList.get(i).toString()))
             {
-                scheduleManager.removeRoom(removedRooms.get(i));
+                room = roomList.get(i);
+                break;
             }
-            for (int i = 0; i < numberOfRemovedRooms; i++)
-            {
-                removedRooms.removeRoom(tempList.get(i));
-            }
-            this.numberOfRemovedRooms = 0;
         }
+        return room;
+    }
+
+    private void editRoom(){
+        System.out.println("Hello");
+
+        Room newRoom;
+        char block = blockFieldEdit.getText().charAt(0);
+        int floor = Integer.parseInt(floorFieldEdit.getText());
+        String number = roomNumberFieldEdit.getText();
+        int capacity = Integer.parseInt(capacityFieldEdit.getText());
+        newRoom = new Room(number, capacity, block, floor);
+
+        scheduleManager.editRoom(getRoom(roomBox), newRoom);
+    }
+
+    private void addRoom(){
+        Room newRoom;
+        char block = blockFieldAdd.getText().charAt(0);
+        int floor = Integer.parseInt(floorFieldAdd.getText());
+        String number = roomNumberFieldAdd.getText();
+        int capacity = Integer.parseInt(capacityFieldAdd.getText());
+        newRoom = new Room(number, capacity, block, floor);
+
+        scheduleManager.addRoom(newRoom);
+    }
+
+    @FXML private void btnSave()
+    {
+        Alert alertRemoving = new Alert(Alert.AlertType.CONFIRMATION,
+            "Are you sure you want to remove " + numberOfRemovedRooms + " rooms?", ButtonType.YES, ButtonType.CANCEL);
+        alertRemoving.setHeaderText("Are you sure you want to continue?");
+        alertRemoving.setTitle(null);
+
+        Alert alertEmpty = new Alert(Alert.AlertType.ERROR, "Please ensure you have not left any\n"
+            + " field empty when adding a room", ButtonType.OK);
+        alertEmpty.setHeaderText("Error has occurred!");
+        alertEmpty.setTitle(null);
+
+        if (numberOfRemovedRooms != 0)
+        {
+
+            alertRemoving.showAndWait();
+
+            if (alertRemoving.getResult() == ButtonType.YES)
+            {
+                for (int i = 0; i < removedRooms.size(); i++)
+                {
+                    scheduleManager.removeRoom(removedRooms.get(i));
+                }
+                for (int i = 0; i < numberOfRemovedRooms; i++)
+                {
+                    removedRooms.removeRoom(tempList.get(i));
+                }
+                this.numberOfRemovedRooms = 0;
+            }
+        }
+
+        if (roomBox.getSelectionModel().getSelectedItem() != null)
+        {
+            editRoom();
+            roomNumberFieldEdit.clear();
+            capacityFieldEdit.clear();
+            floorFieldEdit.clear();
+            blockFieldEdit.clear();
+
+        }
+
+        if (!isNullOrEmpty(roomNumberFieldAdd.getText()) && !isNullOrEmpty(
+            capacityFieldAdd.getText()) && !isNullOrEmpty(
+            blockFieldAdd.getText()) && !isNullOrEmpty(floorFieldAdd.getText()))
+        {
+            addRoom();
+            roomNumberFieldAdd.clear();
+            capacityFieldAdd.clear();
+            floorFieldAdd.clear();
+            blockFieldAdd.clear();
+        }
+        else
+        {
+            alertEmpty.showAndWait();
+        }
+
+        initializeRoomList();
+        initializeComboBox();
+        initializeTable();
+    }
+
+    private static boolean isNullOrEmpty(String string) {
+        return string == null || string.length() == 0;
+    }
+
+    private static boolean isNullOrZero(Object integer) {
+        return integer == null || integer.equals(0);
     }
 }

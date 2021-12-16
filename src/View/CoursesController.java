@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class CoursesController implements Initializable
+public class CoursesController
 {
   private CourseList courseList;
   private CourseList removedCourses;
@@ -28,6 +28,7 @@ public class CoursesController implements Initializable
   private TeacherList teacherList;
   private StudentList studentList;
   private StudentList courseStudentList;
+  private StudentList courseStudentListAdd;
   private Course selectedCourse;
   private boolean noError = true;
   private final ScheduleModelManager scheduleManager = new ScheduleModelManager("src/Files/students.bin",
@@ -59,8 +60,22 @@ public class CoursesController implements Initializable
   @FXML private TableColumn<Student, String> studentNameEdit2;
   @FXML private TableColumn<Student, Integer> studentSemesterEdit2;
   @FXML private TableColumn<Student, String> studentClassEdit2;
+  @FXML private TextField courseNameFieldAdd;
+  @FXML private TextField ectsPointsFieldAdd;
+  @FXML private TextField semesterFieldAdd;
+  @FXML private TextField classFieldAdd;
   @FXML private ComboBox<String> teacher1BoxAdd;
   @FXML private ComboBox<String> teacher2BoxAdd;
+  @FXML private TableView<Student> allStudentsTableAdd;
+  @FXML private TableColumn<Student, Integer> studentNumberAdd1;
+  @FXML private TableColumn<Student, String> studentNameAdd1;
+  @FXML private TableColumn<Student, Integer> studentSemesterAdd1;
+  @FXML private TableColumn<Student, String> studentClassAdd1;
+  @FXML private TableView<Student> courseStudentsTableAdd;
+  @FXML private TableColumn<Student, Integer> studentNumberAdd2;
+  @FXML private TableColumn<Student, String> studentNameAdd2;
+  @FXML private TableColumn<Student, Integer> studentSemesterAdd2;
+  @FXML private TableColumn<Student, String> studentClassAdd2;
 
   public void switchToSceneHome(ActionEvent event) throws IOException
   {
@@ -73,7 +88,7 @@ public class CoursesController implements Initializable
 
   }
 
-  public void initialize (URL url, ResourceBundle rb){
+  public void initialize (){
     courseList = new CourseList();
     removedCourses = new CourseList();
     teacherList = new TeacherList();
@@ -84,12 +99,29 @@ public class CoursesController implements Initializable
     initializeTable();
     initializeTeacher1Boxes();
     initializeTeacher2Boxes();
+    initializeAllStudentsTableAdd();
+    initializeCourseStudentsTableAdd();
 
   }
 
   public void initializeLists(){
+    for (int i = 0; i < courseList.size(); i++)
+    {
+      courseList.removeCourse(courseList.get(i));
+    }
     courseList = scheduleManager.getAllCourses();
+    for (int i = 0; i < teacherList.size(); i++)
+    {
+      teacherList.removeTeacher(teacherList.get(i));
+    }
     teacherList = scheduleManager.getAllTeachers();
+    if (studentList != null)
+    {
+      for (int i = 0; i < studentList.size(); i++)
+      {
+        studentList.removeStudent(studentList.get(i));
+      }
+    }
     studentList = scheduleManager.getAllStudents();
   }
 
@@ -104,8 +136,7 @@ public class CoursesController implements Initializable
       @Override public ObservableValue<Integer> call(
           TableColumn.CellDataFeatures<Course, Integer> course)
       {
-        ObservableValue<Integer> observableECTS = new SimpleIntegerProperty(course.getValue().getECTSPoint()).asObject();
-        return observableECTS;
+        return new SimpleIntegerProperty(course.getValue().getECTSPoint()).asObject();
       }
     });
 
@@ -146,10 +177,16 @@ public class CoursesController implements Initializable
   {
       coursesBox.getItems().clear();
 
-
       for (int i = 0; i < courseList.size(); i++)
       {
-        coursesBox.getItems().add(courseList.get(i).toString());
+        if (courseList.get(i) != null && courseList.get(i).getTeacher1() != null)
+        {
+          coursesBox.getItems().add(courseList.get(i).toString());
+        }
+        else
+        {
+          coursesBox.getItems().add("Nothing here");
+        }
       }
 
   }
@@ -195,11 +232,14 @@ public class CoursesController implements Initializable
   private void initializeCourseStudentTables(StudentList courseStudents){
 
     courseStudentsTableEdit.getItems().clear();
+
     for (int i = 0; i < courseStudents.size(); i++)
     {
       courseStudentsTableEdit.getItems().add(courseStudents.get(i));
     }
   }
+
+
 
   private void initializeEdit(){
     String name = "";
@@ -263,6 +303,8 @@ public class CoursesController implements Initializable
     {
       exists = allStudentsTableEdit.getSelectionModel().getSelectedItem()
           .equals(courseStudentList.get(i));
+      if (exists)
+        break;
     }
 
     if (!exists)
@@ -294,14 +336,128 @@ public class CoursesController implements Initializable
   }
 
   private void editCourse(){
-    Teacher teacher = new Teacher(teacher1BoxEdit.getSelectionModel().getSelectedItem(),
-        selectedCourse.getCourseName());
+    Teacher teacher = new Teacher("Error", "");
+    for (int i = 0; i < teacherList.size(); i++)
+    {
+      if (teacherList.get(i).getInitials().equals(teacher1BoxEdit.getSelectionModel().getSelectedItem()))
+      {
+        teacher = teacherList.get(i);
+        break;
+      }
+    }
     Course newCourse = new Course(courseStudentList, courseNameFieldEdit.getText(),
         Integer.parseInt(ectsPointsFieldEdit.getText()), teacher,
         Integer.parseInt(semesterFieldEdit.getText()), classFieldEdit.getText());
 
+      newCourse.addStudents(courseStudentList);
+
+
     scheduleManager.editCourse(selectedCourse, newCourse);
 
+    coursesBox.getItems().remove(coursesBox.getSelectionModel().getSelectedItem());
+
+  }
+
+  private void initializeAllStudentsTableAdd(){
+    TableSelectionModel<Student> selectionModel = allStudentsTableAdd.getSelectionModel();
+    selectionModel.setSelectionMode(SelectionMode.SINGLE);
+
+    studentNumberAdd1.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentNumber"));
+    studentNameAdd1.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
+    studentSemesterAdd1.setCellValueFactory(new PropertyValueFactory<Student, Integer>("semester"));
+    studentClassAdd1.setCellValueFactory(new PropertyValueFactory<Student, String>("className"));
+
+    allStudentsTableAdd.getItems().clear();
+    for (int i = 0; i < studentList.size(); i++)
+    {
+      allStudentsTableAdd.getItems().add(studentList.get(i));
+    }
+  }
+
+  private void initializeCourseStudentsTableAdd(){
+
+    TableSelectionModel<Student> selectionModel = courseStudentsTableAdd.getSelectionModel();
+    selectionModel.setSelectionMode(SelectionMode.SINGLE);
+
+    studentNumberAdd2.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentNumber"));
+    studentNameAdd2.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
+    studentSemesterAdd2.setCellValueFactory(new PropertyValueFactory<Student, Integer>("semester"));
+    studentClassAdd2.setCellValueFactory(new PropertyValueFactory<Student, String>("className"));
+
+    courseStudentsTableAdd.getItems().clear();
+
+  }
+
+  @FXML private void addStudentAdd(){
+    Alert existsAlert = new Alert(Alert.AlertType.INFORMATION, "This course already contains selected student", ButtonType.OK);
+    existsAlert.setHeaderText("Selected student already attends this course");
+    existsAlert.setTitle(null);
+
+    boolean exists = false;
+
+    for (int i = 0; i < courseStudentList.size(); i++)
+    {
+      exists = allStudentsTableAdd.getSelectionModel().getSelectedItem()
+          .equals(courseStudentList.get(i));
+      if (exists)
+        break;
+    }
+
+    if (!exists)
+    {
+      courseStudentList.addStudent(
+          allStudentsTableAdd.getSelectionModel().getSelectedItem());
+      courseStudentsTableAdd.getItems().add(allStudentsTableAdd.getSelectionModel().getSelectedItem());
+    }
+    else
+    {
+      existsAlert.showAndWait();
+    }
+  }
+
+  @FXML private void removeStudentAdd(){
+    courseStudentsTableAdd.getItems().remove(courseStudentsTableAdd.getSelectionModel().getSelectedItem());
+  }
+
+  private void addCourse(){
+    Teacher teacher1 = new Teacher("Error", "");
+
+    System.out.println(teacher1BoxAdd.getSelectionModel().getSelectedItem());
+
+    for (int i = 0; i < teacherList.size(); i++)
+    {
+      if (teacherList.get(i).getInitials().equals(teacher1BoxAdd.getSelectionModel().getSelectedItem()))
+      {
+        teacher1 = teacherList.get(i);
+        break;
+      }
+    }
+    Teacher teacher2 = null;
+    for (int i = 0; i < teacherList.size(); i++)
+    {
+      if (teacherList.get(i).toString().equals(teacher2BoxAdd.getSelectionModel().getSelectedItem()))
+      {
+        teacher2 = teacherList.get(i);
+        break;
+      }
+    }
+    StudentList newStudentList = new StudentList();
+    String courseName = courseNameFieldAdd.getText();
+    int ects = Integer.parseInt(ectsPointsFieldAdd.getText());
+    int semester = Integer.parseInt(semesterFieldAdd.getText());
+    String className = classFieldAdd.getText();
+
+    System.out.println(newStudentList.size());
+
+    Course newCourse = new Course(newStudentList, courseName, ects, teacher1, semester, className);
+    newCourse.addStudents(courseStudentListAdd);
+
+    if (teacher2 != null)
+    {
+      newCourse.addTeacher2(teacher2);
+    }
+
+    scheduleManager.addCourse(newCourse);
 
   }
 
@@ -316,7 +472,13 @@ public class CoursesController implements Initializable
     alertEditing.setHeaderText("You are about to edit a course");
     alertEditing.setTitle(null);
 
-    Alert emptyField = new Alert(Alert.AlertType.ERROR, "Course name, ECTS points, semester,\n class and teacher are required fields!", ButtonType.OK);
+    Alert alertAdding = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to proceed?",
+        ButtonType.YES, ButtonType.CANCEL);
+    alertEditing.setHeaderText("You are about to add a course");
+    alertEditing.setTitle(null);
+
+    Alert emptyField = new Alert(Alert.AlertType.ERROR, "Course name, ECTS points, semester,\n "
+        + "class and teacher are required fields!", ButtonType.OK);
     emptyField.setHeaderText("Missing information!");
     emptyField.setTitle(null);
 
@@ -349,39 +511,82 @@ public class CoursesController implements Initializable
       }
     }
 
+    if (isBeingAdded())
+    {
+      alertAdding.showAndWait();
+
+      if (alertAdding.getResult() == ButtonType.YES)
+      {
+        if (isNullOrEmpty(courseNameFieldAdd.getText()) || isNullOrEmpty(ectsPointsFieldAdd.getText())
+            || isNullOrEmpty(semesterFieldAdd.getText()) || isNullOrEmpty(classFieldAdd.getText())
+            || isNullOrEmpty(teacher1BoxAdd.getSelectionModel().getSelectedItem()))
+        {
+          emptyField.showAndWait();
+        }
+        else
+        {
+          addCourse();
+        }
+      }
+    }
+
     initializeLists();
     initializeCoursesBox();
     initializeTable();
     initializeTeacher1Boxes();
     initializeTeacher2Boxes();
-    
+    initializeCourseStudentsTableAdd();
+    initializeAllStudentsTableAdd();
+
   }
 
   private boolean isBeingEdited(){
     String ects = "";
-    ects += selectedCourse.getECTSPoint();
+    if (selectedCourse != null)
+    {
+      ects += selectedCourse.getECTSPoint();
+    }
     String semester = "";
-    semester += selectedCourse.getSemester();
+    if (selectedCourse != null)
+    {
+      semester += selectedCourse.getSemester();
+    }
 
-    if (!courseNameFieldEdit.getText().equals(selectedCourse.getCourseName()))     //!isNullOrEmpty(courseNameFieldEdit.getText()) &&
+    if (!isNullOrEmpty(courseNameFieldEdit.getText()) && !courseNameFieldEdit.getText().equals(selectedCourse.getCourseName()))
       return true;
-    else if (!ectsPointsFieldEdit.getText().equals(ects))    //!isNullOrEmpty(ectsPointsFieldEdit.getText()) &&
+    else if (!isNullOrEmpty(ectsPointsFieldEdit.getText()) && !ectsPointsFieldEdit.getText().equals(ects))
       return true;
-    else if (!semesterFieldEdit.getText().equals(semester))    //!isNullOrEmpty(semesterFieldEdit.getText()) &&
+    else if (!isNullOrEmpty(semesterFieldEdit.getText()) && !semesterFieldEdit.getText().equals(semester))
       return true;
-    else if (!classFieldEdit.getText().equals(selectedCourse.getClassName()))   //!isNullOrEmpty(classFieldEdit.getText()) &&
+    else if (!isNullOrEmpty(classFieldEdit.getText()) && !classFieldEdit.getText().equals(selectedCourse.getClassName()))
       return true;
-    else if (
-        !teacher1BoxEdit.getSelectionModel().getSelectedItem().equals(selectedCourse.getTeacher1Name()))   //!isNullOrEmpty(teacher1BoxEdit.getSelectionModel().getSelectedItem()) &&
+    else if (!isNullOrEmpty(teacher1BoxEdit.getSelectionModel().getSelectedItem()) &&
+        !teacher1BoxEdit.getSelectionModel().getSelectedItem().equals(selectedCourse.getTeacher1Name()))
       return true;
-    else if (!teacher2BoxEdit.getSelectionModel().getSelectedItem().equals(selectedCourse.getTeacher2Name()))
-      return true;
+    else if (!isNullOrEmpty(teacher2BoxEdit.getSelectionModel().getSelectedItem()))
+    {
+      if (!teacher2BoxEdit.getSelectionModel().getSelectedItem().equals(selectedCourse.getTeacher2Name()))
+        return true;
+      else
+        return false;
+    }
     else
       return false;
   }
 
-  public static boolean isNullOrEmpty(String string) {
+  private boolean isBeingAdded(){
+    return !isNullOrEmpty(courseNameFieldAdd.getText()) || !isNullOrEmpty(
+        ectsPointsFieldAdd.getText()) || !isNullOrEmpty(
+        semesterFieldAdd.getText()) || !isNullOrEmpty(classFieldAdd.getText())
+        || !isNullOrEmpty(teacher1BoxAdd.getSelectionModel().getSelectedItem());
+  }
+
+  private static boolean isNullOrEmpty(String string) {
     return string == null || string.length() == 0;
+  }
+
+  private static boolean isNullOrZero(Object integer) {
+    return integer == null || integer.equals(0);
   }
 
 }

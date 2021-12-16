@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class StudentsController implements Initializable
+public class StudentsController
 {
   @FXML private Button btnHome;
   @FXML private TableView<Student> studentsTable;
@@ -65,7 +65,7 @@ public class StudentsController implements Initializable
 
   }
 
-  public void initialize(URL url, ResourceBundle rb)
+  public void initialize()
   {
     studentList = new StudentList();
     removedStudents = new StudentList();
@@ -394,7 +394,7 @@ public class StudentsController implements Initializable
       return false;
   }
 
-  public Student getStudent(String string)
+  private Student getStudent(String string)
   {
     Student tempStudent = null;
     for (int i = 0; i < studentList.size(); i++)

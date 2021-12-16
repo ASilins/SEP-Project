@@ -63,6 +63,16 @@ public class Course implements Serializable
     }
 
     /**
+     * Adds student object list to the student object list
+     * @param students the object list that will be added
+     */
+    public void addStudents(StudentList students) {
+        for (int i = 0; i < students.size(); i++){
+            this.students.addStudent(students.get(i));
+        }
+    }
+
+    /**
      * removes the students from the list of student in the course
      * @param student removes the students from the course
      */
@@ -283,7 +293,7 @@ public class Course implements Serializable
      */
     public String toString() {
         if (teacher2==null) {
-            return courseName + semester + className + ", " + teacher1.getInitials()
+            return courseName + semester + className + ", " +  teacher1.getInitials()
                 + ", " + ectsPoints;
         }
         else

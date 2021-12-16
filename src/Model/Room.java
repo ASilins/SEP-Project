@@ -130,18 +130,13 @@ public class Room implements Serializable {
     return (roomNumber.equals(other.roomNumber) && capacity == other.capacity
         && block == other.block && floor == other.floor
         && availability == other.availability);
-  }public boolean combineable(Room room1, Room room2)
+  }
+
+  public boolean combineable(Room room1, Room room2)
   {
-    if (room1.getRoomNumber().charAt(1)==room2.getRoomNumber().charAt(1) &&
-        room1.getRoomNumber().charAt(0)==room2.getRoomNumber().charAt(0) &&
-        room1.getRoomNumber().charAt(2)!=room2.getRoomNumber().charAt(2))
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
+    return room1.getRoomNumber().charAt(1) == room2.getRoomNumber().charAt(1)
+        && room1.getRoomNumber().charAt(0) == room2.getRoomNumber().charAt(0)
+        && room1.getRoomNumber().charAt(2) != room2.getRoomNumber().charAt(2);
   }
 
 
@@ -150,6 +145,6 @@ public class Room implements Serializable {
    * @return a string representation of the room in format: "roomNumber,capacity,block,floor,availability"
    */
   public String toString() {
-    return roomNumber + "," + capacity + "," + block + "," + floor + "," + availability + "\n";
+    return block + "" + floor + "." + roomNumber + " - " + capacity + ", " + availability + "\n";
   }
 }
