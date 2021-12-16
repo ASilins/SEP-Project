@@ -1,18 +1,57 @@
-let calendar;
-let lessons = [];
+let calendar, filter, value;
 let input = document.getElementById('input');
-let filter, value;
 
 
 initCalendar();
+allEvents();
 
 function search() {
-  lessons.forEach(function(item) {
-    const selectButton = document.querySelector('#search_selector')
+    let select = document.getElementById('search_selector');
+    let option = select.options[select.selectedIndex];
+    filter = input.value.toUpperCase();
 
+    if (option.value == 1) {  
+      calendar.getEvents().forEach(function(event) {
+        if (!(event.title.substring(8, 12).toUpperCase().indexOf(filter) > -1)) {
+          event.remove();
+        }
+      })
+    } else if (option.value == 2) {
+      calendar.getEvents().forEach(function(event) {
+        if (!(event.title.substring(3, 5).toUpperCase().indexOf(filter) > -1)) {
+          event.remove();
+        }
+      })
+    } else if (option.value == 3) {
+      calendar.getEvents().forEach(function(event) {
+        if (!(event.title.substring(3, 4).toUpperCase().indexOf(filter) > -1)) {
+          event.remove();
+        }
+      })
+    } else if (option.value == 4) {
+      calendar.getEvents().forEach(function(event) {
+        if (!(event.title.substring(0, 3).toUpperCase().indexOf(filter) > -1)) {
+          event.remove();
+        }
+      })
+    } else if (option.value == 'all') {
+      removeAllLessons();
+      allEvents();
+    }
+}
+
+function resetFilter() {
+  removeAllLessons();
+  allEvents();
+}
+
+function removeAllLessons() {
+  calendar.getEvents().forEach(function(event) {
+    event.remove();
   })
 }
 
+function allEvents() {
 fetch('../../src/Files/lessons.json')
 .then(function(resp) {
   return resp.json();
@@ -77,6 +116,7 @@ fetch('../../src/Files/lessons.json')
   });
 
 });
+}
 
 function initCalendar() {
   let calendarEl = document.getElementById('calendar');
@@ -109,7 +149,6 @@ function initCalendar() {
 
 function addEvent(event) {
   calendar.addEvent(event);
-  lessons.push(event);
 }
 
 function removeEvent(event) {

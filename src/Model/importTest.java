@@ -35,8 +35,6 @@ public class importTest
     schedule.addLesson(lesson5);
 
 
-//    scheduleManager.saveLessons(schedule);
-
-    System.out.println(scheduleManager.getAllRooms());
+    scheduleManager.saveLessons(schedule);
   }
 }
