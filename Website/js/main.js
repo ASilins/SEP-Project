@@ -1,6 +1,17 @@
 let calendar;
+let lessons = [];
+let input = document.getElementById('input');
+let filter, value;
+
 
 initCalendar();
+
+function search() {
+  lessons.forEach(function(item) {
+    const selectButton = document.querySelector('#search_selector')
+
+  })
+}
 
 fetch('../../src/Files/lessons.json')
 .then(function(resp) {
@@ -88,7 +99,9 @@ function initCalendar() {
       center: 'title',
       right: 'prev,today,next'
     },
+
     events: [],
+
   });
 
   calendar.render();
@@ -96,4 +109,9 @@ function initCalendar() {
 
 function addEvent(event) {
   calendar.addEvent(event);
+  lessons.push(event);
+}
+
+function removeEvent(event) {
+  calendar.removeEvent(event);
 }
