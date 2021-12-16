@@ -21,7 +21,13 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class StudentsController
+/**
+ * A class that manages the Student Scene of the GUI.
+ * @author Ondrej Klimek
+ * @version 1.0
+ */
+
+public class StudentsController implements Initializable
 {
   @FXML private Button btnHome;
   @FXML private TableView<Student> studentsTable;
@@ -36,8 +42,8 @@ public class StudentsController
   private StudentList removedStudents;
   private int numberOfRemovedStudents = 0;
   private ScheduleModelManager scheduleManager = new ScheduleModelManager("src/Files/students.bin",
-      "src/Files/teachers.bin", "src/Files/classes.bin", "src/Files/courses.bin",
-      "src/Files/rooms.bin", "src/Files/lessons.bin");
+          "src/Files/teachers.bin", "src/Files/classes.bin", "src/Files/courses.bin",
+          "src/Files/rooms.bin", "src/Files/lessons.bin");
   @FXML private TextField nameField;
   @FXML private TextField studentNumberField;
   @FXML private TextField semesterField;
@@ -53,23 +59,31 @@ public class StudentsController
   private boolean noError = true;
 
 
+  /**
+   * It switches back to the Home Scene
+   * @param event Switches to the Home Scene
+   * @throws IOException If there is a error on reading
+   */
 
   public void switchToSceneHome(ActionEvent event) throws IOException
   {
     Parent root = FXMLLoader.load(
-        Objects.requireNonNull(getClass().getResource("Home.fxml")));
+            Objects.requireNonNull(getClass().getResource("Home.fxml")));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Stage window = (Stage) btnHome.getScene().getWindow();
     window.setScene(new Scene(root, 950, 950));
     window.show();
-
   }
 
-  public void initialize()
+  /**
+   * Initializes data from student list to the table
+   * @param url It finds and Locates the data
+   * @param rb  Its Locates-specific resource
+   */
+  public void initialize(URL url, ResourceBundle rb)
   {
     studentList = new StudentList();
     removedStudents = new StudentList();
-
     initializeList();
     initializeTable();
     initializeStudentBox();
@@ -128,7 +142,7 @@ public class StudentsController
     studentBox.getItems().clear();
     for (int i = 0; i < studentList.size(); i++)
     {
-     studentBox.getItems().add(studentList.get(i).toString());
+      studentBox.getItems().add(studentList.get(i).toString());
     }
 
   }
@@ -149,7 +163,7 @@ public class StudentsController
     studentNumberField.textProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observable, String oldValue,
-          String newValue) {
+                          String newValue) {
         if (!newValue.matches("\\d*")) {
           studentNumberField.setText(newValue.replaceAll("[^\\d]", ""));
         }
@@ -159,7 +173,7 @@ public class StudentsController
     semesterField.textProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observable, String oldValue,
-          String newValue) {
+                          String newValue) {
         if (!newValue.matches("\\d*")) {
           semesterField.setText(newValue.replaceAll("[^\\d]", ""));
         }
@@ -169,7 +183,7 @@ public class StudentsController
     addStudentStudentNumberField.textProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observable, String oldValue,
-          String newValue) {
+                          String newValue) {
         if (!newValue.matches("\\d*")) {
           addStudentStudentNumberField.setText(newValue.replaceAll("[^\\d]", ""));
         }
@@ -179,7 +193,7 @@ public class StudentsController
     addStudentSemesterField.textProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observable, String oldValue,
-          String newValue) {
+                          String newValue) {
         if (!newValue.matches("\\d*")) {
           addStudentSemesterField.setText(newValue.replaceAll("[^\\d]", ""));
         }
@@ -240,9 +254,9 @@ public class StudentsController
     }
 
     Alert alertError = new Alert(Alert.AlertType.ERROR, "One or more fields contain data in an incorrect format. \n"
-        + "Please check that \"Student number\" field(s) contain(s) 6 \n"
-        + "digits and \"Semester\" field(s) contain(s) 1 digit",
-        ButtonType.OK);
+            + "Please check that \"Student number\" field(s) contain(s) 6 \n"
+            + "digits and \"Semester\" field(s) contain(s) 1 digit",
+            ButtonType.OK);
     alertError.setHeaderText("Incorrect data entered");
     alertError.setTitle(null);
 
@@ -263,14 +277,14 @@ public class StudentsController
   private void addStudent(){
 
     Alert alertEmptyField = new Alert(Alert.AlertType.ERROR, "Student cannot be added. One or more fields \n"
-        + "are empty. Please provide all required information.", ButtonType.OK);
+            + "are empty. Please provide all required information.", ButtonType.OK);
     alertEmptyField.setHeaderText("An error has occurred while trying to add a student");
     alertEmptyField.setTitle(null);
 
     if (isNullOrEmpty(addStudentNameField.getText())
-        || isNullOrEmpty(addStudentStudentNumberField.getText())
-        || isNullOrEmpty(addStudentSemesterField.getText())
-        || isNullOrEmpty(addStudentClassField.getText()))
+            || isNullOrEmpty(addStudentStudentNumberField.getText())
+            || isNullOrEmpty(addStudentSemesterField.getText())
+            || isNullOrEmpty(addStudentClassField.getText()))
     {
       noError = false;
       alertEmptyField.showAndWait();
@@ -281,7 +295,7 @@ public class StudentsController
       int semester = Integer.parseInt(addStudentSemesterField.getText());
 
       newStudent = new Student(addStudentNameField.getText(), studentNumber,
-          semester, addStudentClassField.getText());
+              semester, addStudentClassField.getText());
 
 
 
@@ -297,12 +311,12 @@ public class StudentsController
     alertNoSelection.setTitle(null);
 
     Alert alertEmptyField = new Alert(Alert.AlertType.ERROR, "Student cannot be added. One or more fields \n"
-      + "are empty. Please provide all required information.", ButtonType.OK);
+            + "are empty. Please provide all required information.", ButtonType.OK);
     alertEmptyField.setHeaderText("An error has occurred while trying to add a student");
     alertEmptyField.setTitle(null);
 
     Alert alertRemoving = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to remove " +
-        numberOfRemovedStudents + " students?", ButtonType.YES, ButtonType.CANCEL);
+            numberOfRemovedStudents + " students?", ButtonType.YES, ButtonType.CANCEL);
     alertRemoving.setHeaderText("Are you sure you want to continue?");
     alertRemoving.setTitle(null);
 
@@ -331,9 +345,9 @@ public class StudentsController
     if (isBeingAdded())
     {
       if (isNullOrEmpty(addStudentNameField.getText())
-          || isNullOrEmpty(addStudentStudentNumberField.getText())
-          || isNullOrEmpty(addStudentSemesterField.getText())
-          || isNullOrEmpty(addStudentClassField.getText()))
+              || isNullOrEmpty(addStudentStudentNumberField.getText())
+              || isNullOrEmpty(addStudentSemesterField.getText())
+              || isNullOrEmpty(addStudentClassField.getText()))
       {
         noError = false;
         alertEmptyField.showAndWait();
@@ -394,7 +408,7 @@ public class StudentsController
       return false;
   }
 
-  private Student getStudent(String string)
+  public Student getStudent(String string)
   {
     Student tempStudent = null;
     for (int i = 0; i < studentList.size(); i++)
