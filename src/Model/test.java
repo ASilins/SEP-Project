@@ -20,9 +20,6 @@ public class test
     CourseList s7 = new CourseList();
     s7.addCourse(s5);
     s7.addCourse(s6);
-    Class s1 = new Class("DK" ,s2, s7, 1);
-    ClassList s8 = new ClassList();
-    s8.addClass(s1);
     Teacher s9 = new Teacher("MWA", "SEP");
     Teacher s10 = new Teacher("RB", "DMA");
     s5.addTeacher1(s9);

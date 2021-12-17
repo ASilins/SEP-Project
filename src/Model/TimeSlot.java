@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 public class TimeSlot implements Serializable
 {
-
     private int hourStart;
     private int minuteStart;
     private int hourEnd;

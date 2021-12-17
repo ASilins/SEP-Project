@@ -10,10 +10,9 @@ public class importTest
     String teacherFile = "src/Files/teachers.bin";
     String roomFile = "src/Files/rooms.bin";
     String courseFile = "src/Files/courses.bin";
-    String classesFile = "src/Files/classes.bin";
     String lessonsFile = "src/Files/lessons.bin";
 
-    ScheduleModelManager scheduleManager = new ScheduleModelManager(studentFile, teacherFile, classesFile, courseFile, roomFile, lessonsFile);
+    ScheduleModelManager scheduleManager = new ScheduleModelManager(studentFile, teacherFile, courseFile, roomFile, lessonsFile);
     TimeSlot time1 = new TimeSlot(8, 20, 9, 20, 2, 2021, 12, 14);
     TimeSlot time2= new TimeSlot(9, 20, 10, 20, 2021, 12, 14);
     TimeSlot time3= new TimeSlot(10, 20, 11, 20, 2021, 12, 14);

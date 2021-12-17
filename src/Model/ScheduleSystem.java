@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class ScheduleSystem implements Serializable
 {
   private ArrayList<Lesson> lessons;
-  private ClassList classes;
 
   /**
    * no argument constructor initializing the ScheduleSystem with lessons
@@ -25,11 +24,9 @@ public class ScheduleSystem implements Serializable
    * @param lesson that needs to be added to the list
    */
   public void addLesson(Lesson lesson) {
-
     if (lessons.isEmpty()) {
       lessons.add(lesson);
-    } else if (!check(lesson))
-    {
+    } else if (!check(lesson)) {
       for (int i=0; i<lessons.size(); i++) {
         if (lessons.get(i).isAvailable(lesson)) {
           lessons.add(lesson);
