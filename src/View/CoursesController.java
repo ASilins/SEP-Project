@@ -112,13 +112,15 @@ public class CoursesController
       teacherList.removeTeacher(teacherList.get(i));
     }
     teacherList = scheduleManager.getAllTeachers();
-    if (studentList != null)
+    /*if (studentList != null)
     {
       for (int i = 0; i < studentList.size(); i++)
       {
         studentList.removeStudent(studentList.get(i));
       }
-    }
+
+
+    }*/
     studentList = scheduleManager.getAllStudents();
   }
 
@@ -443,11 +445,15 @@ public class CoursesController
     int ects = Integer.parseInt(ectsPointsFieldAdd.getText());
     int semester = Integer.parseInt(semesterFieldAdd.getText());
     String className = classFieldAdd.getText();
+    for (int i=0; i<courseStudentsTableAdd.getItems().size(); i++)
+    {
+      newStudentList.addStudent(courseStudentsTableAdd.getItems().get(i));
+    }
 
     System.out.println(newStudentList.size());
 
     Course newCourse = new Course(newStudentList, courseName, ects, teacher1, semester, className);
-    newCourse.addStudents(courseStudentListAdd);
+    //newCourse.addStudents(newStudentList);
 
     if (teacher2 != null)
     {
