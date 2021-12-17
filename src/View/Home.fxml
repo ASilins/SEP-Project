@@ -71,7 +71,7 @@
             </Pane>
             <Pane layoutX="698.0" layoutY="7.0" prefHeight="174.0" prefWidth="187.0" style="-fx-background-color: FAFBFD;">
                <children>
-                  <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;" />
+                  <Button fx:id="btnTeachers" layoutX="8.0" layoutY="7.0" mnemonicParsing="false" onAction="#switchToSceneTeachers" prefHeight="159.0" prefWidth="172.0" style="-fx-background-color: ffff;" />
                   <Label layoutX="55.0" layoutY="130.0" text="Teachers">
                      <font>
                         <Font size="20.0" />

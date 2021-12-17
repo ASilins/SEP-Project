@@ -35,8 +35,8 @@
                            <children>
                               <TableView fx:id="teachers" prefHeight="542.0" prefWidth="735.0">
                                  <columns>
-                                    <TableColumn fx:id="initials" prefWidth="133.60000324249268" text="Teacher " />
-                                    <TableColumn fx:id="courses" prefWidth="118.40003967285156" text="Courses" />
+                                    <TableColumn fx:id="initials" prefWidth="163.99999713897705" text="Teacher " />
+                                    <TableColumn fx:id="courses" prefWidth="327.1999969482422" text="Courses" />
                                  </columns>
                               </TableView>
                               <Button mnemonicParsing="false" onAction="#removeTeacher" text="Remove" />
@@ -60,7 +60,7 @@
                                        </rowConstraints>
                                        <children>
                                           <Label text="Initial:" />
-                                          <TextField fx:id="nameField" GridPane.columnIndex="1" />
+                                          <TextField fx:id="nameFieldEdit" GridPane.columnIndex="1" />
                                        </children>
                                     </GridPane>
                                     <FlowPane alignment="BASELINE_RIGHT" prefHeight="44.0" prefWidth="346.0">
@@ -69,17 +69,17 @@
                                        </padding>
                                        <children>
                                           <Pane prefHeight="200.0" prefWidth="0.0" />
-                                          <ComboBox fx:id="teacherBox" prefHeight="26.0" prefWidth="338.0" promptText="Select a teacher..." />
+                                          <ComboBox fx:id="teacherBox" onAction="#initializeTeacherCoursesEdit" prefHeight="26.0" prefWidth="338.0" promptText="Select a teacher..." />
                                        </children>
                                     </FlowPane>
                                  </children>
                               </HBox>
                               <AnchorPane prefHeight="417.0" prefWidth="899.0">
                                  <children>
-                                    <Button fx:id="addCourseEdit" layoutX="354.0" layoutY="138.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Add course to the teacher" />
-                                    <Button fx:id="removeCourseEdit" layoutX="342.0" layoutY="190.0" mnemonicParsing="false" text="Remove course from the teacher" />
-                                    <ListView fx:id="teacherCoursesEdit" layoutX="610.0" layoutY="65.0" prefHeight="228.0" prefWidth="200.0" />
-                                    <ComboBox fx:id="allCoursesEdit" layoutX="78.0" layoutY="166.0" prefWidth="150.0" />
+                                    <Button fx:id="addCourseEdit" layoutX="354.0" layoutY="131.0" mnemonicParsing="false" onAction="#addCourseEdit" prefHeight="25.0" prefWidth="164.0" text="Add course to the teacher" />
+                                    <Button fx:id="removeCourseEdit" layoutX="342.0" layoutY="183.0" mnemonicParsing="false" onAction="#removeCourseEdit" text="Remove course from the teacher" />
+                                    <ComboBox fx:id="allCoursesEdit" layoutX="60.0" layoutY="157.0" prefHeight="26.0" prefWidth="190.0" promptText="Select a course to add..." />
+                                    <ListView fx:id="teacherCoursesEdit" layoutX="599.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -105,31 +105,17 @@
                                        </rowConstraints>
                                        <children>
                                           <Label text="Initial:" />
-                                          <TextField fx:id="NameField1" editable="false" GridPane.columnIndex="1" />
+                                          <TextField fx:id="nameFieldAdd" GridPane.columnIndex="1" />
                                        </children>
                                     </GridPane>
                                  </children>
                               </Pane>
                               <AnchorPane prefHeight="417.0" prefWidth="899.0">
                                  <children>
-                                    <Button fx:id="removeButton1111" layoutX="74.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Add course to the teacher" />
-                                    <Button fx:id="removeButton11111" layoutX="576.0" layoutY="12.0" mnemonicParsing="false" text="Remove course from the teacher" />
-                                    <TableView layoutX="10.0" layoutY="53.0" prefHeight="362.0" prefWidth="379.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="53.0">
-                                       <columns>
-                                          <TableColumn prefWidth="75.0" text="Number" />
-                                          <TableColumn prefWidth="134.6510009765625" text="Name" />
-                                          <TableColumn prefWidth="74.34898376464844" text="Samester" />
-                                          <TableColumn prefWidth="53.2747802734375" text="Class" />
-                                       </columns>
-                                    </TableView>
-                                    <TableView layoutX="467.0" layoutY="53.0" prefHeight="365.0" prefWidth="406.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="467.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="53.0">
-                                       <columns>
-                                          <TableColumn prefWidth="75.0" text="Number" />
-                                          <TableColumn prefWidth="75.0" text="Name" />
-                                          <TableColumn prefWidth="75.0" text="Samester" />
-                                          <TableColumn prefWidth="75.0" text="Class" />
-                                       </columns>
-                                    </TableView>
+                                    <Button layoutX="355.0" layoutY="150.0" mnemonicParsing="false" onAction="#addCourseAdd" prefHeight="25.0" prefWidth="164.0" text="Add course to the teacher" />
+                                    <Button layoutX="342.0" layoutY="202.0" mnemonicParsing="false" onAction="#removeCourseAdd" text="Remove course from the teacher" />
+                                    <ListView fx:id="teacherCoursesAdd" layoutX="624.0" layoutY="90.0" prefHeight="200.0" prefWidth="200.0" />
+                                    <ComboBox fx:id="courseBoxAdd" layoutX="50.0" layoutY="178.0" prefHeight="26.0" prefWidth="189.0" promptText="Select a course to add..." />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -145,7 +131,7 @@
       </AnchorPane>
       <AnchorPane layoutX="75.0" layoutY="828.0" prefHeight="66.0" prefWidth="779.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="828.0">
          <children>
-            <Button layoutX="701.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="19.0">
+            <Button fx:id="btnSave" layoutX="701.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="19.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

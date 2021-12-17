@@ -23,6 +23,17 @@ public class Teacher implements Serializable {
   }
 
   /**
+   * Constructor initializing the Teacher object
+   * @param initials initials of the teacher
+   * @param courses courses they teach
+   */
+  public Teacher(String initials, ArrayList<String> courses) {
+    courses = new ArrayList<>();
+    this.initials = initials;
+    this.courses = courses;
+  }
+
+  /**
    * Set method to change the initials
    * @param initials new initials
    */

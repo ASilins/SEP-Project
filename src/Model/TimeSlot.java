@@ -10,7 +10,7 @@ public class TimeSlot {
     private int minuteStart;
     private int hourEnd;
     private int minuteEnd;
-    private int dayOftheWeek;
+    private int dayOfWeek;
     private String date;
     private int day;
     private int year;
@@ -22,18 +22,18 @@ public class TimeSlot {
      * @param minuteStart the starting minute
      * @param hourEnd the ending hour
      * @param minuteEnd the ending minute
-     * @param dayOftheWeek indicates the day of the week using 0, 1, 2, 3, 4, 5, 6 (0 is sunday)
+     * @param dayOfWeek indicates the day of the week using 0, 1, 2, 3, 4, 5, 6 (0 is sunday)
      * @param day the day of the lesson
      * @param month the month of the lesson
      * @param year the year of the lesson
      */
-    public TimeSlot(int hourStart, int minuteStart, int hourEnd, int minuteEnd, int dayOftheWeek, int year, int month, int day)
+    public TimeSlot(int hourStart, int minuteStart, int hourEnd, int minuteEnd, int dayOfWeek, int year, int month, int day)
     {
         this.hourStart=hourStart;
         this.minuteStart=minuteStart;
         this.hourEnd=hourEnd;
         this.minuteEnd=minuteEnd;
-        this.dayOftheWeek=dayOftheWeek;
+        this.dayOfWeek =dayOfWeek;
         this.date=year + "-"+ month +"-"+day;
 
 
@@ -56,7 +56,7 @@ public class TimeSlot {
         this.minuteStart=minuteStart;
         this.hourEnd=hourEnd;
         this.minuteEnd=minuteEnd;
-        dayOftheWeek=-1;
+        dayOfWeek =-1;
         this.date=year + "-"+ month +"-"+day;
 
 
@@ -75,7 +75,7 @@ public class TimeSlot {
      * returns the starting minute
      * @return the starting minute
      */
-    public int getMinutStarte()
+    public int getMinuteStart()
     {
         return minuteStart;
     }
@@ -105,9 +105,9 @@ public class TimeSlot {
      * returns the day of the week in format 0,1,2,3,4,5,6 (0=sunday)
      * @return the day of the week
      */
-    public int getDayOftheWeek()
+    public int getDayOfWeek()
     {
-        return dayOftheWeek;
+        return dayOfWeek;
     }
 
     /**
@@ -180,11 +180,11 @@ public class TimeSlot {
     }
     /**
      * sets the day of the week of the lesson
-     * @param dayOftheWeek the day of the week of the lesson
+     * @param dayOfWeek the day of the week of the lesson
      */
-    public void setDayOftheWeek(int dayOftheWeek)
+    public void setDayOfWeek(int dayOfWeek)
     {
-        this.dayOftheWeek=dayOftheWeek;
+        this.dayOfWeek = dayOfWeek;
     }
     /**
      * sets the day of the lesson
