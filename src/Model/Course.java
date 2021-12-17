@@ -63,6 +63,16 @@ public class Course implements Serializable
     }
 
     /**
+     * Adds student object list to the student object list
+     * @param students the object list that will be added
+     */
+    public void addStudents(StudentList students) {
+        for (int i = 0; i < students.size(); i++){
+            this.students.addStudent(students.get(i));
+        }
+    }
+
+    /**
      * removes the students from the list of student in the course
      * @param student removes the students from the course
      */
@@ -93,7 +103,7 @@ public class Course implements Serializable
      * Adds the teacher from the list to the course
      * @return a teacher going to be added to the course
      */
-    public Teacher getTeacher() {
+    public Teacher getTeacher1() {
         return teacher1;
     }
 
@@ -106,6 +116,29 @@ public class Course implements Serializable
         teachers.addTeacher(teacher1);
         teachers.addTeacher(teacher2);
         return teachers;
+    }
+
+    /**
+     * necessary for the tableview in gui
+     * @return initials of teacher1
+     * @author Ondrej
+     */
+    public String getTeacher1Name(){
+        return teacher1.getInitials();
+    }
+
+    /**
+     * necessary for the tableview in gui
+     * @return initials of teacher2
+     * @author Ondrej
+     */
+    public String getTeacher2Name(){
+        if (teacher2 == null || teacher2.getInitials() == null || teacher2.getInitials().equals(""))
+        {
+            return "None assigned";
+        }
+        else
+            return teacher2.getInitials();
     }
 
     /**
@@ -256,15 +289,17 @@ public class Course implements Serializable
 
     /**
      * Returns a string representation of the course
-     * @return a string representation of the course in format: "Course name, Teacher, ectsPoints and students"
+     * @return a string representation of the course in format: "Course name, Teacher(s), ectsPoints"
      */
     public String toString() {
         if (teacher2==null) {
-            return courseName + "\n" + teacher1.getInitials() + "\n" + ectsPoints  + "\n" + semester + "\n" + className + "\n";
+            return courseName + semester + className + ", " +  teacher1.getInitials()
+                + ", " + ectsPoints;
         }
         else
         {
-            return courseName + "\n" + teacher1.getInitials() + "\n" + teacher2.getInitials() + "\n" + ectsPoints + "\n"  + semester + "\n" + className + "\n";
+            return courseName + semester + className + ", " + teacher1.getInitials()
+                + " + " + teacher2.getInitials() + ", " + ectsPoints;
         }
     }
 }

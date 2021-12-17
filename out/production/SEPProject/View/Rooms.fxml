@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RoomController">
+   <children>
+      <AnchorPane layoutX="104.0" layoutY="268.0" prefHeight="549.0" prefWidth="705.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="115.0" AnchorPane.topAnchor="268.0">
+         <children>
+            <TabPane fx:id="tabPane" layoutX="13.0" layoutY="5.0" prefHeight="532.0" prefWidth="679.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="5.0">
+               <tabs>
+                  <Tab fx:id="allStudentsTab" text="All Rooms">
+                     <content>
+                        <VBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <TableView fx:id="rooms" prefHeight="489.0" prefWidth="679.0">
+                                 <columns>
+                                    <TableColumn fx:id="roomNumber" prefWidth="150.0" text="Room Number" />
+                                    <TableColumn fx:id="name" minWidth="0.0" prefWidth="0.0" text="Name" />
+                                    <TableColumn fx:id="block" prefWidth="75.0" text="Block" />
+                                    <TableColumn fx:id="floor" prefWidth="75.0" text="Floor" />
+                                    <TableColumn fx:id="capacity" prefWidth="75.0" text="Capacity" />
+                                 </columns>
+                              </TableView>
+                              <Button mnemonicParsing="false" onAction="#removeButton" text="Remove" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="editStudentTab" text="Edit Room">
+                     <content>
+                        <VBox prefWidth="100.0" spacing="20.0">
+                           <children>
+                              <HBox prefHeight="120.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <GridPane prefHeight="120.0" prefWidth="295.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="118.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.33331298828125" minWidth="10.0" prefWidth="102.5" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Room Number:" />
+                                          <Label prefHeight="17.0" prefWidth="94.0" text="Block:" GridPane.rowIndex="1" />
+                                          <Label text="Floor:" GridPane.rowIndex="2" />
+                                          <Label text="Capacity:" GridPane.rowIndex="3" />
+                                          <TextField fx:id="roomNumberFieldEdit" GridPane.columnIndex="1" />
+                                          <TextField fx:id="blockFieldEdit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="floorFieldEdit" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="capacityFieldEdit" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                    <FlowPane alignment="BASELINE_RIGHT" prefHeight="120.0" prefWidth="346.0">
+                                       <padding>
+                                          <Insets top="2.0" />
+                                       </padding>
+                                       <children>
+                                          <ComboBox fx:id="roomBox" prefHeight="26.0" prefWidth="338.0" promptText="Select a Room" />
+                                       </children>
+                                    </FlowPane>
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="addStudentTab" text="Add Room">
+                     <content>
+                        <VBox prefWidth="100.0" spacing="20.0">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <GridPane layoutX="114.0" layoutY="30.0" prefHeight="120.0" prefWidth="295.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.33331298828125" minWidth="10.0" prefWidth="102.5" />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Room Number:" />
+                                          <Label prefHeight="17.0" prefWidth="94.0" text="Block" GridPane.rowIndex="1" />
+                                          <Label text="Floor" GridPane.rowIndex="2" />
+                                          <TextField fx:id="roomNumberFieldAdd" GridPane.columnIndex="1" />
+                                          <TextField fx:id="blockFieldAdd" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="floorFieldAdd" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label text="Capacity" GridPane.rowIndex="3" />
+                                          <TextField fx:id="capacityFieldAdd" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </Pane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="75.0" layoutY="828.0" prefHeight="66.0" prefWidth="779.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="828.0">
+         <children>
+            <Button layoutX="701.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="24.0" prefWidth="59.0" style="-fx-background-color: #32CD30;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="19.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnHome" layoutX="17.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToSceneHome" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: # FAFBFD;" text="Back" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-8.0" layoutY="7.0" prefHeight="77.0" prefWidth="924.0" AnchorPane.bottomAnchor="847.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="763.0" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #4285F4;" text="Schedule" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Text fill="#ec5863" layoutX="21.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIA" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="13.7880859375">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <StackPane layoutX="331.0" layoutY="102.0" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="330.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ec5863" height="90.0" stroke="#ec5863" strokeType="INSIDE" width="263.0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

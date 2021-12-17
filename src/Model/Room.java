@@ -132,11 +132,19 @@ public class Room implements Serializable {
         && availability == other.availability);
   }
 
+  public boolean combineable(Room room1, Room room2)
+  {
+    return room1.getRoomNumber().charAt(1) == room2.getRoomNumber().charAt(1)
+        && room1.getRoomNumber().charAt(0) == room2.getRoomNumber().charAt(0)
+        && room1.getRoomNumber().charAt(2) != room2.getRoomNumber().charAt(2);
+  }
+
+
   /**
    * Returns a string representation of the room.
    * @return a string representation of the room in format: "roomNumber,capacity,block,floor,availability"
    */
   public String toString() {
-    return roomNumber + "," + capacity + "," + block + "," + floor + "," + availability + "\n";
+    return block + "" + floor + "." + roomNumber + " - " + capacity + ", " + availability + "\n";
   }
 }
