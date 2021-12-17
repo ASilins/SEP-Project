@@ -17,9 +17,20 @@ public class Teacher implements Serializable {
    * @param initials initials of the teacher
    */
   public Teacher(String initials, String course) {
-    courses = new ArrayList<String>();
+    courses = new ArrayList<>();
     this.initials = initials;
     courses.add(course);
+  }
+
+  /**
+   * Constructor initializing the Teacher object
+   * @param initials initials of the teacher
+   * @param courses courses they teach
+   */
+  public Teacher(String initials, ArrayList<String> courses) {
+    courses = new ArrayList<>();
+    this.initials = initials;
+    this.courses = courses;
   }
 
   /**
@@ -51,7 +62,7 @@ public class Teacher implements Serializable {
 
   /**
    * Gets all the courses the teacher has
-   * @return course list
+   * @return list of type String with courses for the specific teacher
    */
   public ArrayList<String> getCourses()
   {
