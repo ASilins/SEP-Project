@@ -2,8 +2,6 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
-import Model.ScheduleModelManager;
 
 /**
  * A class containing list of student objects.
@@ -19,10 +17,6 @@ public class StudentList implements Serializable
    */
   public StudentList() {
     students = new ArrayList<Student>();
-  }
-
-  public ArrayList<Student> getStudents() {
-    return students;
   }
 
   /**

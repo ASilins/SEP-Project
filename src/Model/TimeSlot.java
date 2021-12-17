@@ -1,16 +1,19 @@
 package Model;
+
+import java.io.Serializable;
+
 /**
  * A class for the timeslot object
  * @author Sid
  * @version 1.2
  */
-public class TimeSlot {
-
+public class TimeSlot implements Serializable
+{
     private int hourStart;
     private int minuteStart;
     private int hourEnd;
     private int minuteEnd;
-    private int dayOfWeek;
+    private int dayOftheWeek;
     private String date;
     private int day;
     private int year;
@@ -22,25 +25,23 @@ public class TimeSlot {
      * @param minuteStart the starting minute
      * @param hourEnd the ending hour
      * @param minuteEnd the ending minute
-     * @param dayOfWeek indicates the day of the week using 0, 1, 2, 3, 4, 5, 6 (0 is sunday)
+     * @param dayOftheWeek indicates the day of the week using 0, 1, 2, 3, 4, 5, 6 (0 is sunday)
      * @param day the day of the lesson
      * @param month the month of the lesson
      * @param year the year of the lesson
      */
-    public TimeSlot(int hourStart, int minuteStart, int hourEnd, int minuteEnd, int dayOfWeek, int year, int month, int day)
+    public TimeSlot(int hourStart, int minuteStart, int hourEnd, int minuteEnd, int dayOftheWeek, int year, int month, int day)
     {
-        this.hourStart=hourStart;
-        this.minuteStart=minuteStart;
-        this.hourEnd=hourEnd;
-        this.minuteEnd=minuteEnd;
-        this.dayOfWeek =dayOfWeek;
-        this.date=year + "-"+ month +"-"+day;
-
-
+        this.hourStart = hourStart;
+        this.minuteStart = minuteStart;
+        this.hourEnd = hourEnd;
+        this.minuteEnd = minuteEnd;
+        this.dayOftheWeek = dayOftheWeek;
+        this.date = year + "-" + month + "-" + day;
     }
 
     /**
-     * 8 argument constructor initializing the timeslot
+     * 7 argument constructor initializing the timeslot
      * @param hourStart the starting hour
      * @param minuteStart the starting minute
      * @param hourEnd the ending hour
@@ -52,14 +53,12 @@ public class TimeSlot {
 
     public TimeSlot(int hourStart, int minuteStart, int hourEnd, int minuteEnd, int year, int month, int day)
     {
-        this.hourStart=hourStart;
-        this.minuteStart=minuteStart;
-        this.hourEnd=hourEnd;
-        this.minuteEnd=minuteEnd;
-        dayOfWeek =-1;
-        this.date=year + "-"+ month +"-"+day;
-
-
+        this.hourStart = hourStart;
+        this.minuteStart = minuteStart;
+        this.hourEnd = hourEnd;
+        this.minuteEnd = minuteEnd;
+        dayOftheWeek = -1;
+        this.date = year + "-" + month + "-" + day;
     }
 
     /**
@@ -75,7 +74,7 @@ public class TimeSlot {
      * returns the starting minute
      * @return the starting minute
      */
-    public int getMinuteStart()
+    public int getMinutStarte()
     {
         return minuteStart;
     }
@@ -84,7 +83,6 @@ public class TimeSlot {
      * returns the ending hour
      * @return the ending hour
      */
-
     public int getHourEnd()
     {
         return hourEnd;
@@ -99,15 +97,13 @@ public class TimeSlot {
         return hourEnd;
     }
 
-
-
     /**
      * returns the day of the week in format 0,1,2,3,4,5,6 (0=sunday)
      * @return the day of the week
      */
-    public int getDayOfWeek()
+    public int getDayOftheWeek()
     {
-        return dayOfWeek;
+        return dayOftheWeek;
     }
 
     /**
@@ -180,11 +176,11 @@ public class TimeSlot {
     }
     /**
      * sets the day of the week of the lesson
-     * @param dayOfWeek the day of the week of the lesson
+     * @param dayOftheWeek the day of the week of the lesson
      */
-    public void setDayOfWeek(int dayOfWeek)
+    public void setDayOftheWeek(int dayOftheWeek)
     {
-        this.dayOfWeek = dayOfWeek;
+        this.dayOftheWeek=dayOftheWeek;
     }
     /**
      * sets the day of the lesson
@@ -276,6 +272,4 @@ public class TimeSlot {
     {
         return "time start: " + hourStart + ":"+minuteStart + "; time end: " + hourEnd + ":"+ minuteEnd + "; day: " + day + "date: " + date;
     }
-
-
 }

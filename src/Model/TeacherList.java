@@ -54,7 +54,7 @@ public class TeacherList implements Serializable {
   }
 
   /**
-   * Check if the Teacher object already exists in the TeacherList
+   * Check if the object is in the list of objects
    * @param teacher the object that will be checked
    * @return true if the object is in the list
    */

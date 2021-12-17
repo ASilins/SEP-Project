@@ -261,9 +261,6 @@ public class ScheduleModelManager
    * @param newRoom an object that will be added
    */
   public void editRoom(Room oldRoom, Room newRoom) {
-    System.out.println(oldRoom);
-    System.out.println(newRoom);
-
     RoomList allRooms = getAllRooms();
     allRooms.removeRoom(oldRoom);
     allRooms.addRoom(newRoom);
@@ -620,7 +617,7 @@ public class ScheduleModelManager
     CourseList allCourses = getAllCourses();
 
     for (int i = 0; i < allCourses.size(); i++) {
-        if (allCourses.get(i).getTeacher1().equals(teacher)) {
+        if (allCourses.get(i).getTeacher().equals(teacher)) {
           coursesForTeacher.addCourse(allCourses.get(i));
         }
     }
@@ -674,7 +671,7 @@ public class ScheduleModelManager
     ScheduleSystem allLessons = getAllLessons();
 
     for (int i = 0; i < allLessons.size(); i++) {
-      if (allLessons.getLesson(i).getCourse().getTeacher1().equals(teacher)) {
+      if (allLessons.getLesson(i).getCourse().getTeacher().equals(teacher)) {
         lessonsByTeacher.addLesson(allLessons.getLesson(i));
       }
     }
