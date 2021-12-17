@@ -1,7 +1,6 @@
 package Utils;
 
 import Model.*;
-import Model.Class;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -21,8 +20,6 @@ public class ImportInitialData {
     RoomList rooms = new RoomList(); // This takes 1.
     // We initialise an output for courses as a course object list.
     CourseList courses = new CourseList(); // This takes 1.
-    // We initialise an output for classes as a class object list.
-    ClassList classes = new ClassList(); // This takes 1.
     // We initialise an output for lessons as a lesson object list.
     ScheduleSystem lessons = new ScheduleSystem(); // This takes 1
     // We initialise a String array for input from file.
@@ -180,36 +177,6 @@ public class ImportInitialData {
       System.err.println("File was not found, or could not be opened"); // This takes 1 if an exception was thrown.
     }
 
-    // We read through student object list and make class object list with students in them.
-    for (int i = 0; i < students.size(); i++) { // This runs n times.
-      // We create class object and set it to null.
-      Class c = null; // For each iteration this is 1.
-      // This checks if the object list is empty.
-      if (classes.size() == 0) { // This comparison will be done once.
-        // We initialise a temporary student object from the student object list.
-        Student temp = students.get(i); // This is 1.
-        // We initialise a temporary student object list.
-        StudentList tempList = new StudentList(); // This is 1.
-        // We add student object to student object list.
-        tempList.addStudent(temp); // This is 1.
-        // We initialise class object with set parameters.
-        c = new Class(temp.getClassName(), tempList, courses, temp.getSemester()); // This is 1.
-        // We add the class to the class object list.
-        classes.addClass(c); // This is 1.
-      } else {
-        // We search through class object list.
-        for (int j = 0; j < classes.size(); j++) { // This runs n times.
-          // We compare student object class name with class object name.
-          if (students.get(i).getClassName().equals(classes.get(j).getName()) &&
-              students.get(i).getSemester() == classes.get(j).getSemester()) { // This runs once per iteration
-            // We add student object to the class.
-            classes.get(j).addStudent(students.get(i)); // For each iteration this is 1.
-            break;
-          }
-        }
-      }
-    }
-
     // We try to write student object list to file. Catches file not found and IO exception.
     try {
       // We use static method to write to file.
@@ -266,20 +233,6 @@ public class ImportInitialData {
       e.printStackTrace(); // This takes 1.
     }
 
-    // We try to write class object list to file. Catches file not found and IO exception.
-    try {
-      // We use static method to write to file.
-      MyFileHandler.writeToBinaryFile("src/Files/classes.bin", classes); // This takes 1
-      // Outputs if successful
-      System.out.println("Classes added"); // This takes 1.
-    } catch (FileNotFoundException e) {
-      // Error output if exception.
-      System.err.println("File not found"); // This takes 1.
-    } catch (IOException e) {
-      // Error output if exception.
-      e.printStackTrace(); // This takes 1.
-    }
-
     // We try to write lesson object list to file. Catches file not found and IO exception.
     try {
       // We use static method to write to file.
@@ -306,11 +259,9 @@ public class ImportInitialData {
 // b is the second loop in a that has a size of 'teachers' and c is the third loop in a that
 // has a size of 'courses.
 // We loop d times in for loop because that is the length of 'roomArray'.
-// We loop e*f time in for loop because e has a size of 'students' and
-// f has size of 'classes'.
-// T(n, a, b, c, e ,f) = 1*38 + 10n + 18a(2b+4c) + 9d + 6e*f, so ignoring constants
+// T(n, a, b, c) = 1*38 + 10n + 18a(2b+4c) + 9d, so ignoring constants
 // and coefficients, we get
-// T(n, a, b, c, e ,f) = n + ab + ac + ef
+// T(n, a, b, c, e ,f) = n + ab + ac
 // We chose this algorithm because of the time complexity difference in
 // for loops and the overall size of the class. Also, because we
 // have two for loop in a for loop making the time complexity

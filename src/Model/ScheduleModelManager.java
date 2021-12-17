@@ -2,7 +2,6 @@ package Model;
 
 import Utils.*;
 import parser.ParserException;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -15,7 +14,6 @@ public class ScheduleModelManager
 {
   private String studentFileName;
   private String teacherFileName;
-  private String classFileName;
   private String courseFileName;
   private String roomFileName;
   private String lessonFileName;
@@ -24,15 +22,13 @@ public class ScheduleModelManager
    * 6 argument constructor setting file names.
    * @param studentFileName what the student file name will be
    * @param teacherFileName what the teacher file name will be
-   * @param classFileName what the class file name will be
    * @param courseFileName what the course file name will be
    * @param roomFileName what the room file name will be
    * @param lessonFileName what the lesson file name will be
    */
-  public ScheduleModelManager(String studentFileName, String teacherFileName, String classFileName, String courseFileName, String roomFileName, String lessonFileName) {
+  public ScheduleModelManager(String studentFileName, String teacherFileName, String courseFileName, String roomFileName, String lessonFileName) {
     this.studentFileName = studentFileName;
     this.teacherFileName = teacherFileName;
-    this.classFileName = classFileName;
     this.courseFileName = courseFileName;
     this.roomFileName = roomFileName;
     this.lessonFileName = lessonFileName;
@@ -76,26 +72,6 @@ public class ScheduleModelManager
     }
 
     return allTeachers;
-  }
-
-  /**
-   * Get a list of class objects from file.
-   * @return a list of class objects
-   */
-  public ClassList getAllClasses() {
-    ClassList allClasses = new ClassList();
-
-    try {
-      allClasses = (ClassList) MyFileHandler.readFromBinaryFile(classFileName);
-    } catch (FileNotFoundException e) {
-      System.err.println("File not found");
-    } catch (IOException e) {
-      System.err.println("IO Error Reading file");
-    } catch (ClassNotFoundException e) {
-      System.err.println("Class not found");
-    }
-
-    return allClasses;
   }
 
   /**
@@ -701,59 +677,5 @@ public class ScheduleModelManager
     }
 
     return lessonsByTeacher;
-  }
-
-  /**
-   * Get a class object name by student object.
-   * @param student an object that will be compared
-   * @return a class object name with equal student object compared with parameter
-   */
-  public String getClassByStudent(Student student) {
-    ClassList allClasses = getAllClasses();
-
-    for (int i = 0; i < allClasses.size(); i++) {
-      for (int j = 0; j < allClasses.get(i).getStudents().size(); j++) {
-        if (allClasses.get(i).getStudents().get(j).equals(student)) {
-          return allClasses.get(i).getName();
-        }
-      }
-    }
-
-    return null;
-  }
-
-  /**
-   * Get a class object by class object name.
-   * @param className a string that will be compared
-   * @return a class object with equal class name compared with parameter
-   */
-  public Class getClassByName(String className) {
-    ClassList allClasses = getAllClasses();
-
-    for (int i = 0; i < allClasses.size(); i++) {
-      if (allClasses.get(i).getName().equals(className)) {
-        return allClasses.get(i);
-      }
-    }
-
-    return null;
-  }
-
-  /**
-   * Get a class object list by semester.
-   * @param semester an int that will be compared
-   * @return a class object list with equal semester ints compared with parameter
-   */
-  public ClassList getClassesBySemester(int semester) {
-    ClassList classesBySemester = new ClassList();
-    ClassList allClasses = getAllClasses();
-
-    for (int i = 0; i < allClasses.size(); i++) {
-      if (allClasses.get(i).getSemester() == semester) {
-        classesBySemester.addClass(allClasses.get(i));
-      }
-    }
-
-    return classesBySemester;
   }
 }

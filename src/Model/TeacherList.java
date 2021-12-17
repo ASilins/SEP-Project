@@ -23,10 +23,7 @@ public class TeacherList implements Serializable {
    * @param teacher teacher to be added
    */
   public void addTeacher(Teacher teacher) {
-
     if (!check(teacher)) {
-
-
       teachers.add(teacher);
     }
   }

@@ -24,8 +24,7 @@ public class CourseList implements Serializable {
      *
      * @param course the student to add to the list
      */
-    public void addCourse(Course course)
-    {
+    public void addCourse(Course course) {
 
         if (!check(course))
         {
