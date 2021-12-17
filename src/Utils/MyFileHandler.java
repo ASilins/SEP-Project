@@ -324,6 +324,12 @@ public class MyFileHandler
     return objs.toArray();
   }
 
+  /**
+   * A method that parses lesson object list to JSON file.
+   * @param allLessons the object list that will be parsed
+   * @throws IOException If IO Error writing file
+   * @throws ParserException If Error parsing object to JSON
+   */
   public static void LessonsToJSON(ScheduleSystem allLessons) throws IOException, ParserException {
     XmlJsonParser parser = new XmlJsonParser();
     File file = parser.toJson(allLessons, "src/Files/lessons.json");

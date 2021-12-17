@@ -451,6 +451,83 @@
         "floor": 5,
         "availability": true
       }
+    },
+    {
+      "timeSlot": {
+        "hourStart": 13,
+        "minuteStart": 20,
+        "hourEnd": 14,
+        "minuteEnd": 20,
+        "dayOftheWeek": -1,
+        "date": "2021-12-14",
+        "day": 0,
+        "year": 0,
+        "month": 0
+      },
+      "course": {
+        "courseName": "TTT",
+        "ectsPoints": 1,
+        "students": {
+          "students": [
+            {
+              "name": "Test Student1",
+              "studentNumber": 999999,
+              "semester": 2,
+              "className": "T"
+            }
+          ]
+        },
+        "teacher1": {
+          "initials": "TTT1",
+          "courses": [
+            "TTT"
+          ]
+        },
+        "semester": 2,
+        "className": "T"
+      },
+      "room": {
+        "roomNumber": "16b",
+        "capacity": 45,
+        "block": "C",
+        "floor": 5,
+        "availability": true
+      }
+    },
+    {
+      "timeSlot": {
+        "hourStart": 14,
+        "minuteStart": 20,
+        "hourEnd": 15,
+        "minuteEnd": 20,
+        "dayOftheWeek": -1,
+        "date": "2021-12-14",
+        "day": 0,
+        "year": 0,
+        "month": 0
+      },
+      "course": {
+        "courseName": "TXX",
+        "ectsPoints": 1,
+        "students": {
+          "students": []
+        },
+        "teacher1": {
+          "initials": "TTT1",
+          "courses": [
+            "TTT"
+          ]
+        },
+        "semester": 2,
+        "className": "X"
+      },
+      "room": {
+        "roomNumber": "16b",
+        "capacity": 45,
+        "block": "C",
+        "floor": 5,
+        "availability": true
+      }
     }
   ]
 }

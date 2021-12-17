@@ -150,7 +150,3 @@ function initCalendar() {
 function addEvent(event) {
   calendar.addEvent(event);
 }
-
-function removeEvent(event) {
-  calendar.removeEvent(event);
-}
